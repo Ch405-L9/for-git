@@ -1,0 +1,384 @@
+SOP: Site and Funnel Templates (Standard Pro)
+Tokens
+
+Colors
+
+primary: #0056D2
+
+secondary: #00BFA6
+
+accent: #FF9F1C
+
+neutral-900: #111111
+
+neutral-100: #F5F5F5
+
+Typography
+
+headings: Inter, 600–800
+
+body: Inter, 400–500
+
+leading: snug 1.35, normal 1.5, relaxed 1.8
+
+Sizing
+
+text: xs 0.75, sm 0.875, base 1, lg 1.125, xl 1.25, 2xl 1.5, 3xl 1.875, 4xl 2.25, 5xl 3
+
+spacing: 2 0.5rem, 4 1rem, 6 1.5rem, 8 2rem, 12 3rem
+
+radius: sm 0.25, md 0.375, lg 0.5, xl 0.75
+
+shadow: sm, md, lg, xl, 2xl
+
+Checklist Format Key
+
+Sections
+
+Color scheme
+
+Typography
+
+Layout
+
+Buttons/CTA
+
+Navigation
+
+CTA placement
+
+Text sizes
+
+Images
+
+Business: Local Service (Baker)
+
+Modern
+
+ Sections: Hero, Menu grid, Testimonials, Map, Contact
+
+ Color scheme: primary, accent, neutral-100
+
+ Typography: H 700, B 400, leading normal
+
+ Layout: cards, gap-6, shadow-md, rounded-lg
+
+ Buttons/CTA: solid primary, px-6 py-3, rounded-md
+
+ Navigation: sticky top, logo left, links right
+
+ CTA placement: hero, mid after menu, footer
+
+ Text sizes: H1 4xl, H2 2xl, body base
+
+ Images: hero 100vw x ~600h, cards 300x300
+
+Minimal
+
+ Sections: Hero text, Menu list, Gallery strips, Contact
+
+ Color scheme: neutral-100, neutral-900, accent
+
+ Typography: H 700 serif, B 300 sans, leading relaxed
+
+ Layout: no shadow, borders, wide whitespace
+
+ Buttons/CTA: outline accent, hover fill
+
+ Navigation: compact, hamburger mobile
+
+ CTA placement: hero, end of menu, footer
+
+ Text sizes: H1 5xl, H2 3xl, body sm
+
+ Images: full-width banners, 2-col grid
+
+Bold
+
+ Sections: Fullscreen hero, Feature splits, Gallery, Visit
+
+ Color scheme: neutral-900, accent, neutral-100
+
+ Typography: display 800, body 500, letter +.5
+
+ Layout: edge-to-edge, shadow-xl, overlap
+
+ Buttons/CTA: accent solid, hover scale
+
+ Navigation: transparent → solid on scroll
+
+ CTA placement: hero, sticky on scroll
+
+ Text sizes: H1 5xl, H2 3xl, body lg
+
+ Images: hero 100vh, splits 50/50
+
+Marketing: Single Offer Landing
+
+Modern
+
+ Sections: Hero form, Features, Proof, Pricing, FAQ
+
+ Color scheme: primary, secondary, neutral-100
+
+ Typography: H 700, B 400
+
+ Layout: centered container, shadow cards
+
+ Buttons/CTA: primary solid, secondary outline
+
+ Navigation: minimal, sticky
+
+ CTA placement: hero, post-features, bottom
+
+ Text sizes: H1 4xl, H2 2xl, body base
+
+ Images: hero right 50%, icons 80px
+
+Minimal
+
+ Sections: Hero form, Text benefits, Proof, CTA
+
+ Color scheme: neutral-100, neutral-900, accent
+
+ Typography: light body, bold headings, leading relaxed
+
+ Layout: whitespace separators, no borders
+
+ Buttons/CTA: flat accent, underline hover
+
+ Navigation: hidden or tiny
+
+ CTA placement: hero and bottom only
+
+ Text sizes: H1 5xl, H2 3xl, body sm
+
+ Images: single hero only
+
+Bold
+
+ Sections: Video hero, Offer blocks, Cases, Urgency, CTA
+
+ Color scheme: neutral-900, neon accent, white
+
+ Typography: condensed 800 headings, body 500
+
+ Layout: full-screen sections, parallax
+
+ Buttons/CTA: glow shadow, px-8 py-4
+
+ Navigation: overlay menu
+
+ CTA placement: hero, sticky side, bottom
+
+ Text sizes: H1 6xl, H2 4xl, body lg
+
+ Images: bg video 100vh, 1920w modules
+
+Commerce: Local Small E-Com
+
+Modern
+
+ Sections: Promo hero, Featured grid, Bestsellers, Reviews
+
+ Color scheme: primary, neutral-100, neutral-900
+
+ Typography: H 600, B 400
+
+ Layout: product cards, grid gap-6, shadow-md
+
+ Buttons/CTA: add-to-cart solid primary
+
+ Navigation: mega or dropdown, cart badge
+
+ CTA placement: hero, cards, sticky cart
+
+ Text sizes: H1 4xl, H2 2xl, body base
+
+ Images: cards 300x300, PDP main 600w
+
+Minimal
+
+ Sections: Text hero, Grid, Why-us, Newsletter
+
+ Color scheme: neutral-100, neutral-900, muted accent
+
+ Typography: light 300 body, bold 700 H
+
+ Layout: no shadows, thin borders
+
+ Buttons/CTA: outline muted accent
+
+ Navigation: minimal top, bottom cart mobile
+
+ CTA placement: hero browse, card view
+
+ Text sizes: H1 5xl, H2 3xl, body sm
+
+ Images: white background product shots
+
+Bold
+
+ Sections: Video hero, Spotlight, Limited drop, UGC
+
+ Color scheme: neutral-900, electric accent
+
+ Typography: display 800, body 500
+
+ Layout: shadow-2xl, overlap, hover zoom
+
+ Buttons/CTA: accent solid, sticky footer CTA
+
+ Navigation: centered logo, mega-menu
+
+ CTA placement: hero buy, module buy, sticky
+
+ Text sizes: H1 6xl, H2 4xl, body lg
+
+ Images: hero 100vh, modules 70vw
+
+Enterprise: B2B Solutions
+
+Modern
+
+ Sections: Value hero, Solutions, Industries, Resources, Demo
+
+ Color scheme: primary deep blue, secondary teal, neutral
+
+ Typography: H 700, B 400, leading normal
+
+ Layout: split sections, resource cards
+
+ Buttons/CTA: primary “Book demo”, secondary “Download”
+
+ Navigation: multi-level, sticky, breadcrumbs
+
+ CTA placement: hero, every section end, footer
+
+ Text sizes: H1 4xl, H2 2xl, body base
+
+ Images: diagrams 1200w, logos grid
+
+Membership: Subscription Service
+
+Modern
+
+ Sections: Hero value, Features, Pricing tiers, FAQ, Join
+
+ Color scheme: primary, accent success
+
+ Typography: H 700, B 400
+
+ Layout: pricing cards shadow-lg
+
+ Buttons/CTA: primary “Start trial”
+
+ Navigation: simple, account link
+
+ CTA placement: hero, pricing cards
+
+ Text sizes: H1 4xl, H2 2xl, body base
+
+ Images: simple illustrations
+
+Product Launch
+
+Bold
+
+ Sections: Teaser, Specs, Social proof, Preorder
+
+ Color scheme: dark + neon accent
+
+ Typography: display 800
+
+ Layout: full-bleed, countdown
+
+ Buttons/CTA: preorder accent
+
+ Navigation: minimal
+
+ CTA placement: hero, sticky
+
+ Text sizes: H1 6xl, H2 3xl, body lg
+
+ Images: 3D renders 1600w
+
+Event/Webinar
+
+Modern
+
+ Sections: Hero signup, Agenda, Speakers, FAQ, CTA
+
+ Color scheme: primary, neutral
+
+ Typography: H 700, B 400
+
+ Layout: card speakers, timeline
+
+ Buttons/CTA: register primary
+
+ Navigation: simple anchors
+
+ CTA placement: hero form, sticky bar
+
+ Text sizes: H1 4xl, H2 2xl, body base
+
+ Images: speaker 240x240
+
+Portfolio/Agency
+
+Minimal
+
+ Sections: Hero statement, Work grid, Services, Contact
+
+ Color scheme: neutral-100/900, accent subtle
+
+ Typography: H 700, B 300, leading relaxed
+
+ Layout: masonry grid, no shadows
+
+ Buttons/CTA: outline contact
+
+ Navigation: top slim, case filters
+
+ CTA placement: hero contact, footer
+
+ Text sizes: H1 5xl, H2 3xl, body sm
+
+ Images: case thumbs 600w, full 1600w
+
+If you want, I can output Tailwind-ready JSON configs per style.
+
+Freelancers
+
+Productized
+
+Agency
+
+Branding
+
+SaaS
+
+Agency
+
+AI
+
+Portfolio
+
+Ecommerce
+
+Photography
+
+Education
+
+Web3
+
+Real estate
+
+Blog
+
+Pet
+
+Restaurant
+
+Health

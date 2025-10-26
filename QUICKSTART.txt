@@ -1,0 +1,125 @@
+================================================================================
+FILES-TO-PROMPT QUICK START
+CH405_047 | Chaos Line
+================================================================================
+
+WHAT IT DOES
+------------
+Combines multiple files into one prompt for Claude.
+Perfect for: component extraction, code review, documentation, project setup.
+
+INSTALLATION
+------------
+1. Download files_to_prompt.py
+2. Make executable: chmod +x files_to_prompt.py
+3. Done
+
+BASIC USAGE
+-----------
+python files_to_prompt.py <directory>                # Print to screen
+python files_to_prompt.py <directory> -o output.txt  # Save to file
+
+COMMON COMMANDS
+---------------
+# Your Downloads folder
+python files_to_prompt.py ~/Downloads -o prompt.txt
+
+# Current directory only (no subdirs)
+python files_to_prompt.py . --no-recursive -o prompt.txt
+
+# Minimal output (no tree, no instructions)
+python files_to_prompt.py ~/project --no-tree --no-instructions -o minimal.txt
+
+# Exclude specific files
+python files_to_prompt.py ~/code -e "*.log" -e "test*" -o clean.txt
+
+OPTIONS
+-------
+-o FILE                  Save output to file
+--no-recursive           Don't search subdirectories
+--no-tree               Skip directory tree
+--no-instructions       Skip default instructions
+-e PATTERN              Exclude files matching pattern
+
+WORKFLOW
+--------
+Step 1: Generate prompt
+        python files_to_prompt.py ~/Downloads -o my-prompt.txt
+
+Step 2: Open Claude and upload my-prompt.txt
+
+Step 3: Tell Claude what you want
+        "Extract these into clean components in /components and templates in /templates"
+
+Step 4: Get your organized project
+
+WHAT GETS INCLUDED
+------------------
+Code:       .py .js .jsx .ts .tsx .java .go .rs .c .cpp
+Web:        .html .css .scss .xml
+Config:     .json .yaml .yml .toml .ini .conf
+Scripts:    .sh .bash .bat .cmd .ps1
+Docs:       .md .txt
+Database:   .sql
+
+WHAT GETS EXCLUDED
+------------------
+.git/                   __pycache__/
+node_modules/           *.pyc
+venv/                   dist/
+build/                  .DS_Store
+
+EXAMPLES
+--------
+Component extraction:
+  python files_to_prompt.py ~/messy-downloads -o components.txt
+  # Tell Claude: "Organize these into Hero, CTA, Footer components"
+
+Code review:
+  python files_to_prompt.py ~/my-app --no-instructions -o review.txt
+  # Tell Claude: "Review for security issues and performance"
+
+Documentation:
+  python files_to_prompt.py ~/scripts -o docs.txt
+  # Tell Claude: "Create complete documentation with examples"
+
+Project setup:
+  python files_to_prompt.py ~/templates -o setup.txt
+  # Tell Claude: "Build a starter template with these patterns"
+
+TROUBLESHOOTING
+---------------
+Problem: No files found
+Fix:     Check directory path, verify permissions
+
+Problem: Too much output
+Fix:     Use --no-tree and --no-instructions
+         Or exclude large files: -e "*.log"
+
+Problem: Permission denied
+Fix:     chmod +r on the directory
+
+Problem: Binary files included
+Fix:     Exclude manually: -e "*.pdf" -e "*.jpg"
+
+TIPS
+----
+• Use focused directories (not your entire drive)
+• Process large projects in chunks
+• Skip tree/instructions for minimal output
+• Exclude test files and logs
+• Save to .txt for easy upload to Claude
+
+WINDOWS USERS
+-------------
+Use files-to-prompt.bat instead:
+  files-to-prompt.bat C:\Users\YourName\Downloads -o prompt.txt
+
+BASH USERS
+----------
+Use files-to-prompt.sh:
+  ./files-to-prompt.sh ~/Downloads -o prompt.txt
+
+================================================================================
+MISSION READY | CH405_047
+================================================================================

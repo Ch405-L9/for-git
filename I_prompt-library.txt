@@ -1,0 +1,236 @@
+CH405 PROMPT LIBRARY — FULL EXPANDED EDITION
+(For Vite + React + TypeScript Generative Site Builders)
+
+Version: 2025‑10‑25 Format: Markdown (GFM) Scope: AI + Developer prompt libraries
+
+Table of Contents
+Introduction
+
+Design Archetypes
+
+Minimalist Design
+
+Brutalist Design
+
+Neumorphism
+
+Glassmorphism
+
+Flat Design
+
+Material Design
+
+Website Types
+
+Accessibility & Performance Matrix
+
+Prompt Engineering Helper Suite
+
+Meta‑Prompt Blueprints
+
+Expert Persona Generator
+
+Introduction
+This library transforms human‑level design intent into machine‑interpretable build instructions for modern web stacks.
+Every prompt conforms to:
+
+Vite 5 + React 18 + TypeScript 5 structure
+
+WCAG 2.2 AA + Lighthouse ≥ 90 compliance
+
+Automation‑ready phrasing for AI agent pipelines
+
+Design Archetypes
+Minimalist Design
+Ideal Use Case: Portfolios, Landing Pages
+Purpose & Feel: Clarity, focus, sophistication
+Example: apple.com
+
+Prompt
+text
+Build a MINIMALIST Vite + React + TypeScript site using this workflow:
+
+1. Research Apple.com, Stripe.com, Muji.com for minimalist tone.
+2. Extract:
+   - High whitespace ratio (> 65%)
+   - Two‑color palette #FFFFFF / #1d1d1f + accent #0071e3
+   - San‑serif hierarchy 48–72 px headings
+3. Generate Header → Hero → Content → Footer modules.
+4. Enforce max 3 colors, 2 font families.
+5. Apply fade‑in and smooth‑scroll only.
+6. Body weight ≤ 1 MB, Lighthouse ≥ 95.
+Reference CSS
+css
+:root {
+  --color-bg:#fff;
+  --color-text:#1d1d1f;
+  --color-accent:#0071e3;
+  --spacing-section:120px;
+  --font-primary:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+body{background:var(--color-bg);color:var(--color-text);margin:0;}
+Editing Prompts
+“Increase white space around [section] by 60 px.”
+
+“Replace accent color with monochrome variant.”
+
+“Convert 3‑column grid → single column stack for mobile.”
+
+Brutalist Design
+Ideal Use Case: Creative Agencies, Editorial Sites
+Purpose & Feel: Raw, attention‑grabbing
+Example: brutalistwebsites.com
+
+Prompt
+text
+Create a BRUTALIST web experience.
+
+1. Research Awwwards Brutalism collection + underground art blogs.
+2. Typography: monospace or condensed, 80–120 px H1s.
+3. Hard edges – 0 px radius; visible borders (3–5 px).
+4. Intentionally asymmetric grid + high contrast black/white palette.
+5. Accessibility: Maintain contrast ≥ 4.5:1 and visible focus rings.
+Reference CSS
+css
+:root {
+  --bg:#000; --fg:#fff; --accent:#ff00ff;
+  --font-display:'Space Mono',monospace;
+}
+h1{font-family:var(--font-display);font-size:6rem;font-weight:700;text-transform:uppercase;}
+a{color:var(--accent);border-bottom:3px solid var(--accent);}
+Editing Prompts
+“Overlap hero text and image by −30 px.”
+
+“Add intentional alignment breaks every second section.”
+
+“Toggle light mode variant without softening edges.”
+
+Neumorphism
+Ideal Use Case: Dashboards, SaaS Platforms
+Purpose & Feel: Soft realism, tactile depth
+Example: dribbble.com/tags/neumorphism
+
+Prompt
+text
+Generate a NEUMORPHIC dashboard layout.
+
+- Background #e0e5ec.
+- Use dual shadows: dark (9,9,16) & light (−9,−9,16).
+- Components: Header / Hero Card / Stats / Footer.
+- Each .card has radius:20 px and inset/outset states.
+- Accessibility: activate High‑Contrast Mode toggle.
+Reference CSS
+css
+:root{
+  --bg:#e0e5ec;
+  --sdark:rgba(163,177,198,.6);
+  --slight:rgba(255,255,255,.5);
+}
+.neu{
+  background:var(--bg);
+  border-radius:20px;
+  box-shadow:9px 9px 16px var(--sdark),-9px -9px 16px var(--slight);
+  transition:.3s;
+}
+.neu:active{
+  box-shadow:inset 6px 6px 10px var(--sdark),
+              inset -6px -6px 10px var(--slight);
+}
+Editing Prompts
+“Enhance shadow depth + 20 % for active cards.”
+
+“Switch pressed state animation curve to ease‑in‑out.”
+
+“Add neumorphic toggle for Dark Mode variant.”
+
+Glassmorphism
+Ideal Use Case: E‑Commerce, Luxury Landing Pages
+Purpose & Feel: Translucent elegance, futuristic depth
+Example: uxdesign.cc/glassmorphism‑in‑ui
+
+Prompt
+text
+Construct a GLASSMORPHIC landing page.
+
+- Background gradient: #0f2027 → #203a43 → #2c5364.
+- Use frosted overlays: backdrop‑filter blur(20 px), rgba(255,255,255,.15).
+- Components: Header / Hero (product showcase) / CTA / Footer.
+- Accessibility: ensure contrast on text ≥ 4.5:1 against blurred glass.
+Reference CSS
+css
+.glass{
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:12px;
+  box-shadow:0 8px 32px rgba(31,38,135,.37);
+}
+Editing Prompts
+“Increase blur intensity to 30 px for hero overlay.”
+
+“Tint glass panes toward accent color #70d6ff.”
+
+“Animate entry with fade + slideUp 0.8 s.”
+
+Flat Design
+Ideal Use Case: Corporate, Government, Business
+Purpose & Feel: Simplicity and consistency
+Example: microsoft.com
+
+Prompt
+text
+Build a FLAT design layout.
+
+- Use solid color blocks (no gradients).
+- Apply Material spacing grid (8 px baseline).
+- Typography: Segoe UI / 14–32 px range.
+- Emphasize consistency and clarity.
+- Accessible links with 3.0 contrast minimum.
+Reference CSS
+css
+:root{
+  --blue:#0067b8;
+  --gray:#f3f3f3;
+}
+button{background:var(--blue);color:#fff;padding:12px 24px;border:none;}
+section{background:var(--gray);margin-bottom:24px;padding:48px;}
+Editing Prompts
+“Replace primary color with brand hex.”
+
+“Add responsive grid column count auto‑fit(250 px).”
+
+“Enable keyboard focus outline on buttons.”
+
+Material Design
+Ideal Use Case: Web Apps, Education, Tech Sites
+Purpose & Feel: Functional hierarchy + motion feedback
+Example: material.io
+
+Prompt
+text
+Construct a MATERIAL design interface.
+
+1. Use elevation tokens (0–24 dp) mapped to box‑shadows & z‑index.
+2. Components: AppBar / Drawer / Card / FAB.
+3. Color system: primary #6200ee, secondary #03dac6.
+4. Interaction motion: scale(1.04) on hover, ripple effect on click.
+5. Ensure ARIA designation on interactive controls.
+Reference CSS
+css
+.card{
+  background:#fff;
+  border-radius:4px;
+  box-shadow:0 2px 4px rgba(0,0,0,.1);
+  transition:box-shadow .2s ease;
+}
+.card:hover{box-shadow:0 6px 12px rgba(0,0,0,.2);}
+Editing Prompts
+“Add ripple animation for primary buttons.”
+
+“Promote card elevation from 2 → 8 on hover.”
+
+“Switch theme palette to Material 3 tonal palette.”
+
+(End of Part 1 – continue with Part 2 next)
+
+Would you like me to post Part 2 (next archetypes + website types) immediately?

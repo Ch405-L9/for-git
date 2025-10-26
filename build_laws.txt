@@ -1,0 +1,117 @@
+Master Constraints (must pass before any code merges)
+
+Accuracy & Syntax First: Follow framework and file conventions exactly (Vite + React + TypeScript). No magic imports, no implicit globals, no missing types.
+
+Compliance > Performance > Accessibility > Mobile: Always build for compliance and A11y/Perf first; then mobile-first layout; desktop thereafter.
+
+A11y/Perf/SEO Matrix (from prompt-library):
+
+Lighthouse: Perf ≥ 90, SEO ≥ 90, Best Practices ≥ 95, A11y ≥ 95
+
+WCAG 2.2 AA: contrast 4.5:1 text, 3:1 UI; focus order; ARIA labels; alt text 100 percent
+
+Core Web Vitals: LCP < 2.5 s, CLS < 0.1, INP < 200 ms
+
+Bundle target: ≤ ~1 MB gz where feasible
+
+No hardcoding content: Read brand, links, socials, images, and contact from config files (business/site config). Components reference config only.
+
+Routes required: /privacy, /terms, /pricing must exist as first-class pages; Header and Footer must link to them.
+
+“Get Quote” funnel: Services section includes a single primary CTA Get Quote wired to the existing Stripe payment link (no new links invented).
+
+Asset policy:
+
+Fonts: self-hosted WOFF/WOFF2 with font-display: swap, preload tags for critical faces
+
+Images: CDN or Cloudinary URLs already in config; lazy-load; provide descriptive alt
+
+Icons: SVG, inline or sprite; no raster icons
+
+SEO & metadata (from SEO guide):
+
+Unique <title> and <meta name="description"> per page
+
+Canonical link (absolute), Open Graph + Twitter tags, robots meta consistent with intent
+
+robots.txt and sitemap.xml kept in public/ and updated to reflect real routes only
+
+Security & best practices:
+
+HTTPS-only assets; no console errors; no exposed keys; Content Security Policy compatible
+
+Forms: client-side validation + accessible labels; never block keyboard users
+
+Design tokens only: Theming changes happen through CSS variables/tokens (no inline hex edits). Re-check contrast after any token change.
+
+Idempotent scripts: Generators/fixers must be safe to re-run, create backups, and never delete user content.
+
+No “meta keywords”: Not used; adhere to modern Google specs.
+
+Documentation always: Update README with what to edit where (config, assets, env), and note any trade-offs accepted.
+
+Pre-Build Bench (run before starting any new phase)
+
+ Lighthouse baseline on current dev or last build; record scores
+
+ axe/WAVE scan for A11y violations; list blockers
+
+ Bundle & CWV check: current bundle size and any regressions risk (fonts/images)
+
+ Config audit: confirm business/site config has all links, socials, assets, Stripe link (no placeholders)
+
+ Route audit: confirm /privacy, /terms, /pricing exist and are linked in Header/Footer
+
+Build Rules (apply during implementation)
+
+ TypeScript strict: no any left behind; fix all TS and ESLint errors
+
+ Routing: ensure routes render standalone (crawlable) and anchor targets exist for in-page links
+
+ A11y in components: labels, roles, keyboard focus ring, skip-to-content where appropriate
+
+ Images: loading="lazy", width/height set (avoid layout shift), descriptive alt
+
+ Fonts: local WOFF/WOFF2, preload critical faces; keep fallback stack defined
+
+ Compression: Vite compression plugin enabled; dead code removed; no large deps added casually
+
+ Funnel discipline: one primary CTA per page; Services section ends with Get Quote; no duplicate competing CTAs
+
+ No new external links/assets unless present in config; otherwise leave TODO and proceed without guessing
+
+Post-Build Verification (must pass every time before “done”)
+
+ Lighthouse gate: Perf ≥ 90, SEO ≥ 90, Best Practices ≥ 95, A11y ≥ 95 (fail → fix → rerun)
+
+ Core Web Vitals sanity: LCP/INP/CLS within targets on a throttled pass
+
+ axe A11y pass: zero serious/critical issues; document minor/low if any
+
+ Link integrity: Header/Footer and all CTAs resolve correctly (Pricing, Privacy, Terms, Get Quote)
+
+ No console errors/warnings in production build
+
+ Sitemap/robots match actual routes; canonical links are absolute and correct
+
+ README updated with exact edit points and deployment notes
+
+Always-On Operating Procedures
+
+Run the compliance & performance ruleset before any new build request and use it as the active guide for implementation.
+
+After every build, verification + Lighthouse scoring happens again. Every time.
+
+Bench first: take a snapshot baseline before you begin the next phase to maximize measurable gains.
+
+Flag trade-offs: If a requested feature harms A11y/Perf targets, propose a compliant alternative and implement that first.
+
+Nice-to-Have (still from your files, not guesses)
+
+Funnel SoP: single CTA, testimonial/trust blocks, minimal distraction landing variants
+
+Local SEO hygiene: consistent NAP, structured data for business entity, fast mobile layout
+
+Theme switching via tokens only; maintain prefers-color-scheme compatibility
+
+If you want, I can drop this as a BUILD_LAWS.md and a short checklist.md inside your repo so every agent run and PR has the same gate.
