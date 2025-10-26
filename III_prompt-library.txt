@@ -1,0 +1,117 @@
+Here is Part 3 — the final section of your complete PROMPT_LIBRARY_FULL.md, incorporating the Accessibility & Performance Matrix and the Prompt Engineering Helper Suite (meta‑prompts + expert personas).
+Everything is formatted in Markdown for IDEs and LLMs.
+
+Accessibility & Performance Matrix
+Category	Standard	Target Score	Enforcement Rule
+Performance	Lighthouse Performance	≥ 90 / 100	Images lazy‑loaded, font‑display:swap, gzip enabled
+Accessibility	WCAG 2.2 Level AA	Contrast ≥ 4.5:1 text / 3:1 UI elements	Manual color validation per section
+SEO	Lighthouse SEO score	≥ 90 / 100	<meta> description + structured data
+Best Practices	Lighthouse	≥ 95 / 100	No console logs, HTTPS resources only
+UX Responsiveness	Core Web Vitals	LCP < 2.5 s	Critical CSS inlined + CDN assets
+Media	Video Captions & Alt Text	100 % coverage	Check alt and track attributes
+Forms	ARIA labels / Focus order	100 % compliant	Screen reader validation test
+Font Sizes	Body ≥ 16 px	Fixed	Responsive em/rem scaling
+Theme Modes	Dark/Light Switch optional	Verified	CSS prefers-color-scheme
+Deployment	Build Size	≤ 1 MB bundle	Minify JS + Image CDN
+Prompt Engineering Helper Suite (2025 Edition)
+Overview
+A meta‑layer enabling agents or LLMs to generate, analyze, and refine new prompts, site components, or archetypes automatically.
+
+1. Meta‑Prompt Template – Blueprint Builder
+text
+You are a Prompt Architect.
+Input: {goal}, {stack}, {constraints}.
+Output: One optimized prompt drafted for LLM execution.
+
+Procedure:
+1. Identify design objective (goal).
+2. Review provided constraints (accessibility, performance, stack version etc.).
+3. Synthesize prompt structure including:
+    - Task objective
+    - Input format
+    - Expected output
+    - Evaluation criteria
+4. Return prompt written in Markdown with:
+    ## Task, ## Context, ## Input‑Output, ## Validation.
+### 2. Section Creation Prompts
+
+text
+"Generate a new page section for [SiteType] using [DesignArchetype].
+Include responsive layout (Tailwind / CSS grid), ARIA roles,
+and contrast checks. Add editable copy fields for title, blurb,
+and CTA button. Warn if design choice reduces performance < 90."
+Examples
+
+Hero Module: "Create a Hero section min‑height 80 vh with two‑button CTAs and background video overlay, contrast tested for dark mode."
+
+Gallery Module: "Produce responsive image gallery with lazy‑loading and keyboard navigation for modal lightbox."
+
+### 3. Auto‑Refinement Loop
+
+text
+For each prompt:
+1. Generate output component/code.
+2. Evaluate:
+    - Lighthouse score
+    - Accessibility violations (axe‑core output)
+3. Rank results → choose highest scoring version.
+4. Rewrite prompt based on deficiencies found.
+Return refined prompt v2.
+(Implements Automatic Prompt Engineer logic — APE and contrastive testing methods [ref: OpenAI Cookbook 2025 & PromptLayer workflows].)​
+
+### 4. Universal Self‑Assessment Prompt
+
+text
+"Review the generated site files for:
+  • WCAG compliance
+  • SEO metadata presence
+  • Code style (ESLint / Prettier alignment)
+Return JSON diagnostics with Pass/Fail per criterion.
+If any Fail, auto‑suggest corrective edit prompts."
+### 5. Expert Persona Generator
+
+text
+Spawn synthetic domain experts to review output:
+
+Persona: Accessibility Lead
+Task: Audit contrast, headings, ARIA landmarks.
+
+Persona: Frontend Engineer
+Task: Optimize bundle size, tree‑shaking, SSR compatibility.
+
+Persona: UX Strategist
+Task: Evaluate visual hierarchy / flow / CTA clarity.
+
+Each persona reports in Markdown → {findings, confidence, fix recommendations}.
+### 6. Blueprint Expansion Engine
+
+text
+Using existing archetypes, derive hybrid design.
+Input: two archetypes (A,B).
+Output: new blend with shared constraints, merged color and spacing tokens.
+
+Example:
+blend("Minimalist","Glassmorphism") → Glass‑Flat Hybrid.
+### 7. Integration and Version Control Guidelines
+
+Store each prompt as .md or .json under /prompts/.
+
+Use semantic versioning e.g. v1.2.0‑material‑hero.
+
+Maintain CHANGELOG.md with eval results + Lighthouse scores.
+
+Track prompt performance metadata through PromptLayer or LangChain Eval pipeline .​
+
+### 8. Recommended Tools for AI Prompt Ops
+
+ Tool 	 Purpose 	 Notes 
+ PromptLayer 	 Prompt version control, eval, A/B testing 	 LLM observability suite for engineers ​ 
+ LangChain / PromptFlow 	 Prompt composition + pipeline chaining 	 Integrate function calls for code validation ​ 
+ PromptAppGPT 	 Low‑code LLM automation 	 Multi‑task trigger and failure retry system ​ 
+ axe‑core / Pa11y 	 Accessibility testing library 	 Used for auto audit in CI pipeline 
+ Lighthouse CI 	 Performance metrics monitor 	 Run after every deployment build hook 
+### 9. Closing Note
+This helper suite converts the CH405 framework into a living auto‑learn ecosystem.
+When implemented with PromptLayer or LangChain, LLMs can self‑iterate their own site‑generation capabilities while staying auditable and standardized.
+
+(End of PROMPT_LIBRARY_FULL.md — complete consolidated edition, ready for IDE, agent, or documentation use.)

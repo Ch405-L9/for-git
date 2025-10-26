@@ -1,0 +1,272 @@
+================================================================================
+FILES-TO-PROMPT INSTALLATION & USAGE
+CH405_047 | Chaos Line
+================================================================================
+
+INSTALLATION
+============
+
+OPTION 1: PYTHON CLI (Recommended)
+-----------------------------------
+1. Download files_to_prompt.py
+2. Make executable:
+   chmod +x files_to_prompt.py
+3. Run:
+   python files_to_prompt.py <directory>
+
+OPTION 2: BASH SCRIPT (Unix/Mac/Linux)
+---------------------------------------
+1. Download files-to-prompt.sh
+2. Make executable:
+   chmod +x files-to-prompt.sh
+3. Run:
+   ./files-to-prompt.sh <directory>
+
+OPTION 3: WINDOWS BATCH
+------------------------
+1. Download files-to-prompt.bat
+2. Run from CMD:
+   files-to-prompt.bat C:\path\to\directory
+
+
+BASIC COMMANDS
+==============
+
+Display to screen:
+  python files_to_prompt.py ~/Downloads
+
+Save to file:
+  python files_to_prompt.py ~/Downloads -o prompt.txt
+
+Current directory only:
+  python files_to_prompt.py . --no-recursive -o prompt.txt
+
+Minimal output:
+  python files_to_prompt.py ~/project --no-tree --no-instructions -o clean.txt
+
+Exclude patterns:
+  python files_to_prompt.py ~/code -e "*.log" -e "test*" -o filtered.txt
+
+
+WORKFLOW EXAMPLE
+================
+
+STEP 1: GENERATE PROMPT
+------------------------
+python files_to_prompt.py ~/Downloads -o my-files.txt
+
+STEP 2: UPLOAD TO CLAUDE
+-------------------------
+Open Claude → Upload my-files.txt
+
+STEP 3: ADD INSTRUCTIONS
+-------------------------
+"Extract and organize these files into:
+- /components (Hero, CTA, Footer, Header, Testimonials, PricingSection)
+- /templates (LandingPageBusiness, AgencySite, PortfolioSite)
+- /fonts (font configurations)
+- /public (assets)
+- /pages (sample pages)
+Include complete README.md with setup instructions"
+
+STEP 4: RECEIVE ORGANIZED PROJECT
+----------------------------------
+Claude will provide complete, organized structure
+
+
+OPTIONS REFERENCE
+=================
+
+-o FILE                   Output to file instead of stdout
+--no-recursive            Don't search subdirectories
+--no-tree                Skip directory tree visualization
+--no-instructions        Skip default instruction template
+-e PATTERN               Exclude files matching pattern (repeatable)
+
+
+USE CASES
+=========
+
+COMPONENT EXTRACTION
+--------------------
+Command:
+  python files_to_prompt.py ~/messy-downloads -o extract.txt
+
+Tell Claude:
+  "Extract all components and create clean React structure"
+
+CODE REVIEW
+-----------
+Command:
+  python files_to_prompt.py ~/my-app --no-instructions -o review.txt
+
+Tell Claude:
+  "Review for security vulnerabilities and performance issues"
+
+DOCUMENTATION
+-------------
+Command:
+  python files_to_prompt.py ~/scripts -o docs.txt
+
+Tell Claude:
+  "Generate comprehensive documentation with examples"
+
+MIGRATION
+---------
+Command:
+  python files_to_prompt.py ~/legacy-code -o migrate.txt
+
+Tell Claude:
+  "Migrate to modern framework maintaining all functionality"
+
+PROJECT SETUP
+-------------
+Command:
+  python files_to_prompt.py ~/templates -o setup.txt
+
+Tell Claude:
+  "Create starter template with best practices"
+
+
+SUPPORTED FILES
+===============
+
+Code:       .py .js .jsx .ts .tsx .java .go .rs .c .cpp .h .php .rb
+Web:        .html .css .scss .sass .xml
+Config:     .json .yaml .yml .toml .ini .conf .properties
+Scripts:    .sh .bash .zsh .fish .bat .cmd .ps1
+Docs:       .md .txt
+Database:   .sql
+
+
+AUTO-EXCLUDED
+=============
+
+.git/               __pycache__/        *.pyc
+node_modules/       venv/               env/
+dist/               build/              .DS_Store
+.vscode/            .idea/              *.egg-info
+
+
+TROUBLESHOOTING
+===============
+
+ISSUE: No files found
+FIX: Verify directory path and permissions
+
+ISSUE: Permission denied
+FIX: chmod -R +r ~/directory
+
+ISSUE: Output too large
+FIX: Process subdirectories separately or use --no-tree --no-instructions
+
+ISSUE: Binary files included
+FIX: Exclude manually with -e "*.pdf" -e "*.jpg"
+
+
+TIPS
+====
+
+• Use focused directories (not entire drive)
+• Process large projects in chunks
+• Exclude test files and logs
+• Save output to .txt for easy Claude upload
+• Use --no-tree --no-instructions for minimal size
+• Test with small directory first
+
+
+EXAMPLES
+========
+
+All defaults:
+  python files_to_prompt.py ~/project -o full.txt
+
+Minimal output:
+  python files_to_prompt.py ~/project --no-tree --no-instructions -o min.txt
+
+Current directory only:
+  python files_to_prompt.py . --no-recursive -o current.txt
+
+Exclude logs and tests:
+  python files_to_prompt.py ~/code -e "*.log" -e "*test*" -o clean.txt
+
+Multiple exclusions:
+  python files_to_prompt.py ~/app -e "*.log" -e "backup*" -e "temp/" -o app.txt
+
+
+WINDOWS-SPECIFIC
+================
+
+Basic:
+  files-to-prompt.bat C:\Users\YourName\Downloads
+
+Save to file:
+  files-to-prompt.bat C:\Users\YourName\Downloads -o prompt.txt
+
+Non-recursive:
+  files-to-prompt.bat C:\Projects\MyApp -n -o app.txt
+
+Minimal:
+  files-to-prompt.bat C:\Code -t -i -o minimal.txt
+
+
+BASH-SPECIFIC
+=============
+
+Basic:
+  ./files-to-prompt.sh ~/Downloads
+
+Save to file:
+  ./files-to-prompt.sh ~/Downloads -o prompt.txt
+
+Non-recursive:
+  ./files-to-prompt.sh ~/projects/app -n -o app.txt
+
+Minimal:
+  ./files-to-prompt.sh ~/code -t -i -o minimal.txt
+
+
+QUICK REFERENCE
+===============
+
+Generate:       python files_to_prompt.py <dir>
+Save:           python files_to_prompt.py <dir> -o file.txt
+No subdirs:     python files_to_prompt.py <dir> --no-recursive
+No tree:        python files_to_prompt.py <dir> --no-tree
+No instructions: python files_to_prompt.py <dir> --no-instructions
+Exclude:        python files_to_prompt.py <dir> -e "pattern"
+Help:           python files_to_prompt.py -h
+
+
+OUTPUT FORMAT
+=============
+
+The generated prompt includes:
+
+1. Header (directory info, file count)
+2. Directory structure (tree view)
+3. Instructions (customizable template)
+4. File contents (with metadata)
+5. Footer (summary)
+
+Each file shows:
+- File number and path
+- File type and size
+- Complete contents
+- Clear separators
+
+
+MISSION COMPLETE
+================
+
+Files created:
+✓ files_to_prompt.py (Python CLI)
+✓ files-to-prompt.sh (Bash script)
+✓ files-to-prompt.bat (Windows batch)
+✓ README.md (Full documentation)
+✓ QUICKSTART.txt (Quick reference)
+✓ DEMO-OUTPUT-EXAMPLE.txt (Sample output)
+
+Ready for deployment | CH405_047 | Chaos Line
+
+================================================================================

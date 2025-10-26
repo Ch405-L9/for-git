@@ -1,0 +1,17 @@
+| Website Type                      | Best Visual Styles                        | Notes                                                      | Example Site URL                     |
+| --------------------------------- | ----------------------------------------- | ---------------------------------------------------------- | ------------------------------------ |
+| Static Website                    | Minimalist, Flat Design                   | Clean, fast-loading; ideal for portfolios/info pages.      | (Simple personal sites)              |
+| Dynamic Website                   | Material, Flat, Dark Mode                 | Flexible and interactive; great for CMS/large sites.       | (Modern business sites)              |
+| E-Commerce Website                | Glassmorphism, Neumorphism, Flat          | Enhances product display; balance visuals and performance. | (High-end product stores)            |
+| Landing Page                      | Minimalist, Typography-Driven, Futuristic | Bold and conversion-focused; large CTAs.                   | (Campaign microsites)                |
+| Portfolio Website                 | Minimalist, Illustrative, 3D/Interactive  | Emphasizes individuality and creative layout.              | (Designer portfolio sites)           |
+| Corporate/Business Website        | Material, Flat, Organic                   | Professional tone; prioritize trust and clarity.           | (Firm or consultancy sites)          |
+| Blog/Content Website              | Typography-Driven, Flat, Minimalist       | Focus on readability and strong text hierarchy.            | (Content-heavy blog sites)           |
+| News/Magazine Website             | Flat, Brutalist, Typography-Driven        | Dense layouts, fast readability, bold headlines.           | (Magazine publishers)                |
+| Educational/Institutional Website | Material, Organic, Flat                   | Structured and accessible for all devices.                 | (University/online course platforms) |
+| Community/Forum Website           | Flat, Minimalist, Dark Mode               | User-friendly with light/dark toggle; focus on UX.         | (Forum or dev community sites)       |
+| Non-Profit/Charity Website        | Organic, Minimalist, Illustrative         | Emotional tone with storytelling visuals.                  | (Charity orgs)                       |
+| Web Application                   | Material, Neumorphism, Dark Mode          | App-like feel; responsive and highly interactive.          | (Dashboard tools)                    |
+| Personal/Resume Website           | Minimalist, Typography-Driven             | Quick to load; focuses on self-branding and clarity.       | (Personal branding sites)            |
+| Media/Entertainment Website       | Futuristic, Glassmorphism, 3D             | Immersive visuals; optimized for engagement.               | (Streaming/promotional sites)        |
+| Portal Website                    | Material, Flat, Dark Mode                 | Emphasizes data clarity and efficient navigation.          | (Information aggregator sites)       |

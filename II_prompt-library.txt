@@ -1,0 +1,199 @@
+Excellent — Part 2 continues right here: additional archetypes + complete website‑type prompts, ready for AI‑agent automation or direct use in IDEs.
+(Each section preserves the same GitHub‑flavored Markdown and syntax highlighting.)
+
+Additional Design Archetypes
+Dark Mode Design
+Ideal Use Case: Developer Tools, Communities
+Purpose & Feel: Sleek efficiency + eyes‑off contrast
+Example: github.com
+
+Prompt
+text
+Build a DARK‑MODE‑FIRST application shell.
+- Palette #0d1117 background, #c9d1d9 text.
+- Accent #58a6ff links; syntax green #3fb950.
+- Components: Navbar → Editor → Output Pane (+ Toggle theme light/dark).
+- Ensure prefers‑color‑scheme CSS media query.
+Reference CSS
+css
+@media(prefers-color-scheme:dark){
+  body{background:#0d1117;color:#c9d1d9;}
+  a{color:#58a6ff;}
+  code{color:#3fb950;}
+}
+Editing Prompts
+“Invert theme colors for Light Mode.”
+
+“Enable auto‑switch based on system preference.”
+
+“Add high‑contrast mode with yellow alerts.”
+
+Retro / Futuristic
+Ideal Use Case: Music, Gaming, Startups
+Purpose & Feel: Nostalgic neon energy
+Example: cyberpunk.net
+
+Prompt
+text
+Design a RETRO‑FUTURIST site using cyberpunk palette:
+- Background black #000 gradients to neon magenta → cyan.
+- Typography: pixel or sci‑fi fonts like Orbitron.
+- Animated scanlines/ambient glow FX.
+- Audio‑visual loop (optional) < 2MB.
+Reference CSS
+css
+:root{
+  --magenta:#ff00c8;--cyan:#00fff7;
+}
+h1{
+  font-family:'Orbitron',sans-serif;
+  text-shadow:0 0 10px var(--magenta),0 0 20px var(--cyan);
+}
+Editing Prompts
+“Animate gradient background 5 s linear infinite.”
+
+“Add flicker effect to hero text.”
+
+“Switch neon palette to orange/teal.”
+
+Organic / Natural Design
+Ideal Use Case: Wellness, Non‑profit, Eco brands
+Purpose & Feel: Human‑centered calm
+Example: etsy.com
+
+Prompt
+text
+Generate an ORGANIC‑THEMED website.
+- Palette: earth tones #faf3e0, #decdb0, #7a7052.
+- Rounded corners, soft drop shadows < blur 8 px.
+- Typography: serif headlines + open sans body.
+- Include leaf SVG motifs + gentle fade‑in animation.
+Illustrative Design
+Ideal Use Case: Educational, Creative Studios
+Purpose & Feel: Storytelling through custom graphics
+Example: dropbox.com
+
+Prompt
+text
+Create a HAND‑DRAWN illustration‑first layout.
+- Embed SVG illustrations (header, hero story).
+- Use vibrant palette paired with white space.
+- Ensure illustrations respond via object‑fit contain.
+3D / Interactive Design
+Ideal Use Case: Media, Product Demos
+Purpose & Feel: Immersive presentation
+Example: apple.com/mac-pro/
+
+Prompt
+text
+Integrate three.js or Spline scene into Hero component.
+- Lazy‑load models < 2 MB GLB.
+- Interaction triggers: scroll → object rotate, hover → color shift.
+- Accessibility: provide alt text & skip 3D button.
+Typography‑Driven Design
+Ideal Use Case: Blogs, Agencies, Editorial
+Purpose & Feel: Bold statements, clarity
+Example: stripe.com
+
+Prompt
+text
+Focus on typographic composition.
+- Variable fonts (GT Flexa, Inter Variable).
+- Dynamic scale (h1 clamp(48 px, 6vw, 96 px)).
+- Contrast text colors #111/#fafafa switchable.
+Glass‑Flat Hybrid
+Ideal Use Case: Tech Startups, Premium Brands
+Purpose & Feel: Modern clarity + subtle luxury
+Example: vercel.com
+
+Prompt
+text
+Combine glassmorphism transparency with flat structure.
+- Neutral palette (#f5f5f7, rgba white .2).
+- Layering: flat backgrounds + translucent cards.
+- Maintain Lighthouse ≥ 92 with compression.
+### Skeuomorphic Design
+Ideal Use Case: Retro, Learning, Simulations
+Purpose & Feel: Familiar realism
+Example: 99designs.com/blog/trends/skeuomorphism
+
+#### Prompt
+
+text
+Recreate real‑world controls with CSS textures.
+- Use embossed/debossed buttons with multi‑layer shadows.
+- Add light reflections linear‑gradient(top to transparent 25%).
+- Must remain accessible (focus ring visible > 3:1 contrast).
+Website Types Prompts (Automation Ready)
+Static Website
+text
+Generate STATIC Vite project.
+- Include index.html + flat routing.
+- Use content Markdown parser for editable sections.
+- Build optimized bundle ≤ 300 KB gzip.
+Dynamic Website
+text
+Add contentful CMS connector & client cache (SWR or TanStack Query).
+- Enable SSR using Vite Node Adaptor.
+- Provide API routes under src/api/.
+### E‑Commerce Website
+
+text
+Integrate Stripe API + Cloudinary preview.
+- Components: Nav, ProductGrid, DetailPage, CartDrawer.
+- Accessibility: announce add‑to‑cart via ARIA‑live.
+### Landing Page
+
+text
+Structure: Hero → Features → Testimonials → CTA.
+- Conversion goal: primary CTA visible above‑fold.
+- Add scrollTo interaction for anchor sections.
+### Portfolio Website
+
+text
+Dynamic gallery via JSON config.
+- Lazy‑load images w/ blur‑up placeholder.
+- Include contact form + reCAPTCHA v3.
+### Corporate Website
+
+text
+Enforce navigation clarity.
+- Component stack: Header ↔ MegaMenu ↔ PageGrid.
+- Add policy footers, structured data schema.org/Organization.
+### Blog / Content Website
+
+text
+Generate Markdown post renderer (w/ MDX). 
+- Frontmatter: title, slug, tags, date.
+- RSS feed generation (build hook).
+### News / Magazine Website
+
+text
+Dual layout : grid headlines + side digest.
+- Infinite scroll pagination, ads.txt.
+- Schema markup for Article & Organization.
+### Educational Website
+
+text
+Lesson module pages with progress tracker.
+- Components: Sidebar TOC / Video Player / Quiz.
+- Accessibility: closed captions default on.
+### Community / Forum Website
+
+text
+Use Supabase / Firebase for auth.
+- Thread lists virtualized (React Window).
+- Dark + Light modes; emoji picker input.
+### Non‑Profit / Charity Website
+
+text
+Emotion‑oriented hero with storytelling video embed.
+- Donation form via Stripe Elements.
+- ARIA labels for inputs + impact statistics.
+### Media / Entertainment Website
+
+text
+Autoplay video hero (+ alt static image for accessibility).
+- Sections: Trending / Clips / Behind the Scenes.
+- Lazy load iframes + subtitles overlay.
+(End of Part 2 – next reply will include Accessibility Matrix + Prompt Engineering Helper Suite with Meta‑Prompts.)
