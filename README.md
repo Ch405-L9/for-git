@@ -582,3 +582,4 @@ python files_to_prompt.py ~/app -e "*.log" -e "test*"    # Custom exclude
 
 **Created with precision for CH405_047 | Chaos Line**
 # for-git
+Repo ready on main
