@@ -1,0 +1,267 @@
+metadata:
+  name: "CH405 Component Builder Specification"
+  version: "1.0"
+  author: "CH405_047"
+  purpose: "Zero-ambiguity instructions for building production sites"
+
+laws:
+  single_responsibility:
+    rule: "Each function handles ONE task only"
+    max_lines: 30
+    enforcement: "Break large ops into helpers"
+
+  error_handling:
+    pattern: "Return early on failure"
+    message_format: "❌ [Step X/Y] {action} failed. Reason: {reason}. Fix: {solution}"
+    examples:
+      - "❌ [2/8] NPM install failed. Reason: Network timeout. Fix: Check internet and retry"
+      - "❌ [4/8] Directory creation failed. Reason: Permission denied. Fix: Run with sudo or change target dir"
+
+  constants:
+    rule: "NO hardcoded values in functions"
+    location: "Top of file in CONSTANTS section"
+    types: ["urls", "colors", "versions", "paths", "timeouts"]
+
+  structure_required:
+    helpers:
+      - "run_command() - shell execution with timeout"
+      - "validate_environment() - check Node/NPM versions"
+      - "create_project_scaffold() - initialize framework"
+      - "install_dependencies() - npm install handler"
+      - "create_directories() - folder structure"
+      - "write_config_files() - generate configs"
+      - "write_components() - create React components"
+      - "write_styles() - CSS/Tailwind generation"
+      - "initialize_git() - git setup"
+    orchestrator: "main() - coordinates all helpers"
+
+framework:
+  stack:
+    - "Next.js 14.2.18"
+    - "React 18.3.1"
+    - "TypeScript 5.x"
+    - "Tailwind CSS 3.4.x"
+    - "Framer Motion 11.11.17"
+    - "Heroicons 2.1.5"
+
+  structure_locked:
+    root:
+      - "app/"
+      - "components/"
+      - "data/"
+      - "public/images/"
+      - "package.json"
+      - "tailwind.config.ts"
+      - "tsconfig.json"
+
+    components:
+      required:
+        - "Header.tsx - responsive nav + mobile menu"
+        - "Hero.tsx - animated hero section"
+        - "Services.tsx - grid layout cards"
+        - "Contact.tsx - form or info display"
+        - "Footer.tsx - links + social"
+
+      header_spec:
+        position: "fixed"
+        states: ["default: bg-white/95", "scrolled: bg-white shadow-lg"]
+        desktop: "horizontal nav + CTA button"
+        mobile: "hamburger → slide-in panel (Framer Motion)"
+        data_source: "site-content.json"
+        accessibility: ["aria-labels", "focus states", "keyboard nav"]
+
+      hero_spec:
+        height: "min-h-screen"
+        background: "Next.js Image + gradient overlay"
+        animation: "fade + slide up on mount"
+        ctas: 2
+        responsive_text: "text-4xl → text-7xl"
+
+      services_spec:
+        layout: "grid-cols-1 md:grid-cols-3"
+        card_effects: ["hover:scale-105", "hover:shadow-xl"]
+        content: "icon + title + description"
+
+      contact_spec:
+        variant_a: "form (name, email, message)"
+        variant_b: "business info display"
+
+      footer_spec:
+        content: ["links", "social icons", "copyright"]
+        layout: "responsive columns"
+
+    data_structure:
+      site_content_json:
+        navigation:
+          logo_text: "string"
+          menu_items: "array[{label, href}]"
+          cta_button: "{text, href}"
+        hero:
+          headline: "string"
+          tagline: "string"
+          cta_primary: "{text, href}"
+          cta_secondary: "{text, href}"
+          background_image: "url"
+          gradient_overlay: "boolean"
+        services: "array[{title, description, icon}]"
+
+      business_info_json:
+        name: "string"
+        role: "string"
+        bio: "string"
+        email: "string"
+        phone: "string"
+        address: "{street, city, state, zip}"
+
+styling:
+  tailwind_config:
+    custom_colors_required: true
+    theme_extend:
+      primary: "customizable per style"
+      secondary: "complementary"
+      accent: "for CTAs"
+
+  global_css:
+    includes:
+      - "@font-face declarations"
+      - "smooth scroll behavior"
+      - "focus-visible styles"
+      - "custom animations"
+
+  design_tokens:
+    spacing: "use Tailwind scale"
+    typography: "responsive sizing"
+    colors: "CSS custom properties"
+
+build_process:
+  steps:
+    1:
+      name: "Validate Environment"
+      checks: ["Node ≥18", "NPM ≥9"]
+      fail_action: "Print version requirements + install link"
+
+    2:
+      name: "Create Framework Project"
+      command: "npx create-next-app@latest {name} --typescript --tailwind --app --no-src-dir --import-alias @/* --use-npm --yes"
+      timeout: 600
+      fail_action: "Check network, retry with --verbose"
+
+    3:
+      name: "Install Dependencies"
+      packages: "list in framework.stack"
+      timeout: 600
+      fail_action: "Clear npm cache, retry"
+
+    4:
+      name: "Create Directories"
+      folders: "components/, data/, public/images/"
+      fail_action: "Check write permissions"
+
+    5:
+      name: "Generate Config Files"
+      files: ["tailwind.config.ts", "tsconfig.json", "package.json"]
+      fail_action: "Check file locks"
+
+    6:
+      name: "Write Components"
+      count: 5
+      validation: "TypeScript compile check"
+      fail_action: "Review error, fix imports"
+
+    7:
+      name: "Write Data Files"
+      files: ["site-content.json", "business-info.json"]
+      validation: "JSON.parse check"
+      fail_action: "Validate JSON syntax"
+
+    8:
+      name: "Initialize Git"
+      commands: ["git init", "git add .", "git commit -m 'Initial'"]
+      fail_action: "Skip if git not installed"
+
+  validation:
+    dev_server: "npm run dev must start without errors"
+    console: "zero errors in browser console"
+    lighthouse:
+      performance: "≥90"
+      accessibility: "≥95"
+      seo: "≥90"
+      best_practices: "≥95"
+    responsive: "mobile + desktop tested"
+    typescript: "strict mode passing"
+
+style_presets:
+  minimal:
+    colors:
+      primary: "#000000"
+      background: "#FFFFFF"
+      accent: "#0070F3"
+    typography: "sans-serif, clean"
+    spacing: "generous whitespace"
+
+  corporate:
+    colors:
+      primary: "#003366"
+      background: "#F5F5F5"
+      accent: "#FF6B35"
+    typography: "professional serif"
+    spacing: "structured grid"
+
+  creative:
+    colors:
+      primary: "#FF006E"
+      background: "#FBFBFB"
+      accent: "#8338EC"
+    typography: "bold, playful"
+    spacing: "asymmetric layout"
+
+  dark_tech:
+    colors:
+      background: "#0A0A0A"
+      surface: "#1A1A1A"
+      border: "#2A2A2A"
+      primary: "#00D9FF"
+      accent: "#7B61FF"
+      text_primary: "#FFFFFF"
+      text_secondary: "#A0A0A0"
+      success: "#00FF88"
+    typography:
+      headings: "Inter 700/800"
+      body: "Inter 400/500"
+      code: "JetBrains Mono"
+    animations_required:
+      - "floating elements"
+      - "gradient orbs"
+      - "tech grid background"
+      - "card hover glow"
+      - "number counters"
+    sections:
+      hero:
+        layout: "split (content left, visual right)"
+        text_size: "text-7xl → text-9xl"
+        effects: ["gradient text", "pulse metrics"]
+      services:
+        cards: "3-column grid"
+        hover: ["translate-y: -8px", "scale: 1.02", "glow border"]
+        animation: "stagger entrance (0.1s delay)"
+
+output_requirements:
+  deliverables:
+    - "Working dev server on npm run dev"
+    - "Zero console errors"
+    - "Mobile responsive"
+    - "TypeScript strict passing"
+    - "Lighthouse 90+ scores"
+
+  documentation:
+    readme:
+      sections:
+        - "Project setup"
+        - "Asset requirements"
+        - "Performance targets"
+        - "Development commands"
+
+usage:
+  command: "python site_builder.py --style [minimal|corporate|creative|dark_tech] --name {project-name}"
+  output: "Complete, runnable Next.js project"
+  time: "< 5 minutes end-to-end"

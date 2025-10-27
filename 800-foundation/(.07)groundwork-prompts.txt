@@ -1,0 +1,238 @@
+PART 3: BUILD SEQUENCE (PHASE-BY-PHASE)
+PHASE 1: Foundation (Week 1)
+1.1 - Generate Fake Data
+bash# Command shorthand
+python files_to_prompt.py ~/bakery-mockup -n -t -o base.txt
+Claude Prompt:
+BUILD: Generate JSON files for:
+
+1. owner.json - Fake bakery owner
+   - name: Creative fake name
+   - bio: 2 paragraphs about passion for baking
+   - photo: placeholder URL
+   - address: 123 Fictional St, Any City, State 12345
+   - phone: (555) 123-4567
+   - email: contact@fakebakery.com
+   - social: fake handles
+
+2. products.json - 30 bakery products
+   Categories: Breads, Pastries, Cakes, Cookies, Seasonal
+   Each with: id, name, description, price, category, image, dietary tags
+
+3. site-content.json - All page copy
+   - Hero headline & tagline
+   - About section
+   - Testimonials (3 fake reviews)
+   - FAQ items
+   - Service descriptions
+1.2 - Color Palette
+Vibrant palette (different from Vinal's muted tones):
+- Primary: #FF6B6B (Coral)
+- Secondary: #FFD93D (Sunny Yellow)
+- Accent: #6BCB77 (Teal)
+- Neutral: #F5F5F5 (Light Gray)
+- Dark: #2C3E50 (Navy)
+1.3 - Component Architecture
+bashpython files_to_prompt.py ~/bakery-mockup/data -o data-context.txt
+Claude Prompt:
+BUILD: Create component file structure with TypeScript interfaces:
+
+1. Header.tsx - Navigation with mobile menu
+2. Footer.tsx - Contact info, hours, social links, newsletter
+3. Hero.tsx - Full-screen hero with image overlay
+4. ProductCard.tsx - Reusable product display
+5. CategoryFilter.tsx - Filter buttons for menu
+6. ContactForm.tsx - Contact form with validation
+7. TestimonialCard.tsx - Customer testimonial display
+8. NewsletterSignup.tsx - Email capture form
+
+Include: TypeScript types, responsive design, Tailwind classes
+
+PHASE 2: Main Page (Week 2)
+2.1 - Hero Section
+bashpython files_to_prompt.py ~/bakery-mockup/data/site-content.json -t -i -o content.txt
+Claude Prompt:
+BUILD: Hero component with:
+- Background: Gradient overlay over bakery image
+- Headline: site-content.json hero.headline
+- Tagline: site-content.json hero.tagline
+- CTAs: "View Menu" + "Order Catering"
+- Animation: Fade in on load (framer-motion)
+- Mobile: Stacked layout, 60vh height
+2.2 - Featured Products
+bashpython files_to_prompt.py ~/bakery-mockup/data/products.json -t -i -o products.txt
+Claude Prompt:
+BUILD: FeaturedProducts component:
+- Display 6 featured products from products.json (featured: true)
+- Grid layout: 3 cols desktop, 2 tablet, 1 mobile
+- Each card: image, name, price, short description, "Add to Cart" button (non-functional)
+- Hover effect: Scale + shadow
+- Color scheme: Use defined palette
+2.3 - About Snippet
+bashpython files_to_prompt.py ~/bakery-mockup/data -o full-data.txt
+Claude Prompt:
+BUILD: About section for homepage:
+- Owner photo + name from owner.json
+- 2-3 sentence bio snippet
+- "Read Full Story" link to /about
+- Layout: Image left, text right (desktop); stacked (mobile)
+- Background: Accent color (#6BCB77) with light opacity
+2.4 - Services Overview
+BUILD: Services section with 4 cards:
+1. Pickup - Same-day availability
+2. Delivery - Local delivery radius
+3. Catering - Events & corporate
+4. Shipping - Nationwide (signature items)
+
+Each card: Icon, title, 1-sentence description, link to relevant page
+Grid: 4 cols desktop, 2 tablet, 1 mobile
+2.5 - Testimonials
+BUILD: Testimonials section:
+- 3 customer reviews from site-content.json
+- Carousel with auto-rotate (8s interval)
+- Each: Quote, name, 5-star rating
+- Style: Card with shadow, rounded corners
+2.6 - Newsletter + Footer
+BUILD:
+1. Newsletter component: Email input + "Subscribe" button, centered
+2. Footer:
+   - Column 1: Contact (phone, email, address)
+   - Column 2: Hours (Mon-Sat 7am-7pm, Sun 8am-5pm)
+   - Column 3: Quick links (Menu, About, Contact, Catering)
+   - Column 4: Social icons (non-functional links)
+   - Bottom: Copyright notice
+
+Mobile: Stacked columns
+
+PHASE 3: Secondary Pages (Week 3)
+3.1 - Menu/Products Page
+bashpython files_to_prompt.py ~/bakery-mockup/components/ProductCard.tsx ~/bakery-mockup/data/products.json -o menu-context.txt
+Claude Prompt:
+BUILD: Menu page (app/menu/page.tsx):
+- Page title: "Our Baked Goods"
+- Category filter buttons: All, Breads, Pastries, Cakes, Cookies, Seasonal
+- Product grid: All 30 products from products.json
+- Each product: ProductCard component
+- Layout: 4 cols desktop, 3 tablet, 2 mobile
+- Search bar: Filter by product name (client-side)
+- Sort dropdown: Price (low-high), Price (high-low), Name (A-Z)
+
+Functionality: All filters/search work, no actual cart
+3.2 - Gift Cards Page
+BUILD: Gift Cards page:
+- Hero section: "Give the Gift of Fresh Baked Goods"
+- Amount selection: $25, $50, $75, $100, Custom
+- Recipient info form: Name, email, message (non-functional)
+- Delivery options: Email immediately, Schedule for later
+- Design preview: Gift card mockup image
+- "Purchase" button (non-functional, shows toast: "Payment integration coming soon")
+3.3 - Catering Page
+BUILD: Catering page:
+- Hero: "Catering for Every Occasion"
+- Services offered:
+  - Corporate events
+  - Weddings
+  - Private parties
+  - Holiday catering
+- Package options: 3 tiers (Bronze, Silver, Gold) with pricing
+- Sample menu: Popular items for catering
+- Lead time notice: "Please order 48 hours in advance"
+- Quote request form: Event type, date, guest count, message
+- "Submit Request" button (non-functional form)
+3.4 - About Page
+bashpython files_to_prompt.py ~/bakery-mockup/data/owner.json -t -i -o owner.txt
+Claude Prompt:
+BUILD: About page:
+- Full owner bio from owner.json (2-3 paragraphs)
+- Large owner photo
+- "Our Story" section: How bakery started (generate 3 paragraphs)
+- "Our Values": Quality ingredients, Community focus, Sustainability
+- Behind-the-scenes photo gallery (3-4 placeholder images)
+- Team section (if applicable): "Just me for now!" or small team
+3.5 - Contact Page
+BUILD: Contact page:
+- Contact form: Name, email, phone, message
+- Validation: Required fields, email format
+- Submit button (non-functional, shows success toast)
+- Contact info card: Phone, email, address
+- Hours of operation
+- Embedded map placeholder (static image or iframe to Google Maps with fake address)
+- "Get Directions" button
+3.6 - Gallery Page
+BUILD: Gallery page:
+- Grid layout: Masonry style (3 cols desktop, 2 tablet, 1 mobile)
+- Display all shop photos from public/images
+- Categories: Products, Interior, Events, Behind-the-scenes
+- Lightbox on click: Full-size image view with navigation
+- Caption for each image (optional)
+
+PHASE 4: Polish & Production-Ready (Week 4)
+4.1 - Navigation & Links
+bashpython files_to_prompt.py ~/bakery-mockup/app -o all-pages.txt
+Claude Prompt:
+REVIEW: Ensure all navigation links work:
+- Header nav: Home, Menu, Catering, About, Contact, Order Now (CTA)
+- Footer links: All pages, social (non-functional)
+- Internal links: All CTAs route to correct pages
+- Mobile menu: Hamburger icon, smooth slide-in animation
+- Active state: Highlight current page in nav
+
+Test: No 404 errors, all routes defined in app/
+4.2 - Responsive Design
+REVIEW: Mobile responsiveness checklist:
+- Hero: Full viewport height mobile, text readable
+- Product grids: Proper breakpoints (1-2-3-4 columns)
+- Forms: Touch-friendly inputs, proper spacing
+- Nav: Hamburger menu functional
+- Footer: Stacked columns mobile
+- Images: Proper sizing, no overflow
+- Text: Readable font sizes all devices
+
+Test: Chrome DevTools responsive mode + real devices
+4.3 - Performance Optimization
+bashpython files_to_prompt.py ~/bakery-mockup/public/images -n -o images.txt
+Claude Prompt:
+OPTIMIZE: Image and performance:
+1. Convert images to WebP format
+2. Implement next/image for automatic optimization
+3. Add lazy loading for below-fold images
+4. Compress images to <200KB each
+5. Add blur placeholders for loading states
+6. Minify CSS/JS (next build handles this)
+
+Add to next.config.js:
+- Image optimization settings
+- Compression enabled
+4.4 - SEO & Metadata
+ADD: SEO metadata to all pages:
+
+Each page needs:
+- Unique title tag: "Page Name | Bakery Name"
+- Meta description: 120-160 chars
+- Open Graph tags: og:title, og:description, og:image
+- Favicon
+
+Homepage example:
+title: "Fresh Artisan Breads & Pastries | [Bakery Name]"
+description: "Handcrafted breads, pastries, and cakes baked fresh daily. Order online for pickup, delivery, or catering in [City]."
+
+Add to app/layout.tsx or individual page metadata
+4.5 - Accessibility Audit
+REVIEW: Accessibility (WCAG 2.1 AA):
+- All images: Alt text descriptive
+- Forms: Labels associated with inputs
+- Buttons: Descriptive text (not just "Click here")
+- Color contrast: Minimum 4.5:1 ratio
+- Keyboard navigation: All interactive elements accessible
+- Focus indicators: Visible on all elements
+- ARIA labels: For icon buttons, complex widgets
+
+Test: axe DevTools extension, manual keyboard navigation
+4.6 - Non-Functional Elements
+VERIFY: Non-functional elements clearly marked:
+- Payment buttons: Show toast "Payment integration coming soon"
+- Social media links: href="#" with onclick toast
+- Cart buttons: Show toast "Cart functionality coming soon"
+- Form submissions: Success message, no actual backend
+
+All other links: Functional navigation

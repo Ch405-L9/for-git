@@ -1,0 +1,18 @@
+{
+  "session_handle_number": "SHN-2025-10-26-BLD-001",
+  "project": "Vinal Bakery Build",
+  "color_tokens": {
+    "english-muffin": "#E9D8A6",
+    "bacon-red": "#C14953",
+    "egg-yolk": "#F2C14E",
+    "text-primary": "#2B2B2B",
+    "text-accent": "#3E2723"
+  },
+  "payment_policy": "Bypass live payments; show local pop-up modal only; use Toast embeds/links for ordering surfaces.",
+  "targets": {
+    "performance": 90,
+    "seo": 90,
+    "best_practices": 95,
+    "accessibility": 95
+  }
+}

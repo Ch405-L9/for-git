@@ -1,0 +1,36 @@
+PART 4: ITERATIVE WORKFLOW
+Development Cycle
+STEP 1: Generate Component
+bash# Setup context
+python files_to_prompt.py ~/bakery-mockup/data -o context.txt
+
+# Upload to Claude with BUILD command
+# "BUILD: [Component specification]"
+
+# Save output to file
+# Copy code to appropriate file in project
+STEP 2: Test Component
+bash# Run dev server
+npm run dev
+
+# View at http://localhost:3000
+# Test functionality, responsive design
+STEP 3: Iterate If Needed
+bash# Load component for editing
+python files_to_prompt.py ~/bakery-mockup/components/ComponentName.tsx -t -i -o comp.txt
+
+# Upload with EDIT command
+# "EDIT: [Specific changes needed]"
+
+# Apply changes, retest
+STEP 4: Move to Next Component
+bash# Repeat cycle for next component/page
+Batch Processing Multiple Components
+bash# Generate all data files first
+python files_to_prompt.py ~/bakery-mockup/data -o all-data.txt
+
+# Upload to Claude with:
+# "BUILD: Generate all 8 components listed in architecture. Provide complete code for each."
+
+# Save each component to its file
+# Test all at once

@@ -1,0 +1,11 @@
+# Available Components
+
+## Header
+Props: none (reads from site-content.json)
+Features: responsive nav, mobile menu, scroll shadow
+
+## Hero
+Props: none (reads from site-content.json)
+Features: animated entrance, dual CTAs, background image
+
+[etc for each component]

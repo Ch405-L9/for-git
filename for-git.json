@@ -1,0 +1,3 @@
+git add for-git.json
+git commit -m "Add modular for-git master workflow"
+git push origin main

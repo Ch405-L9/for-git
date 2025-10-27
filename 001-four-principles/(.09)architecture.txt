@@ -1,0 +1,58 @@
+ARCHITECTURE.md:
+markdown# Stack
+Next.js 14 + React 18 + TypeScript + Tailwind + Framer Motion
+
+# Data Flow
+JSON (data/) → Components → Pages
+
+# Performance Targets
+Lighthouse: 90+ performance, 95+ accessibility
+```
+
+---
+
+# Lock-In Prompts (Run These First)
+
+**Prompt 1 - Establish Standards:**
+```
+Read BUILD_SPEC.yaml and CODE_STANDARDS.md.
+Acknowledge understanding of:
+1. THE LAW (function size, error handling, constants)
+2. File structure conventions
+3. Component patterns
+4. Data flow architecture
+
+Confirm you'll follow these for all code generation.
+```
+
+**Prompt 2 - Verify Dependencies:**
+```
+Check current versions match BUILD_SPEC.yaml:
+- Next.js 14.2.18
+- React 18.3.1
+- TypeScript 5.x
+- Tailwind 3.4.x
+- Framer Motion 11.11.17
+- Heroicons 2.1.5
+
+Flag any mismatches before proceeding.
+```
+
+**Prompt 3 - Define Project Scope:**
+```
+Project: [name]
+Style: [minimal|corporate|creative|dark_tech]
+Required Components: Header, Hero, Services, Contact, Footer
+Data Sources: site-content.json, business-info.json
+
+Generate component checklist and confirm folder structure.
+```
+
+**Prompt 4 - Asset Inventory:**
+```
+Assets needed:
+- Fonts: [list .woff2 files]
+- Icons: [list .svg files]
+- Images: [Cloudinary URLs]
+
+Create asset manifest and placeholder tracking.

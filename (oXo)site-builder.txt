@@ -1,0 +1,315 @@
+PROMPT 1: Generic Site Builder Template
+Mission: Create a Python CLI tool that generates production-ready Next.js sites with configurable content via JSON.
+Core Architecture Rules (THE LAW)
+Single Responsibility:
+
+Each function handles ONE task only
+Break large operations into helper functions (max 30 lines per function)
+
+Error Handling:
+
+Return early on failure with step name, reason, and user-friendly fix
+Example: "❌ [Step 2/8] NPM install failed. Reason: Network timeout. Fix: Check internet connection and retry."
+
+Constants:
+
+NO hardcoded strings/paths in functions
+All values in CONSTANTS section at top
+URLs, colors, versions, paths as named constants
+
+Structure Required:
+run_command() - executes shell commands with timeout
+validate_environment() - checks Node/NPM versions
+create_project_scaffold() - initializes Next.js
+install_dependencies() - handles npm install
+create_directories() - makes folder structure
+write_config_files() - generates JSON configs
+write_components() - creates React components
+write_styles() - generates CSS/Tailwind
+initialize_git() - git setup
+main() - orchestrates flow
+```
+
+## Feature Specifications
+
+**Input:** Single command: `python site_builder.py --style [minimal|corporate|creative]`
+
+**Project Structure (locked):**
+```
+project-name/
+├── app/
+│   ├── page.tsx (imports Header + Hero + sections)
+│   ├── layout.tsx (metadata, fonts)
+│   └── globals.css
+├── components/
+│   ├── Header.tsx (responsive nav + mobile menu)
+│   ├── Hero.tsx (animated hero section)
+│   ├── Services.tsx
+│   ├── Contact.tsx
+│   └── Footer.tsx
+├── data/
+│   ├── site-content.json (all copy/links)
+│   └── business-info.json (contact/company data)
+├── public/
+│   └── images/ (placeholder paths only)
+└── [config files: package.json, tailwind.config.ts, tsconfig.json]
+```
+
+**Dependencies (exact versions):**
+- Next.js 14.2.18
+- React 18.3.1
+- TypeScript 5.x
+- Tailwind CSS 3.4.x
+- Framer Motion 11.11.17
+- Heroicons 2.1.5
+
+**Component Requirements:**
+
+*Header:*
+- Fixed position with scroll-activated shadow
+- Desktop: horizontal nav + CTA button
+- Mobile: hamburger menu with slide-in panel (Framer Motion)
+- All links from site-content.json
+- Accessibility: aria-labels, focus states
+
+*Hero:*
+- Full viewport height
+- Background: Next.js Image with gradient overlay
+- Animated entrance (fade + slide up)
+- Two CTA buttons (primary/secondary styling)
+- Responsive text sizing (4xl → 7xl)
+
+*Services:*
+- Grid layout (1 col mobile, 3 col desktop)
+- Card hover effects (scale + shadow)
+- Icon + title + description per service
+
+*Contact:*
+- Simple form (name, email, message)
+- Or display business info from JSON
+
+*Footer:*
+- Links, social icons, copyright
+- Responsive columns
+
+**Styling System:**
+
+Tailwind config with custom colors:
+```
+primary: customizable per style flag
+secondary: complementary
+accent: for CTAs
+Global CSS with:
+
+Custom font loading (@font-face)
+Smooth scroll behavior
+Focus visible styles
+
+Data Structure (site-content.json):
+json{
+  "navigation": {
+    "logo_text": "",
+    "menu_items": [{label, href}],
+    "cta_button": {text, href}
+  },
+  "hero": {
+    "headline": "",
+    "tagline": "",
+    "cta_primary": {text, href},
+    "cta_secondary": {text, href},
+    "background_image": ""
+  },
+  "services": [
+    {title, description, icon}
+  ]
+}
+```
+
+**Build Process (8 steps with validation):**
+
+1. Validate environment (Node ≥18, NPM ≥9)
+2. Create Next.js project (npx with --yes flag)
+3. Install dependencies (with timeout handling)
+4. Create directory structure
+5. Generate config files
+6. Write components (all 5)
+7. Write data files (JSON)
+8. Initialize git + first commit
+
+Each step: print progress, catch errors, provide fixes.
+
+**Output:**
+- Working dev server on `npm run dev`
+- Zero console errors
+- Lighthouse score: 90+ performance
+- Mobile responsive
+- TypeScript strict mode passing
+
+---
+
+# PROMPT 2: Dark Minimal Tech - Web Optimization Service
+
+**Mission:** Build landing page for web optimization agency with dark theme, tech animations, modern minimalist aesthetic.
+
+## Design Specifications
+
+**Color Palette:**
+```
+Background: #0A0A0A (near-black)
+Surface: #1A1A1A (cards)
+Border: #2A2A2A (subtle lines)
+Primary: #00D9FF (electric cyan)
+Accent: #7B61FF (violet)
+Text Primary: #FFFFFF
+Text Secondary: #A0A0A0
+Success: #00FF88 (for metrics)
+```
+
+**Typography:**
+- Headings: Inter (700, 800 weights)
+- Body: Inter (400, 500 weights)
+- Code/metrics: JetBrains Mono
+- Sizing: Ultra-large hero (text-7xl → text-9xl), crisp body (16-18px)
+
+**Hero Section Design:**
+
+*Layout:*
+- Split screen: Left (content), Right (animated visual)
+- Vertical center alignment
+- Max-width: 1400px container
+
+*Content (Left):*
+- Eyebrow text: "PERFORMANCE ENGINEERING" (12px, tracking-widest, cyan)
+- H1: "Lightning-Fast Websites That Convert" (96px desktop, gradient text cyan→violet)
+- Description: "Core Web Vitals optimization, CDN implementation, and speed audits that boost rankings and revenue" (20px, gray-400)
+- Dual CTAs: "Analyze My Site" (primary cyan) + "View Case Studies" (outline)
+- Trust indicators: "98 AVGSPEED SCORE • 2.1s AVG LOAD • $4.2M REVENUE IMPACT" (monospace, small, success green)
+
+*Visual (Right):*
+- Floating dashboard mockup with live metrics
+- Animated number counters
+- Pulse effects on metric cards
+- Glowing cyan border + shadow
+
+**Animated Service Cards:**
+
+*Card Structure (3-column grid):*
+```
+┌─────────────────┐
+│ [Icon]          │ ← Animated icon (rotate on hover)
+│ Title           │
+│ Description     │
+│ • Benefit 1     │
+│ • Benefit 2     │
+│ • Benefit 3     │
+│ [Learn More →]  │
+└─────────────────┘
+```
+
+*Animations Required:*
+
+1. **Hover State:**
+   - Border glow (cyan, 2px, blur 8px)
+   - Translate Y: -8px
+   - Scale: 1.02
+   - Icon rotates 5deg
+
+2. **Entrance:**
+   - Stagger delay (0.1s between cards)
+   - Fade + slide from bottom
+   - Duration: 0.6s ease-out
+
+3. **Background Effect:**
+   - Gradient mesh moves on mouse position
+   - Particle grid in background
+   - Parallax scroll (cards move slower than scroll)
+
+**Services to Feature:**
+
+1. **Core Web Vitals Optimization**
+   - Icon: Lightning bolt
+   - Metrics: LCP, FID, CLS improvements
+   - Tech: Next.js, image optimization, lazy loading
+
+2. **CDN & Edge Computing**
+   - Icon: Network nodes
+   - Global distribution, edge caching
+   - Tech: Cloudflare, Vercel Edge
+
+3. **Speed Audits & Monitoring**
+   - Icon: Speedometer
+   - Lighthouse CI, RUM tracking
+   - Monthly performance reports
+
+**Tech Animation Ideas:**
+
+*Background:*
+- Dot grid pattern (subtle, #1A1A1A)
+- Animated gradient orbs (blur 100px, moving slowly)
+- Scan line effect (subtle horizontal line moving down)
+
+*Interactive Elements:*
+- Code snippets that type out
+- Live Lighthouse score animation
+- Before/After load time comparison (animated bars)
+- Network waterfall visualization
+
+*Micro-interactions:*
+- Button hover: glow effect + arrow slide
+- Link underlines: gradient wipe animation
+- Form inputs: neon focus ring (cyan)
+- Scroll indicator: animated chevron
+
+**Additional Sections:**
+
+*Metrics Showcase:*
+```
+[BEFORE] ─────────► [AFTER]
+4.8s load          0.9s load (-81%)
+42 score           98 score (+133%)
+2.3% conv          8.1% conv (+252%)
+```
+Animated counter-up on scroll into view.
+
+*Social Proof:*
+- Client logos (grayscale, hover: color)
+- Testimonials in cards with avatar
+- "Trusted by 200+ companies" stat
+
+*CTA Section:*
+- Dark card with gradient border
+- "Get Your Free Site Audit"
+- Email input + submit (inline form)
+- 3-second animated report preview
+
+**Technical Implementation Notes:**
+
+*Animations Library:*
+- Framer Motion for React components
+- CSS custom properties for theme
+- Intersection Observer for scroll triggers
+
+*Performance:*
+- Lazy load all animations below fold
+- Use `will-change` sparingly
+- GPU-accelerated transforms only
+- Code-split animation library
+
+*Accessibility:*
+- `prefers-reduced-motion` media query (disable animations)
+- High contrast mode support
+- Keyboard navigation for all interactions
+- ARIA labels on interactive elements
+
+**File Structure Additions:**
+```
+components/
+├── AnimatedCounter.tsx (number count-up)
+├── MetricCard.tsx (service cards)
+├── TechBackground.tsx (animated dots/gradient)
+├── AuditForm.tsx (CTA form)
+└── BeforeAfter.tsx (comparison display)
+
+data/
+├── metrics.json (performance stats)
+└── case-studies.json (testimonials)

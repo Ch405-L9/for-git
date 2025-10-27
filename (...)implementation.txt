@@ -1,0 +1,29 @@
+# Node 1: Setup
+npx create-next-app@14.2.18 bakery-mockup --typescript --tailwind --app --no-src-dir
+cd bakery-mockup
+npm install @heroicons/react@2.1.5 framer-motion@11.11.17
+mkdir -p components data public/images
+
+# Node 2: Data Gen
+python files_to_prompt.py ~/bakery-mockup -n -t -o setup-context.txt
+# → Upload to Claude with data generation prompt
+
+# Node 3: Build Header
+python files_to_prompt.py ~/bakery-mockup/data -o header-context.txt
+# → Upload to Claude with Header build prompt
+
+# Node 4: Build Hero
+python files_to_prompt.py ~/bakery-mockup/components/Header.tsx ~/bakery-mockup/data -o hero-context.txt
+# → Upload to Claude with Hero build prompt
+
+# Node 5: Integration
+python files_to_prompt.py ~/bakery-mockup/components -o integration.txt
+# → Upload to Claude with integration prompt
+
+# Node 6: Test
+npm run dev
+# → Manual testing at localhost:3000
+
+# Node 9: Q&A (Accessibility)
+# → Run axe DevTools extension
+# → Check keyboard navigation

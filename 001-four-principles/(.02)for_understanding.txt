@@ -1,0 +1,8 @@
+PROJECT_ROOT/
+├── .ai/
+│   ├── BUILD_SPEC.yaml (from above)
+│   ├── CODE_STANDARDS.md
+│   └── COMPONENT_LIBRARY.md
+├── ARCHITECTURE.md
+├── CONVENTIONS.md
+└── README.md

@@ -1,0 +1,17 @@
+# THE LAW
+- Max 30 lines per function
+- Early returns with helpful errors
+- All constants at top
+- No hardcoded values
+
+# File Structure
+components/[name]/
+├── [Name].tsx
+├── [Name].test.tsx
+└── types.ts
+
+# Naming
+- Components: PascalCase
+- Files: kebab-case
+- Functions: camelCase
+- Constants: SCREAMING_SNAKE_CASE

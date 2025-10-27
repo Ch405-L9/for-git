@@ -1,0 +1,59 @@
+SHORTHAND COMMANDS
+Batch Ingestion Commands
+INGEST - Load project files to Claude
+bash# Full project analysis
+python files_to_prompt.py ~/bakery-mockup -o bakery-full.txt
+
+# Components only
+python files_to_prompt.py ~/bakery-mockup/components -o components.txt
+
+# Pages only
+python files_to_prompt.py ~/bakery-mockup/app -o pages.txt
+
+# Data files only
+python files_to_prompt.py ~/bakery-mockup/data -t -i -o data.txt
+
+# Images + data (for context)
+python files_to_prompt.py ~/bakery-mockup/public -n -o assets.txt
+BUILD - Generate new components
+bash# Generate component
+python files_to_prompt.py ~/bakery-mockup/data -o context.txt
+# Upload context.txt to Claude with:
+# "BUILD: Hero component with product image, CTA buttons, and overlay text"
+
+# Generate page
+# "BUILD: Menu page with category filters, product grid, and search"
+
+# Generate data
+# "BUILD: Generate 30 fake bakery products with names, descriptions, prices, categories"
+EDIT - Modify existing code
+bash# Load component to edit
+python files_to_prompt.py ~/bakery-mockup/components/Hero.tsx -t -i -o hero.txt
+# Upload to Claude with:
+# "EDIT: Change hero background to gradient, add animation, fix mobile responsiveness"
+
+# Load page to edit
+python files_to_prompt.py ~/bakery-mockup/app/menu -o menu-context.txt
+# "EDIT: Add sorting by price, add quick view modal, optimize images"
+ADD - Extend functionality
+bash# Load relevant context
+python files_to_prompt.py ~/bakery-mockup/components -o all-components.txt
+# "ADD: Newsletter signup component with email validation and Mailchimp styling"
+
+# "ADD: Product quick view modal with image carousel and add to cart"
+
+# "ADD: Mobile hamburger menu with smooth animations"
+REVIEW - Quality check
+bash# Full codebase review
+python files_to_prompt.py ~/bakery-mockup -o review-full.txt
+# "REVIEW: Check for accessibility issues, performance bottlenecks, and broken links"
+
+# Component review
+python files_to_prompt.py ~/bakery-mockup/components -o review-components.txt
+# "REVIEW: Ensure responsive design, consistent styling, proper TypeScript types"
+OPTIMIZE - Performance tuning
+bash# Load pages for optimization
+python files_to_prompt.py ~/bakery-mockup/app -o optimize.txt
+# "OPTIMIZE: Implement lazy loading, compress images, minify CSS"
+
+# "OPTIMIZE: Add metadata for SEO, implement Open Graph tags"
