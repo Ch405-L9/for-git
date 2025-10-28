@@ -1,0 +1,274 @@
+DEBUG: DEBUG mode enabled
+INFO: Starting Autonomous Domain Scout (v4.1 Robust Search)
+INFO: ✅ Lighthouse CLI detected
+INFO: Loaded keyword pools from config/keywords.atl.json (8 groups)
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developers near me Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developers near me Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: website development company near me Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'website development company near me Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web design agency Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web design agency Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: ADA website compliance Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'ADA website compliance Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web accessibility audit Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web accessibility audit Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: website speed optimization Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'website speed optimization Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developer Gwinnett County
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developer Gwinnett County'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: website design Marietta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'website design Marietta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web development Alpharetta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web development Alpharetta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web maintenance Sandy Springs
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web maintenance Sandy Springs'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: website optimization Decatur
+INFO: ================================================================================
+INFO: 🔎 Searching: 'website optimization Decatur'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: wordpress maintenance Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'wordpress maintenance Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: SEO audit Roswell
+INFO: ================================================================================
+INFO: 🔎 Searching: 'SEO audit Roswell'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web accessibility consultant near Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web accessibility consultant near Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developer 30004
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developer 30004'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developer 30303
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developer 30303'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developer 30308
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developer 30308'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developer 30309
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developer 30309'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developer 30318
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developer 30318'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developer 30328
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developer 30328'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developer 30060
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developer 30060'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developer 30062
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developer 30062'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developer 30075
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developer 30075'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developer 30076
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developer 30076'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web developer 30097
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web developer 30097'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Commercial Service Intent | Keyword: web development services Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web development services Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Commercial Service Intent | Keyword: web development company Georgia
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web development company Georgia'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Commercial Service Intent | Keyword: website development agency Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'website development agency Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Commercial Service Intent | Keyword: web development firm near Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web development firm near Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Commercial Service Intent | Keyword: custom web development Georgia
+INFO: ================================================================================
+INFO: 🔎 Searching: 'custom web development Georgia'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Commercial Service Intent | Keyword: wordpress website speed optimization Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'wordpress website speed optimization Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Commercial Service Intent | Keyword: react web development Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'react web development Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Commercial Service Intent | Keyword: ADA compliance web development Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'ADA compliance web development Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Commercial Service Intent | Keyword: website performance audit Georgia
+INFO: ================================================================================
+INFO: 🔎 Searching: 'website performance audit Georgia'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Commercial Service Intent | Keyword: digital marketing and optimization Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'digital marketing and optimization Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Pain & Dissatisfaction | Keyword: web development agency not delivering results Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web development agency not delivering results Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Pain & Dissatisfaction | Keyword: unhappy with web developer Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'unhappy with web developer Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Pain & Dissatisfaction | Keyword: switch web development agency Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'switch web development agency Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Pain & Dissatisfaction | Keyword: digital agency Atlanta not delivering
+INFO: ================================================================================
+INFO: 🔎 Searching: 'digital agency Atlanta not delivering'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Pain & Dissatisfaction | Keyword: poor website maintenance service Georgia
+INFO: ================================================================================
+INFO: 🔎 Searching: 'poor website maintenance service Georgia'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Pain & Dissatisfaction | Keyword: need a new web developer Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'need a new web developer Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Pain & Dissatisfaction | Keyword: seo retainer not worth it Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'seo retainer not worth it Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Pain & Dissatisfaction | Keyword: website developer not meeting expectations Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'website developer not meeting expectations Atlanta'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Pain & Dissatisfaction | Keyword: web maintenance contract issues Georgia
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web maintenance contract issues Georgia'
+INFO: ✅ Found 0 domains
+WARNING: No domains found. Skipping.
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Pain & Dissatisfaction | Keyword: switch seo agency Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'switch seo agency Atlanta'
+INFO: ✅ Found 1 domains
+INFO: Queueing 1 domains for Lighthouse...

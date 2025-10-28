@@ -1,0 +1,401 @@
+2025-10-28 03:43:32 - INFO - [DomainScout] - Logging initialized. Console Level: INFO | File Level: DEBUG
+2025-10-28 03:43:32 - INFO - [DomainScout] - Starting Autonomous Domain Scout (v2)...
+2025-10-28 03:43:32 - DEBUG - [asyncio] - Using selector: EpollSelector
+2025-10-28 03:43:32 - INFO - [DomainScout] - 🚀 Performing pre-flight check on PSI API Key...
+2025-10-28 03:43:32 - WARNING - [DomainScout] - API Key Warning (400): Request contains an invalid argument.. Continuing, but check key.
+2025-10-28 03:43:32 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x7bc423d7ce00>
+2025-10-28 03:43:32 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x7bc423d7ce00> completed
+2025-10-28 03:43:32 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x7bc423d6d030>, '\n            CREATE TABLE IF NOT EXISTS domains (\n                url TEXT PRIMARY KEY,\n                mobile_score INTEGER,\n                desktop_score INTEGER,\n                keyword TEXT,\n                flagged BOOLEAN,\n                last_checked_ts TEXT\n            )\n        ', [])
+2025-10-28 03:43:32 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x7bc423d6d030>, '\n            CREATE TABLE IF NOT EXISTS domains (\n                url TEXT PRIMARY KEY,\n                mobile_score INTEGER,\n                desktop_score INTEGER,\n                keyword TEXT,\n                flagged BOOLEAN,\n                last_checked_ts TEXT\n            )\n        ', []) completed
+2025-10-28 03:43:32 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method commit of sqlite3.Connection object at 0x7bc423d6d030>)
+2025-10-28 03:43:32 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method commit of sqlite3.Connection object at 0x7bc423d6d030>) completed
+2025-10-28 03:43:32 - INFO - [DomainScout] - Database initialized successfully at: scout_data.db
+2025-10-28 03:43:32 - INFO - [DomainScout] - 
+================================================================================
+2025-10-28 03:43:32 - INFO - [DomainScout] - STARTING CYCLE 1 - Keyword Pool: E-Commerce | Keyword: 'vintage clothing shop online'
+2025-10-28 03:43:32 - INFO - [DomainScout] - Target Score Limit: 60
+2025-10-28 03:43:32 - INFO - [DomainScout] - ================================================================================
+2025-10-28 03:43:32 - INFO - [DomainScout] - 🔎 Starting Google search for keyword: 'vintage clothing shop online'...
+2025-10-28 03:43:32 - DEBUG - [urllib3.connectionpool] - Starting new HTTPS connection (1): www.google.com:443
+2025-10-28 03:43:32 - DEBUG - [urllib3.connectionpool] - https://www.google.com:443 "GET /search?q=vintage+clothing+shop+online&num=17&hl=en&start=0&safe=active HTTP/1.1" 200 None
+2025-10-28 03:43:32 - INFO - [DomainScout] - ✅ Discovered 0 unique domains from search.
+2025-10-28 03:43:32 - WARNING - [DomainScout] - Discovery returned no domains. Retrying next cycle.
+2025-10-28 03:43:32 - INFO - [DomainScout] - No new domains to check in this batch.
+2025-10-28 03:43:32 - INFO - [DomainScout] - Cycle 1 complete. Total discovered: 0 | Total flagged: 0
+2025-10-28 03:43:32 - INFO - [DomainScout] - ⏳ Waiting 3600s until next cycle...
+2025-10-28 03:48:52 - INFO - [DomainScout] - Logging initialized. Console Level: INFO | File Level: DEBUG
+2025-10-28 03:48:52 - INFO - [DomainScout] - Starting Autonomous Domain Scout (v2)...
+2025-10-28 03:48:52 - DEBUG - [asyncio] - Using selector: EpollSelector
+2025-10-28 03:48:52 - INFO - [DomainScout] - 🚀 Performing pre-flight check on PSI API Key...
+2025-10-28 03:48:52 - WARNING - [DomainScout] - API Key Warning (400): Request contains an invalid argument.. Continuing, but check key.
+2025-10-28 03:48:52 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x7747a2b75b20>
+2025-10-28 03:48:52 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x7747a2b75b20> completed
+2025-10-28 03:48:52 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x7747a2b65300>, '\n            CREATE TABLE IF NOT EXISTS domains (\n                url TEXT PRIMARY KEY,\n                mobile_score INTEGER,\n                desktop_score INTEGER,\n                keyword TEXT,\n                flagged BOOLEAN,\n                last_checked_ts TEXT\n            )\n        ', [])
+2025-10-28 03:48:52 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x7747a2b65300>, '\n            CREATE TABLE IF NOT EXISTS domains (\n                url TEXT PRIMARY KEY,\n                mobile_score INTEGER,\n                desktop_score INTEGER,\n                keyword TEXT,\n                flagged BOOLEAN,\n                last_checked_ts TEXT\n            )\n        ', []) completed
+2025-10-28 03:48:52 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method commit of sqlite3.Connection object at 0x7747a2b65300>)
+2025-10-28 03:48:52 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method commit of sqlite3.Connection object at 0x7747a2b65300>) completed
+2025-10-28 03:48:52 - INFO - [DomainScout] - Database initialized successfully at: scout_data.db
+2025-10-28 03:48:52 - INFO - [DomainScout] - 
+================================================================================
+2025-10-28 03:48:52 - INFO - [DomainScout] - STARTING CYCLE 1 - Keyword Pool: E-Commerce | Keyword: 'craft beer delivery website'
+2025-10-28 03:48:52 - INFO - [DomainScout] - Target Score Limit: 60
+2025-10-28 03:48:52 - INFO - [DomainScout] - ================================================================================
+2025-10-28 03:48:52 - INFO - [DomainScout] - 🔎 Starting Google search for keyword: 'craft beer delivery website'...
+2025-10-28 03:48:52 - DEBUG - [urllib3.connectionpool] - Starting new HTTPS connection (1): www.google.com:443
+2025-10-28 03:48:52 - DEBUG - [urllib3.connectionpool] - https://www.google.com:443 "GET /search?q=craft+beer+delivery+website&num=17&hl=en&start=0&safe=active HTTP/1.1" 200 None
+2025-10-28 03:48:52 - INFO - [DomainScout] - ✅ Discovered 0 unique domains from search.
+2025-10-28 03:48:52 - WARNING - [DomainScout] - Discovery returned no domains. Retrying next cycle.
+2025-10-28 03:48:52 - INFO - [DomainScout] - No new domains to check in this batch.
+2025-10-28 03:48:52 - INFO - [DomainScout] - Cycle 1 complete. Total discovered: 0 | Total flagged: 0
+2025-10-28 03:48:52 - INFO - [DomainScout] - ⏳ Waiting 3600s until next cycle...
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x7747a2b65300>)
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x7747a2b65300>) completed
+2025-10-28 03:49:27 - INFO - [DomainScout] - 
+==================================================
+2025-10-28 03:49:27 - INFO - [DomainScout] -        SHUTDOWN SIGNAL RECEIVED - Final Report
+2025-10-28 03:49:27 - INFO - [DomainScout] - ==================================================
+2025-10-28 03:49:27 - INFO - [DomainScout] - Total Cycles Completed: 1
+2025-10-28 03:49:27 - INFO - [DomainScout] - Domains Discovered in this session: 0
+2025-10-28 03:49:27 - INFO - [DomainScout] - Domains Flagged in this session: 0
+2025-10-28 03:49:27 - INFO - [DomainScout] - Database Path: /home/t0n34781/forever-scout/scout_data.db
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x7747a2b75bc0>
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x7747a2b75bc0> completed
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x7747a34bde40>, 'SELECT COUNT(*) FROM domains', [])
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x7747a34bde40>, 'SELECT COUNT(*) FROM domains', []) completed
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x7747a2b4a8c0>)
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x7747a2b4a8c0>) completed
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x7747a2b4a8c0>)
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x7747a2b4a8c0>) completed
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x7747a34bde40>, 'SELECT COUNT(*) FROM domains WHERE flagged = 1', [])
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x7747a34bde40>, 'SELECT COUNT(*) FROM domains WHERE flagged = 1', []) completed
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x7747a2b4a7c0>)
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x7747a2b4a7c0>) completed
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x7747a2b4a7c0>)
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x7747a2b4a7c0>) completed
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x7747a34bde40>)
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x7747a34bde40>) completed
+2025-10-28 03:49:27 - INFO - [DomainScout] - TOTAL Domains in DB: 0
+2025-10-28 03:49:27 - INFO - [DomainScout] - TOTAL Flagged Leads in DB: 0
+2025-10-28 03:49:27 - INFO - [DomainScout] - ==================================================
+
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x7747a2b75bc0>
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x7747a2b75bc0> completed
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x7747a2c732e0>, 'SELECT url, mobile_score, desktop_score, keyword, flagged FROM domains WHERE flagged = 1', [])
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x7747a2c732e0>, 'SELECT url, mobile_score, desktop_score, keyword, flagged FROM domains WHERE flagged = 1', []) completed
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchall of sqlite3.Cursor object at 0x7747a2b4a8c0>)
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchall of sqlite3.Cursor object at 0x7747a2b4a8c0>) completed
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x7747a2b4a8c0>)
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x7747a2b4a8c0>) completed
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x7747a2c732e0>)
+2025-10-28 03:49:27 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x7747a2c732e0>) completed
+2025-10-28 03:49:27 - INFO - [DomainScout] - No flagged domains found to export.
+2025-10-28 03:49:30 - INFO - [DomainScout] - Logging initialized. Console Level: INFO | File Level: DEBUG
+2025-10-28 03:49:30 - INFO - [DomainScout] - Starting Autonomous Domain Scout (v2)...
+2025-10-28 03:49:30 - DEBUG - [asyncio] - Using selector: EpollSelector
+2025-10-28 03:49:30 - INFO - [DomainScout] - 🚀 Performing pre-flight check on PSI API Key...
+2025-10-28 03:49:30 - WARNING - [DomainScout] - API Key Warning (400): Request contains an invalid argument.. Continuing, but check key.
+2025-10-28 03:49:30 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x723f5fd49b20>
+2025-10-28 03:49:30 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x723f5fd49b20> completed
+2025-10-28 03:49:30 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x723f5fd39300>, '\n            CREATE TABLE IF NOT EXISTS domains (\n                url TEXT PRIMARY KEY,\n                mobile_score INTEGER,\n                desktop_score INTEGER,\n                keyword TEXT,\n                flagged BOOLEAN,\n                last_checked_ts TEXT\n            )\n        ', [])
+2025-10-28 03:49:30 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x723f5fd39300>, '\n            CREATE TABLE IF NOT EXISTS domains (\n                url TEXT PRIMARY KEY,\n                mobile_score INTEGER,\n                desktop_score INTEGER,\n                keyword TEXT,\n                flagged BOOLEAN,\n                last_checked_ts TEXT\n            )\n        ', []) completed
+2025-10-28 03:49:30 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method commit of sqlite3.Connection object at 0x723f5fd39300>)
+2025-10-28 03:49:30 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method commit of sqlite3.Connection object at 0x723f5fd39300>) completed
+2025-10-28 03:49:30 - INFO - [DomainScout] - Database initialized successfully at: scout_data.db
+2025-10-28 03:49:30 - INFO - [DomainScout] - 
+================================================================================
+2025-10-28 03:49:30 - INFO - [DomainScout] - STARTING CYCLE 1 - Keyword Pool: Local Services | Keyword: 'dentist office [city] website'
+2025-10-28 03:49:30 - INFO - [DomainScout] - Target Score Limit: 60
+2025-10-28 03:49:30 - INFO - [DomainScout] - ================================================================================
+2025-10-28 03:49:30 - INFO - [DomainScout] - 🔎 Starting Google search for keyword: 'dentist office [city] website'...
+2025-10-28 03:49:30 - DEBUG - [urllib3.connectionpool] - Starting new HTTPS connection (1): www.google.com:443
+2025-10-28 03:49:30 - DEBUG - [urllib3.connectionpool] - https://www.google.com:443 "GET /search?q=dentist+office+%5Bcity%5D+website&num=17&hl=en&start=0&safe=active HTTP/1.1" 200 None
+2025-10-28 03:49:30 - INFO - [DomainScout] - ✅ Discovered 0 unique domains from search.
+2025-10-28 03:49:30 - WARNING - [DomainScout] - Discovery returned no domains. Retrying next cycle.
+2025-10-28 03:49:30 - INFO - [DomainScout] - No new domains to check in this batch.
+2025-10-28 03:49:30 - INFO - [DomainScout] - Cycle 1 complete. Total discovered: 0 | Total flagged: 0
+2025-10-28 03:49:30 - INFO - [DomainScout] - ⏳ Waiting 3600s until next cycle...
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x723f5fd39300>)
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x723f5fd39300>) completed
+2025-10-28 04:11:02 - INFO - [DomainScout] - 
+==================================================
+2025-10-28 04:11:02 - INFO - [DomainScout] -        SHUTDOWN SIGNAL RECEIVED - Final Report
+2025-10-28 04:11:02 - INFO - [DomainScout] - ==================================================
+2025-10-28 04:11:02 - INFO - [DomainScout] - Total Cycles Completed: 1
+2025-10-28 04:11:02 - INFO - [DomainScout] - Domains Discovered in this session: 0
+2025-10-28 04:11:02 - INFO - [DomainScout] - Domains Flagged in this session: 0
+2025-10-28 04:11:02 - INFO - [DomainScout] - Database Path: /home/t0n34781/forever-scout/scout_data.db
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x723f5fd49bc0>
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x723f5fd49bc0> completed
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x723f5ff9de40>, 'SELECT COUNT(*) FROM domains', [])
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x723f5ff9de40>, 'SELECT COUNT(*) FROM domains', []) completed
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x723f5fd1e8c0>)
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x723f5fd1e8c0>) completed
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x723f5fd1e8c0>)
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x723f5fd1e8c0>) completed
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x723f5ff9de40>, 'SELECT COUNT(*) FROM domains WHERE flagged = 1', [])
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x723f5ff9de40>, 'SELECT COUNT(*) FROM domains WHERE flagged = 1', []) completed
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x723f5fd1e7c0>)
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x723f5fd1e7c0>) completed
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x723f5fd1e7c0>)
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x723f5fd1e7c0>) completed
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x723f5ff9de40>)
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x723f5ff9de40>) completed
+2025-10-28 04:11:02 - INFO - [DomainScout] - TOTAL Domains in DB: 0
+2025-10-28 04:11:02 - INFO - [DomainScout] - TOTAL Flagged Leads in DB: 0
+2025-10-28 04:11:02 - INFO - [DomainScout] - ==================================================
+
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x723f5fd49bc0>
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x723f5fd49bc0> completed
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x723f5fddf2e0>, 'SELECT url, mobile_score, desktop_score, keyword, flagged FROM domains WHERE flagged = 1', [])
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x723f5fddf2e0>, 'SELECT url, mobile_score, desktop_score, keyword, flagged FROM domains WHERE flagged = 1', []) completed
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchall of sqlite3.Cursor object at 0x723f5fd1e8c0>)
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchall of sqlite3.Cursor object at 0x723f5fd1e8c0>) completed
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x723f5fd1e8c0>)
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x723f5fd1e8c0>) completed
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x723f5fddf2e0>)
+2025-10-28 04:11:02 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x723f5fddf2e0>) completed
+2025-10-28 04:11:02 - INFO - [DomainScout] - No flagged domains found to export.
+2025-10-28 04:11:13 - INFO - [DomainScout] - Logging initialized. Console Level: INFO | File Level: DEBUG
+2025-10-28 04:11:13 - INFO - [DomainScout] - Starting Autonomous Domain Scout (v2)...
+2025-10-28 04:11:13 - DEBUG - [asyncio] - Using selector: EpollSelector
+2025-10-28 04:11:13 - INFO - [DomainScout] - 🚀 Performing pre-flight check on PSI API Key...
+2025-10-28 04:11:13 - CRITICAL - [DomainScout] - API Key Failed Validation (400): API key not valid. Please pass a valid API key.
+2025-10-28 04:11:56 - INFO - [DomainScout] - Logging initialized. Console Level: INFO | File Level: DEBUG
+2025-10-28 04:11:56 - INFO - [DomainScout] - Starting Autonomous Domain Scout (v2)...
+2025-10-28 04:11:56 - DEBUG - [asyncio] - Using selector: EpollSelector
+2025-10-28 04:11:56 - INFO - [DomainScout] - 🚀 Performing pre-flight check on PSI API Key...
+2025-10-28 04:11:57 - WARNING - [DomainScout] - API Key Warning: Check returned HTTP 401. Continuing...
+2025-10-28 04:11:57 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x7b53e5774f40>
+2025-10-28 04:11:57 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x7b53e5774f40> completed
+2025-10-28 04:11:57 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x7b53e5765030>, '\n            CREATE TABLE IF NOT EXISTS domains (\n                url TEXT PRIMARY KEY,\n                mobile_score INTEGER,\n                desktop_score INTEGER,\n                keyword TEXT,\n                flagged BOOLEAN,\n                last_checked_ts TEXT\n            )\n        ', [])
+2025-10-28 04:11:57 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x7b53e5765030>, '\n            CREATE TABLE IF NOT EXISTS domains (\n                url TEXT PRIMARY KEY,\n                mobile_score INTEGER,\n                desktop_score INTEGER,\n                keyword TEXT,\n                flagged BOOLEAN,\n                last_checked_ts TEXT\n            )\n        ', []) completed
+2025-10-28 04:11:57 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method commit of sqlite3.Connection object at 0x7b53e5765030>)
+2025-10-28 04:11:57 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method commit of sqlite3.Connection object at 0x7b53e5765030>) completed
+2025-10-28 04:11:57 - INFO - [DomainScout] - Database initialized successfully at: scout_data.db
+2025-10-28 04:11:57 - INFO - [DomainScout] - 
+================================================================================
+2025-10-28 04:11:57 - INFO - [DomainScout] - STARTING CYCLE 1 - Keyword Pool: Health/Wellness | Keyword: 'private practice therapist'
+2025-10-28 04:11:57 - INFO - [DomainScout] - Target Score Limit: 60
+2025-10-28 04:11:57 - INFO - [DomainScout] - ================================================================================
+2025-10-28 04:11:57 - INFO - [DomainScout] - 🔎 Starting Google search for keyword: 'private practice therapist'...
+2025-10-28 04:11:57 - DEBUG - [urllib3.connectionpool] - Starting new HTTPS connection (1): www.google.com:443
+2025-10-28 04:11:57 - DEBUG - [urllib3.connectionpool] - https://www.google.com:443 "GET /search?q=private+practice+therapist&num=17&hl=en&start=0&safe=active HTTP/1.1" 200 None
+2025-10-28 04:11:57 - INFO - [DomainScout] - ✅ Discovered 0 unique domains from search.
+2025-10-28 04:11:57 - WARNING - [DomainScout] - Discovery returned no domains. Retrying next cycle.
+2025-10-28 04:11:57 - INFO - [DomainScout] - No new domains to check in this batch.
+2025-10-28 04:11:57 - INFO - [DomainScout] - Cycle 1 complete. Total discovered: 0 | Total flagged: 0
+2025-10-28 04:11:57 - INFO - [DomainScout] - ⏳ Waiting 3600s until next cycle...
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x7b53e5765030>)
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x7b53e5765030>) completed
+2025-10-28 04:32:12 - INFO - [DomainScout] - 
+==================================================
+2025-10-28 04:32:12 - INFO - [DomainScout] -        SHUTDOWN SIGNAL RECEIVED - Final Report
+2025-10-28 04:32:12 - INFO - [DomainScout] - ==================================================
+2025-10-28 04:32:12 - INFO - [DomainScout] - Total Cycles Completed: 1
+2025-10-28 04:32:12 - INFO - [DomainScout] - Domains Discovered in this session: 0
+2025-10-28 04:32:12 - INFO - [DomainScout] - Domains Flagged in this session: 0
+2025-10-28 04:32:12 - INFO - [DomainScout] - Database Path: /home/t0n34781/forever-scout/scout_data.db
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x7b53e5775d00>
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x7b53e5775d00> completed
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x7b53e60bde40>, 'SELECT COUNT(*) FROM domains', [])
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x7b53e60bde40>, 'SELECT COUNT(*) FROM domains', []) completed
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x7b53e574a8c0>)
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x7b53e574a8c0>) completed
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x7b53e574a8c0>)
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x7b53e574a8c0>) completed
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x7b53e60bde40>, 'SELECT COUNT(*) FROM domains WHERE flagged = 1', [])
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x7b53e60bde40>, 'SELECT COUNT(*) FROM domains WHERE flagged = 1', []) completed
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x7b53e574a7c0>)
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x7b53e574a7c0>) completed
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x7b53e574a7c0>)
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x7b53e574a7c0>) completed
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x7b53e60bde40>)
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x7b53e60bde40>) completed
+2025-10-28 04:32:12 - INFO - [DomainScout] - TOTAL Domains in DB: 0
+2025-10-28 04:32:12 - INFO - [DomainScout] - TOTAL Flagged Leads in DB: 0
+2025-10-28 04:32:12 - INFO - [DomainScout] - ==================================================
+
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x7b53e5775d00>
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x7b53e5775d00> completed
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x7b53e58732e0>, 'SELECT url, mobile_score, desktop_score, keyword, flagged FROM domains WHERE flagged = 1', [])
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x7b53e58732e0>, 'SELECT url, mobile_score, desktop_score, keyword, flagged FROM domains WHERE flagged = 1', []) completed
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchall of sqlite3.Cursor object at 0x7b53e574a8c0>)
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchall of sqlite3.Cursor object at 0x7b53e574a8c0>) completed
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x7b53e574a8c0>)
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x7b53e574a8c0>) completed
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x7b53e58732e0>)
+2025-10-28 04:32:12 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x7b53e58732e0>) completed
+2025-10-28 04:32:12 - INFO - [DomainScout] - No flagged domains found to export.
+2025-10-28 04:36:49 - INFO - [DomainScout] - Logging initialized. Console Level: INFO | File Level: DEBUG
+2025-10-28 04:36:49 - INFO - [DomainScout] - Starting Autonomous Domain Scout (v4 - Lighthouse CLI Focus)...
+2025-10-28 04:36:49 - DEBUG - [asyncio] - Using selector: EpollSelector
+2025-10-28 04:36:49 - INFO - [DomainScout] - 🚀 Performing pre-flight check for Lighthouse CLI...
+2025-10-28 04:36:50 - INFO - [DomainScout] - ✅ Lighthouse CLI check passed. Ready to score.
+2025-10-28 04:36:50 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x736e1e97cb80>
+2025-10-28 04:36:50 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x736e1e97cb80> completed
+2025-10-28 04:36:50 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x736e1e96cc70>, '\n            CREATE TABLE IF NOT EXISTS domains (\n                url TEXT PRIMARY KEY,\n                mobile_score INTEGER,\n                desktop_score INTEGER,\n                keyword TEXT,\n                flagged BOOLEAN,\n                last_checked_ts TEXT\n            )\n        ', [])
+2025-10-28 04:36:50 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x736e1e96cc70>, '\n            CREATE TABLE IF NOT EXISTS domains (\n                url TEXT PRIMARY KEY,\n                mobile_score INTEGER,\n                desktop_score INTEGER,\n                keyword TEXT,\n                flagged BOOLEAN,\n                last_checked_ts TEXT\n            )\n        ', []) completed
+2025-10-28 04:36:50 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method commit of sqlite3.Connection object at 0x736e1e96cc70>)
+2025-10-28 04:36:50 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method commit of sqlite3.Connection object at 0x736e1e96cc70>) completed
+2025-10-28 04:36:50 - INFO - [DomainScout] - Database initialized successfully at: scout_data.db
+2025-10-28 04:36:50 - INFO - [DomainScout] - 
+================================================================================
+2025-10-28 04:36:50 - INFO - [DomainScout] - STARTING CYCLE 1 - Keyword Pool: Audit/Optimization | Keyword: 'technical seo audit'
+2025-10-28 04:36:50 - INFO - [DomainScout] - Target Score Limit: 60
+2025-10-28 04:36:50 - INFO - [DomainScout] - ================================================================================
+2025-10-28 04:36:50 - INFO - [DomainScout] - 🔎 Starting Google search for keyword: 'technical seo audit'...
+2025-10-28 04:36:50 - DEBUG - [urllib3.connectionpool] - Starting new HTTPS connection (1): www.google.com:443
+2025-10-28 04:36:50 - DEBUG - [urllib3.connectionpool] - https://www.google.com:443 "GET /search?q=technical+seo+audit&num=17&hl=en&start=0&safe=active HTTP/1.1" 200 None
+2025-10-28 04:36:50 - INFO - [DomainScout] - ✅ Discovered 0 unique domains from search.
+2025-10-28 04:36:50 - WARNING - [DomainScout] - Discovery returned no domains. Retrying next cycle.
+2025-10-28 04:36:50 - INFO - [DomainScout] - No new domains to check in this batch.
+2025-10-28 04:36:50 - INFO - [DomainScout] - Cycle 1 complete. Total discovered: 0 | Total flagged: 0
+2025-10-28 04:36:50 - INFO - [DomainScout] - ⏳ Waiting 3600s until next cycle...
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x736e1e96cc70>)
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x736e1e96cc70>) completed
+2025-10-28 04:41:42 - INFO - [DomainScout] - 
+==================================================
+2025-10-28 04:41:42 - INFO - [DomainScout] -        SHUTDOWN SIGNAL RECEIVED - Final Report
+2025-10-28 04:41:42 - INFO - [DomainScout] - ==================================================
+2025-10-28 04:41:42 - INFO - [DomainScout] - Total Cycles Completed: 1
+2025-10-28 04:41:42 - INFO - [DomainScout] - Domains Discovered in this session: 0
+2025-10-28 04:41:42 - INFO - [DomainScout] - Domains Flagged in this session: 0
+2025-10-28 04:41:42 - INFO - [DomainScout] - Database Path: /home/t0n34781/forever-scout/scout_data.db
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x736e1e97cae0>
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x736e1e97cae0> completed
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x736e1ea0f6a0>, 'SELECT COUNT(*) FROM domains', [])
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x736e1ea0f6a0>, 'SELECT COUNT(*) FROM domains', []) completed
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x736e1e946440>)
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x736e1e946440>) completed
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x736e1e946440>)
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x736e1e946440>) completed
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x736e1ea0f6a0>, 'SELECT COUNT(*) FROM domains WHERE flagged = 1', [])
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x736e1ea0f6a0>, 'SELECT COUNT(*) FROM domains WHERE flagged = 1', []) completed
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x736e1e9462c0>)
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x736e1e9462c0>) completed
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x736e1e9462c0>)
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x736e1e9462c0>) completed
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x736e1ea0f6a0>)
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x736e1ea0f6a0>) completed
+2025-10-28 04:41:42 - INFO - [DomainScout] - TOTAL Domains in DB: 0
+2025-10-28 04:41:42 - INFO - [DomainScout] - TOTAL Flagged Leads in DB: 0
+2025-10-28 04:41:42 - INFO - [DomainScout] - ==================================================
+
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x736e1e97cae0>
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x736e1e97cae0> completed
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x736e1e96cc70>, 'SELECT url, mobile_score, desktop_score, keyword, flagged FROM domains WHERE flagged = 1', [])
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x736e1e96cc70>, 'SELECT url, mobile_score, desktop_score, keyword, flagged FROM domains WHERE flagged = 1', []) completed
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchall of sqlite3.Cursor object at 0x736e1e946440>)
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchall of sqlite3.Cursor object at 0x736e1e946440>) completed
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x736e1e946440>)
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x736e1e946440>) completed
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x736e1e96cc70>)
+2025-10-28 04:41:42 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x736e1e96cc70>) completed
+2025-10-28 04:41:42 - INFO - [DomainScout] - No flagged domains found to export.
+2025-10-28 04:41:45 - INFO - [DomainScout] - Logging initialized. Console Level: INFO | File Level: DEBUG
+2025-10-28 04:41:45 - INFO - [DomainScout] - Starting Autonomous Domain Scout (v4 - Lighthouse CLI Focus)...
+2025-10-28 04:41:45 - DEBUG - [asyncio] - Using selector: EpollSelector
+2025-10-28 04:41:45 - INFO - [DomainScout] - 🚀 Performing pre-flight check for Lighthouse CLI...
+2025-10-28 04:41:46 - INFO - [DomainScout] - ✅ Lighthouse CLI check passed. Ready to score.
+2025-10-28 04:41:46 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x710e7bd74b80>
+2025-10-28 04:41:46 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x710e7bd74b80> completed
+2025-10-28 04:41:46 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x710e7bd64c70>, '\n            CREATE TABLE IF NOT EXISTS domains (\n                url TEXT PRIMARY KEY,\n                mobile_score INTEGER,\n                desktop_score INTEGER,\n                keyword TEXT,\n                flagged BOOLEAN,\n                last_checked_ts TEXT\n            )\n        ', [])
+2025-10-28 04:41:46 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x710e7bd64c70>, '\n            CREATE TABLE IF NOT EXISTS domains (\n                url TEXT PRIMARY KEY,\n                mobile_score INTEGER,\n                desktop_score INTEGER,\n                keyword TEXT,\n                flagged BOOLEAN,\n                last_checked_ts TEXT\n            )\n        ', []) completed
+2025-10-28 04:41:46 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method commit of sqlite3.Connection object at 0x710e7bd64c70>)
+2025-10-28 04:41:46 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method commit of sqlite3.Connection object at 0x710e7bd64c70>) completed
+2025-10-28 04:41:46 - INFO - [DomainScout] - Database initialized successfully at: scout_data.db
+2025-10-28 04:41:46 - INFO - [DomainScout] - 
+================================================================================
+2025-10-28 04:41:46 - INFO - [DomainScout] - STARTING CYCLE 1 - Keyword Pool: Accessibility Compliance | Keyword: 'ADA website compliance'
+2025-10-28 04:41:46 - INFO - [DomainScout] - Target Score Limit: 60
+2025-10-28 04:41:46 - INFO - [DomainScout] - ================================================================================
+2025-10-28 04:41:46 - INFO - [DomainScout] - 🔎 Starting Google search for keyword: 'ADA website compliance'...
+2025-10-28 04:41:46 - ERROR - [DomainScout] - Google Search Failed for 'ADA website compliance': search() got an unexpected keyword argument 'stop'
+2025-10-28 04:41:46 - WARNING - [DomainScout] - Discovery returned no domains. Retrying next cycle.
+2025-10-28 04:41:46 - INFO - [DomainScout] - No new domains to check in this batch.
+2025-10-28 04:41:46 - INFO - [DomainScout] - Cycle 1 complete. Total discovered: 0 | Total flagged: 0
+2025-10-28 04:41:46 - INFO - [DomainScout] - ⏳ Waiting 3600s until next cycle...
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x710e7bd64c70>)
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x710e7bd64c70>) completed
+2025-10-28 04:48:29 - INFO - [DomainScout] - 
+==================================================
+2025-10-28 04:48:29 - INFO - [DomainScout] -        SHUTDOWN SIGNAL RECEIVED - Final Report
+2025-10-28 04:48:29 - INFO - [DomainScout] - ==================================================
+2025-10-28 04:48:29 - INFO - [DomainScout] - Total Cycles Completed: 1
+2025-10-28 04:48:29 - INFO - [DomainScout] - Domains Discovered in this session: 0
+2025-10-28 04:48:29 - INFO - [DomainScout] - Domains Flagged in this session: 0
+2025-10-28 04:48:29 - INFO - [DomainScout] - Database Path: /home/t0n34781/forever-scout/scout_data.db
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x710e7bd74ae0>
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x710e7bd74ae0> completed
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x710e7bd64d60>, 'SELECT COUNT(*) FROM domains', [])
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x710e7bd64d60>, 'SELECT COUNT(*) FROM domains', []) completed
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x710e7bd3de40>)
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x710e7bd3de40>) completed
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x710e7bd3de40>)
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x710e7bd3de40>) completed
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x710e7bd64d60>, 'SELECT COUNT(*) FROM domains WHERE flagged = 1', [])
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x710e7bd64d60>, 'SELECT COUNT(*) FROM domains WHERE flagged = 1', []) completed
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x710e7bd3dcc0>)
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchone of sqlite3.Cursor object at 0x710e7bd3dcc0>) completed
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x710e7bd3dcc0>)
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x710e7bd3dcc0>) completed
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x710e7bd64d60>)
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x710e7bd64d60>) completed
+2025-10-28 04:48:29 - INFO - [DomainScout] - TOTAL Domains in DB: 0
+2025-10-28 04:48:29 - INFO - [DomainScout] - TOTAL Flagged Leads in DB: 0
+2025-10-28 04:48:29 - INFO - [DomainScout] - ==================================================
+
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing <function connect.<locals>.connector at 0x710e7bd74ae0>
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation <function connect.<locals>.connector at 0x710e7bd74ae0> completed
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method execute of sqlite3.Connection object at 0x710e7bd65120>, 'SELECT url, mobile_score, desktop_score, keyword, flagged FROM domains WHERE flagged = 1', [])
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method execute of sqlite3.Connection object at 0x710e7bd65120>, 'SELECT url, mobile_score, desktop_score, keyword, flagged FROM domains WHERE flagged = 1', []) completed
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method fetchall of sqlite3.Cursor object at 0x710e7bd3de40>)
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method fetchall of sqlite3.Cursor object at 0x710e7bd3de40>) completed
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Cursor object at 0x710e7bd3de40>)
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Cursor object at 0x710e7bd3de40>) completed
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - executing functools.partial(<built-in method close of sqlite3.Connection object at 0x710e7bd65120>)
+2025-10-28 04:48:29 - DEBUG - [aiosqlite] - operation functools.partial(<built-in method close of sqlite3.Connection object at 0x710e7bd65120>) completed
+2025-10-28 04:48:29 - INFO - [DomainScout] - No flagged domains found to export.
+DEBUG: DEBUG mode enabled
+INFO: Starting Autonomous Domain Scout (v4.2)
+INFO: ✅ Lighthouse CLI detected
+INFO: Loaded keyword pools from config/keywords.atl.core.json (8 groups)
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web design agency Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web design agency Atlanta site:.com -pdf'
+INFO: ✅ Found 23 domains
+INFO: Queueing 23 domains for Lighthouse...
+INFO: Cycle 1 result: discovered=23 flagged=8
+INFO: One-shot mode complete.
+DEBUG: DEBUG mode enabled
+INFO: Starting Autonomous Domain Scout (v4.2)
+INFO: ✅ Lighthouse CLI detected
+DEBUG: DEBUG mode enabled
+INFO: Starting Autonomous Domain Scout (v4.2)
+INFO: ✅ Lighthouse CLI detected
+INFO: Loaded keyword pools from config/keywords.atl.core.json (8 groups)
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web design agency Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web design agency Atlanta'
+INFO: ✅ Found 19 domains
+INFO: Queueing 10 domains for Lighthouse...
+DEBUG: LH error http://badgrweb.com: Runtime error encountered: Chrome prevented page load with an interstitial. Make sure you are testing the correct URL and that the server is properly responding to all requests.
+
+INFO: Cycle 1 result: discovered=10 flagged=4
+INFO: One-shot mode complete.
+DEBUG: DEBUG mode enabled
+INFO: Starting Autonomous Domain Scout (v4.2)
+INFO: ✅ Lighthouse CLI detected
+INFO: Loaded keyword pools from config/keywords.atl.core.json (8 groups)
+INFO: ================================================================================
+INFO: CYCLE 1 | Pool: Local Hire Intent | Keyword: web design agency Atlanta
+INFO: ================================================================================
+INFO: 🔎 Searching: 'web design agency Atlanta'
+INFO: ✅ Found 18 domains
+INFO: Queueing 5 domains for Lighthouse...
+INFO: Cycle 1 result: discovered=5 flagged=3
+INFO: One-shot mode complete.
+2025-10-28 18:46:47 DEBUG: DEBUG mode enabled
+2025-10-28 18:46:51 DEBUG: DEBUG mode enabled

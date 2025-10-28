@@ -1,0 +1,471 @@
+Setup
+
+Create folders and files with these commands. Paste each block as-is.
+
+1) Script v4.2 (robust search, schema-migrate, ddgs, filters)
+
+mkdir -p ~/forever-scout/{src,config,data,logs}
+
+cat > ~/forever-scout/src/autonomous_scout.py <<'PY'
+#!/usr/bin/env python3
+"""
+AUTONOMOUS DOMAIN SCOUT (v4.2)
+- Resilient search: tries googlesearch (if installed), else ddgs
+- Geo/SMB targeting: optional --site-filter appended to each query
+- Concurrency throttle: --concurrency to limit Lighthouse runs
+- Schema migration: adds missing columns on the fly
+- Timezone-safe timestamps
+- Clean logs + CLI flags for one-shot or loop
+"""
+import argparse, asyncio, json, logging, re, shlex, subprocess, sys
+from logging.handlers import RotatingFileHandler
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Dict, List, Optional, Set, Tuple
+from urllib.parse import urlparse
+
+# ---------- Logging ----------
+ROOT = Path(__file__).resolve().parent.parent
+LOG_DIR = ROOT / "logs"
+LOG_DIR.mkdir(exist_ok=True)
+LOG_PATH = LOG_DIR / "scout_runtime.log"
+logger = logging.getLogger("scout")
+logger.setLevel(logging.DEBUG)
+console = logging.StreamHandler(sys.stdout); console.setLevel(logging.INFO)
+fileh = RotatingFileHandler(LOG_PATH, maxBytes=1_000_000, backupCount=3, encoding="utf-8"); fileh.setLevel(logging.DEBUG)
+fmt = logging.Formatter("%(levelname)s: %(message)s")
+console.setFormatter(fmt); fileh.setFormatter(fmt)
+if not logger.handlers:
+    logger.addHandler(console); logger.addHandler(fileh)
+
+# ---------- Defaults ----------
+DB_PATH = str(ROOT / "data" / "scout_data.db")
+DEFAULT_POOLS: Dict[str, List[str]] = {
+    "Accessibility & Compliance": ["ADA website compliance", "web accessibility audit"],
+    "Audit & Optimization": ["website performance audit", "core web vitals audit"],
+    "Commercial Service Intent": ["web development services", "website development agency"],
+}
+
+# ---------- Utilities ----------
+def clean_url(url_or_domain: str) -> Optional[str]:
+    if not url_or_domain: return None
+    s = url_or_domain.strip()
+    if not s: return None
+    if not re.match(r"^https?://", s, flags=re.I): s = "http://" + s
+    try:
+        p = urlparse(s); netloc = (p.netloc or "").lower()
+        if netloc.startswith("www."): netloc = netloc[4:]
+        scheme = p.scheme.lower() if p.scheme else "http"
+        return f"{scheme}://{netloc}" if netloc else None
+    except Exception:
+        return None
+
+async def ensure_db(conn) -> None:
+    await conn.execute("""
+        CREATE TABLE IF NOT EXISTS domains(
+            url TEXT PRIMARY KEY,
+            last_checked TEXT,
+            score INTEGER,
+            keyword TEXT,
+            pool TEXT,
+            cycle INTEGER
+        )
+    """); await conn.commit()
+
+async def migrate_schema(conn) -> None:
+    async with conn.execute("PRAGMA table_info(domains)") as cur:
+        cols = {r[1] for r in await cur.fetchall()}
+    need = [("last_checked","TEXT"),("score","INTEGER"),("keyword","TEXT"),("pool","TEXT"),("cycle","INTEGER")]
+    for col, typ in need:
+        if col not in cols:
+            await conn.execute(f"ALTER TABLE domains ADD COLUMN {col} {typ}")
+    await conn.commit()
+
+async def domain_exists(conn, url_or_domain: str) -> bool:
+    cleaned = clean_url(url_or_domain)
+    if not cleaned: return True
+    async with conn.execute("SELECT 1 FROM domains WHERE url = ?", (cleaned,)) as cur:
+        return (await cur.fetchone()) is not None
+
+async def save_result(conn, url: str, score: Optional[int], keyword: str, pool: str, cycle: int) -> None:
+    cleaned = clean_url(url)
+    if not cleaned: return
+    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    await conn.execute(
+        "INSERT OR REPLACE INTO domains(url,last_checked,score,keyword,pool,cycle) VALUES(?,?,?,?,?,?)",
+        (cleaned, now, score, keyword, pool, cycle)
+    ); await conn.commit()
+
+def has_lighthouse() -> bool:
+    try:
+        subprocess.run(["lighthouse","--version"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+        return True
+    except Exception:
+        return False
+
+async def run_lighthouse(url: str, timeout_sec: int = 120) -> Optional[int]:
+    cleaned = clean_url(url)
+    if not cleaned: return None
+    cmd = f"lighthouse {shlex.quote(cleaned)} --quiet --chrome-flags='--headless=new' --output=json --output-path=stdout"
+    try:
+        proc = await asyncio.create_subprocess_shell(cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+        stdout, stderr = await asyncio.wait_for(proc.communicate(), timeout=timeout_sec)
+        if proc.returncode != 0:
+            logger.debug(f"LH error {cleaned}: {stderr.decode(errors='ignore')[:300]}"); return None
+        data = stdout.decode(errors="ignore"); last = data.rfind("}")
+        if last == -1: return None
+        rep = json.loads(data[:last+1])
+        perf = rep.get("categories",{}).get("performance",{}).get("score")
+        return int(round(perf*100)) if isinstance(perf,float) else (int(perf) if perf is not None else None)
+    except asyncio.TimeoutError:
+        logger.warning(f"Lighthouse timed out for {cleaned}"); return None
+    except FileNotFoundError:
+        logger.error("Lighthouse not found. npm i -g lighthouse"); return None
+    except Exception as e:
+        logger.debug(f"LH failed {cleaned}: {e}"); return None
+
+# ---------- Discovery ----------
+def _emit_urls(urls, out: Set[str]) -> None:
+    bad = ("google.","bing.","facebook.","twitter.","youtube.","linkedin.","reddit.","github.com")
+    for u in urls or []:
+        try:
+            p = urlparse(u); host = (p.netloc or p.path or "").lower()
+            host = host.replace("www.","")
+            if not host: continue
+            if any(b in host for b in bad): continue
+            out.add(host)
+        except Exception:
+            continue
+
+def discover_domains(keyword: str, max_results: int, user_agent: str, site_filter: str) -> Set[str]:
+    q = keyword.strip()
+    if site_filter: q = f"{q} {site_filter}"
+    logger.info(f"🔎 Searching: '{q}'")
+    domains: Set[str] = set()
+
+    # A) googlesearch (two signatures) if available
+    try:
+        from googlesearch import search as gsearch  # optional dependency
+        try:
+            _emit_urls(list(gsearch(q, num_results=max_results, lang="en")), domains)
+        except TypeError:
+            _emit_urls(list(gsearch(q, stop=max_results, pause=2.8, user_agent=user_agent)), domains)
+    except Exception as e:
+        logger.debug(f"googlesearch unavailable or blocked: {e}")
+
+    # B) ddgs fallback (no key)
+    if not domains:
+        try:
+            from ddgs import DDGS
+            with DDGS() as ddgs:
+                res = ddgs.text(q, region="us-en", max_results=max_results)
+                urls = [r.get("href") or r.get("link") or r.get("url") for r in res if isinstance(r,dict)]
+                _emit_urls(urls, domains)
+        except Exception as e:
+            logger.warning(f"DDGS fallback failed: {e}")
+
+    logger.info(f"✅ Found {len(domains)} domains")
+    return domains
+
+# ---------- Pipeline ----------
+async def process_batch(conn, domains: Set[str], score_limit: int, keyword: str, pool: str, cycle: int, concurrency: int, enable_lh: bool) -> Tuple[int,int]:
+    new_targets: List[str] = []
+    for d in domains:
+        url = clean_url(d) or f"http://{d}"
+        if not await domain_exists(conn, url): new_targets.append(url)
+
+    logger.info(f"Queueing {len(new_targets)} domains{' for Lighthouse' if enable_lh else ''}...")
+    discovered, flagged = 0, 0
+    if not enable_lh:
+        for url in new_targets:
+            await save_result(conn, url, None, keyword, pool, cycle)
+            discovered += 1
+        return discovered, flagged
+
+    sem = asyncio.Semaphore(max(1, concurrency))
+    async def worker(u: str):
+        async with sem:
+            s = await run_lighthouse(u)
+            return (u, s)
+
+    results = await asyncio.gather(*[worker(u) for u in new_targets], return_exceptions=False)
+    for url, score in results:
+        discovered += 1
+        s_int = score if isinstance(score,int) else None
+        if s_int is not None and s_int < score_limit: flagged += 1
+        await save_result(conn, url, s_int, keyword, pool, cycle)
+    return discovered, flagged
+
+# ---------- Main ----------
+async def main():
+    ap = argparse.ArgumentParser(description="Autonomous Domain Scout v4.2")
+    ap.add_argument("--db", default=DB_PATH, help="SQLite DB path")
+    ap.add_argument("--loop-delay", type=int, default=3600, help="Seconds between cycles")
+    ap.add_argument("--score-limit", type=int, default=60, help="Flag sites below this score")
+    ap.add_argument("--max-results", type=int, default=20, help="Max search results per keyword")
+    ap.add_argument("--once", action="store_true", help="Run a single cycle then exit")
+    ap.add_argument("--keywords", type=str, default="", help="Path to JSON keyword pools")
+    ap.add_argument("--debug", action="store_true", help="Enable DEBUG logging")
+    ap.add_argument("--site-filter", type=str, default="", help="String appended to every query (e.g., 'site:.com -pdf')")
+    ap.add_argument("--concurrency", type=int, default=3, help="Parallel Lighthouse runs")
+    ap.add_argument("--no-lh", action="store_true", help="Disable Lighthouse scoring (discovery-only)")
+    ap.add_argument("--user-agent", type=str, default="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36", help="UA for googlesearch")
+    args = ap.parse_args()
+
+    if args.debug: console.setLevel(logging.DEBUG); logger.debug("DEBUG mode enabled")
+    logger.info("Starting Autonomous Domain Scout (v4.2)")
+    if not args.no_lh and has_lighthouse():
+        logger.info("✅ Lighthouse CLI detected")
+    elif args.no_lh:
+        logger.info("ℹ️ Lighthouse disabled by --no-lh")
+    else:
+        logger.warning("⚠️ Lighthouse not found; discovery will run, scoring will fail")
+
+    import aiosqlite
+    async with aiosqlite.connect(args.db) as conn:
+        await ensure_db(conn); await migrate_schema(conn)
+
+        pools = DEFAULT_POOLS
+        if args.keywords:
+            try:
+                p = Path(args.keywords)
+                if p.exists():
+                    pools = json.loads(p.read_text(encoding="utf-8"))
+                    logger.info(f"Loaded keyword pools from {p} ({len(pools)} groups)")
+                else:
+                    logger.warning(f"Keyword file not found: {p}. Using defaults.")
+            except Exception as e:
+                logger.warning(f"Failed to load keyword pools: {e}. Using defaults.")
+
+        cycle = 1
+        try:
+            while True:
+                for pool_name, keywords in pools.items():
+                    for kw in keywords:
+                        logger.info("="*80)
+                        logger.info(f"CYCLE {cycle} | Pool: {pool_name} | Keyword: {kw}")
+                        logger.info("="*80)
+                        domains = discover_domains(kw, args.max_results, args.user_agent, args.site_filter)
+                        if not domains:
+                            logger.warning("No domains found. Skipping."); continue
+                        discovered, flagged = await process_batch(
+                            conn, domains, args.score_limit, kw, pool_name, cycle,
+                            args.concurrency, enable_lh=(not args.no_lh))
+                        logger.info(f"Cycle {cycle} result: discovered={discovered} flagged={flagged}")
+                        if args.once:
+                            logger.info("One-shot mode complete."); return
+                cycle += 1
+                logger.info(f"Waiting {args.loop_delay}s before next run...")
+                await asyncio.sleep(args.loop_delay)
+        except KeyboardInterrupt:
+            logger.info("Shutdown requested (Ctrl+C).")
+if __name__ == "__main__":
+    asyncio.run(main())
+PY
+
+
+REQ'S:
+
+cat > ~/forever-scout/requirements.txt <<'REQ'
+aiosqlite>=0.20.0
+ddgs>=2.5.3
+google>=3.0.0 ; python_version < "3.13"
+REQ
+
+. ~/forever-scout/.venv/bin/activate 2>/dev/null || true
+pip install -r ~/forever-scout/requirements.txt
+
+
+
+Atlanta-core keywords (filters appended where it matters)
+
+cat > ~/forever-scout/config/keywords.atl.core.json <<'JSON'
+{
+  "Local Hire Intent": [
+    "web design agency Atlanta",
+    "web developers near me Atlanta",
+    "website development company near me Atlanta",
+    "web accessibility consultant near Atlanta",
+    "website maintenance Atlanta",
+    "web developer Midtown Atlanta",
+    "web developer Buckhead",
+    "website design Marietta",
+    "web development Alpharetta",
+    "website optimization Decatur",
+    "wordpress maintenance Atlanta",
+    "SEO audit Roswell",
+    "web maintenance Sandy Springs"
+  ],
+  "Commercial Service Intent": [
+    "web development services Atlanta site:.com -pdf",
+    "website development agency Atlanta site:.com -pdf",
+    "custom web development Georgia site:.com -pdf",
+    "wordpress website speed optimization Atlanta site:.com -pdf",
+    "react web development Atlanta site:.com -pdf",
+    "ADA compliance web development Atlanta site:.com -pdf",
+    "headless CMS development Atlanta site:.com -pdf"
+  ],
+  "Pain & Dissatisfaction": [
+    "unhappy with web developer Atlanta",
+    "switch web development agency Atlanta",
+    "digital agency Atlanta not delivering",
+    "website developer not meeting expectations Atlanta",
+    "poor website maintenance service Georgia",
+    "seo retainer not worth it Atlanta",
+    "web maintenance contract issues Georgia"
+  ],
+  "Audit & Optimization": [
+    "website performance audit Atlanta site:.com -pdf",
+    "core web vitals audit Atlanta site:.com -pdf",
+    "technical seo audit Atlanta site:.com -pdf",
+    "mobile usability audit Georgia site:.com -pdf",
+    "conversion rate optimization audit Atlanta site:.com -pdf",
+    "ADA accessibility audit Atlanta site:.com -pdf",
+    "free website audit Atlanta site:.com -pdf"
+  ],
+  "Accessibility & Compliance": [
+    "ADA website compliance Georgia",
+    "ADA compliance web design Atlanta",
+    "WCAG audit Georgia",
+    "web accessibility services Atlanta",
+    "ADA remediation Georgia",
+    "Section 508 compliance audit Atlanta",
+    "make my website ADA compliant Atlanta"
+  ],
+  "Retainer & Maintenance": [
+    "monthly website support Atlanta",
+    "web development retainer Georgia",
+    "website maintenance contract Atlanta",
+    "website maintenance packages Georgia",
+    "wordpress maintenance retainer Atlanta",
+    "ongoing website support Atlanta",
+    "website maintenance cost per month Atlanta"
+  ],
+  "Modern & Forward-Looking": [
+    "Jamstack development Atlanta",
+    "Next.js developer Atlanta",
+    "serverless web development Georgia",
+    "progressive web app developer Atlanta",
+    "core web vitals optimization Atlanta",
+    "edge rendering website Atlanta",
+    "modern web performance optimization Georgia"
+  ],
+  "Informational Top-Funnel": [
+    "web development Atlanta",
+    "website development Atlanta",
+    "web developer Atlanta",
+    "full stack web developer Atlanta",
+    "website development costs Atlanta",
+    "web development pricing Georgia"
+  ]
+}
+JSON
+
+
+Optional quadrants (only if helpful for outreach routing or territory focus)
+
+# North (Alpharetta, Roswell, Johns Creek, Cumming)
+cat > ~/forever-scout/config/keywords.atl.north.json <<'JSON'
+{
+  "Commercial Service Intent": [
+    "web development services Alpharetta site:.com -pdf",
+    "website development agency Roswell site:.com -pdf",
+    "wordpress speed optimization Johns Creek site:.com -pdf"
+  ],
+  "Audit & Optimization": [
+    "website performance audit Alpharetta site:.com -pdf",
+    "core web vitals audit Roswell site:.com -pdf"
+  ],
+  "Local Hire Intent": [
+    "web developer Alpharetta",
+    "SEO audit Roswell",
+    "website maintenance Johns Creek"
+  ]
+}
+JSON
+
+# South (College Park, East Point, Hapeville, Union City)
+cat > ~/forever-scout/config/keywords.atl.south.json <<'JSON'
+{
+  "Commercial Service Intent": [
+    "web development services College Park site:.com -pdf",
+    "website development agency East Point site:.com -pdf"
+  ],
+  "Audit & Optimization": [
+    "website performance audit Hapeville site:.com -pdf"
+  ],
+  "Local Hire Intent": [
+    "web developer Union City",
+    "website maintenance College Park"
+  ]
+}
+JSON
+
+# East (Decatur, Stone Mountain, Tucker)
+cat > ~/forever-scout/config/keywords.atl.east.json <<'JSON'
+{
+  "Commercial Service Intent": [
+    "web development services Decatur site:.com -pdf",
+    "website development agency Tucker site:.com -pdf"
+  ],
+  "Audit & Optimization": [
+    "website performance audit Stone Mountain site:.com -pdf"
+  ],
+  "Local Hire Intent": [
+    "website optimization Decatur",
+    "web developer Tucker"
+  ]
+}
+JSON
+
+# West (Smyrna, Marietta, Mableton)
+cat > ~/forever-scout/config/keywords.atl.west.json <<'JSON'
+{
+  "Commercial Service Intent": [
+    "website development agency Marietta site:.com -pdf",
+    "web development services Smyrna site:.com -pdf"
+  ],
+  "Audit & Optimization": [
+    "website performance audit Marietta site:.com -pdf"
+  ],
+  "Local Hire Intent": [
+    "website maintenance Smyrna",
+    "web developer Mableton"
+  ]
+}
+JSON
+
+
+Run - * Switch to Global Alias:
+
+One-shot, Atlanta core, score threshold 60, 30 results, with filter appended to every query too (belt-and-suspenders):
+
+
+You said:
+
+
+cd ~/forever-scout
+. .venv/bin/activate
+python src/autonomous_scout.py --keywords config/keywords.atl.core.json --max-results 30 --score-limit 60 --debug --once --site-filter "site:.com -pdf"
+
+python src/autonomous_scout.py --keywords config/keywords.atl.north.json --max-results 20 --score-limit 60 --debug --once --site-filter "site:.com -pdf"
+
+Notes
+
+If Google throttles, ddgs fallback will handle discovery. If both return 0, reduce max-results to 10 and rerun.
+
+If your DB was created by an old script, v4.2 auto-migrates columns. No manual SQL needed.
+
+To discovery-only (skip LH), add:
+
+Suggestions to improve hit-rate
+
+Add “near me” only in Local pool; keep Commercial/Audit as “city + site:.com -pdf”.
+
+Add industry slices per pass, e.g. “restaurant”, “dentist”, “law firm”, “home services”, “auto repair”:
+
+Example: “website performance audit Atlanta restaurant site:.com -pdf”
+
+Keep concurrency at 3–5 to be polite and avoid transient blocks.
+
+If you want, I can generate micro-keyword packs per vertical next, then rotate them nightly.
