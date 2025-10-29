@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CWV Reference Map",
+  "type": "object",
+  "required": ["_meta"],
+  "properties": {
+    "_meta": {
+      "type": "object",
+      "required": ["version", "updated"],
+      "properties": {
+        "version": { "type": "string" },
+        "updated": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "patternProperties": {
+    "^(?!_meta$)[a-z0-9\\-]+$": {
+      "type": "object",
+      "required": ["description", "pain_point"],
+      "properties": {
+        "description": { "type": "string", "minLength": 3 },
+        "pain_point":  { "type": "string", "minLength": 3 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

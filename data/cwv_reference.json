@@ -1,0 +1,83 @@
+{
+  "_meta": { "version": "1.0.0", "updated": "2025-10-29", "notes": "CWV/Lighthouse descriptors" },
+  "first-contentful-paint": {
+    "description": "Time until first text or image is painted.",
+    "pain_point": "Blank screen perception; users leave early."
+  },
+  "largest-contentful-paint": {
+    "description": "Time until the main above-the-fold element renders.",
+    "pain_point": "Heavy hero media delays perceived completion."
+  },
+  "interaction-to-next-paint": {
+    "description": "Overall responsiveness to user input.",
+    "pain_point": "Main-thread blocking JS causes lag."
+  },
+  "experimental-interaction-to-next-paint": {
+    "description": "Legacy INP key (back-compat).",
+    "pain_point": "Same as INP."
+  },
+  "cumulative-layout-shift": {
+    "description": "Unexpected movement of visible content.",
+    "pain_point": "Mis-taps and reading position loss."
+  },
+  "speed-index": {
+    "description": "How quickly content is visually displayed.",
+    "pain_point": "Perceived slowness from staggered paint."
+  },
+  "interactive": {
+    "description": "Time to fully interactive.",
+    "pain_point": "App looks ready but inputs fail."
+  },
+  "server-response-time": {
+    "description": "Backend latency / TTFB.",
+    "pain_point": "Slow server drags every page."
+  },
+  "uses-optimized-images": {
+    "description": "Images compressed and efficient.",
+    "pain_point": "Oversized media bloats pages."
+  },
+  "uses-text-compression": {
+    "description": "gzip/br enabled for text assets.",
+    "pain_point": "Uncompressed JS/CSS slows transfer."
+  },
+  "render-blocking-resources": {
+    "description": "Blocking CSS/JS delays first paint.",
+    "pain_point": "Long blank screen before content."
+  },
+  "uses-rel-preload": {
+    "description": "Preload for key resources.",
+    "pain_point": "Critical assets arrive late."
+  },
+  "unused-javascript": {
+    "description": "Dead code shipped.",
+    "pain_point": "Heavier bundle; slower parse/exec."
+  },
+  "unused-css-rules": {
+    "description": "CSS not used by page.",
+    "pain_point": "Heavier stylesheets; render delays."
+  },
+  "uses-long-cache-ttl": {
+    "description": "Static assets not cached well.",
+    "pain_point": "Repeat visits pay full cost."
+  },
+  "uses-http2": {
+    "description": "HTTP/2 disabled.",
+    "pain_point": "No multiplexing; slower delivery."
+  },
+  "viewport": {
+    "description": "Responsive meta viewport issues.",
+    "pain_point": "Mobile zoom/scroll pain; bounce."
+  },
+  "color-contrast": {
+    "description": "Insufficient contrast.",
+    "pain_point": "Legibility and ADA risk."
+  },
+  "image-alt": {
+    "description": "Missing alt text.",
+    "pain_point": "Assistive tech and SEO context loss."
+  },
+  "meta-description": {
+    "description": "Meta description missing/poor.",
+    "pain_point": "Weak SERP CTR; fewer leads."
+  }
+}

@@ -25,3 +25,13 @@ outputs/
 
 # macOS files
 .DS_Store
+# Generated data/artifacts
+data/keywords_master_next.csv
+outputs/queries_next.csv
+outputs/cwv_summary.csv
+outputs/cwv_summary.md
+outputs/cwv_summary.html
+outputs/logs/*
+# Editor/backup
+scripts/run.sh~
+*.bak.*
