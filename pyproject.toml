@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "postmortem-pipeline"
+version = "0.1.0"
+description = "Chat/media postmortem automation."
+authors = [{ name = "BADGRTechnologies LLC" }]
+requires-python = ">=3.10"
+dependencies = ["openai>=1.50.2", "pillow>=10.0.0"]
+
+[project.scripts]
+postmortem = "postmortem:main"
+# EOF
