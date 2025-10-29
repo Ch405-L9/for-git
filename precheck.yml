@@ -1,0 +1,20 @@
+name: Pre-Check Agent
+on:
+  pull_request:
+  push:
+    branches: [ main, master, feature/** ]
+
+jobs:
+  precheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set SHN
+        run: echo "SHN=SHN-2025-10-26-BLD-001" >> $GITHUB_ENV
+      - name: Run Pre-Check
+        run: bash scripts/precheck.sh preflight/precheck.report.json
+      - name: Upload Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: precheck-report
+          path: preflight/precheck.report.json

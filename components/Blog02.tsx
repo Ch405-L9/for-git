@@ -1,0 +1,7 @@
+/* auto-generated; do not edit */
+import React from 'react';
+import src from '../../assets/blog-02.webp';
+type Props = Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt'> & { alt?: string };
+export default function Blog02({ alt, ...rest }: Props) {
+  return <img src={String(src)} alt={alt ?? 'Blog 02'} loading="lazy" decoding="async" {...rest} />;
+}
