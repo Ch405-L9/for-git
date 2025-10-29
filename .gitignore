@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+.env
+.env.*
+.pytest_cache/
+.mypy_cache/
+dist/
+build/
+
+# Node
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+.next/
+coverage/
+*.log
+
+# Project outputs
+badgr_bot/outputs/
