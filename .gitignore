@@ -1,8 +1,8 @@
-# Python
+# Python and Virtual Environments
+.venv/
 __pycache__/
 *.py[cod]
 *.pyo
-.venv/
 .env
 .env.*
 .pytest_cache/
@@ -19,5 +19,9 @@ node_modules/
 coverage/
 *.log
 
-# Project outputs
+# Project Outputs
 badgr_bot/outputs/
+outputs/
+
+# macOS files
+.DS_Store
