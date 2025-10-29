@@ -1,0 +1,101 @@
+{
+  "Local Hire Intent": [
+    "web developers near me Atlanta",
+    "website development company near me Atlanta",
+    "web design agency Atlanta",
+    "ADA website compliance Atlanta",
+    "web accessibility audit Atlanta",
+    "website speed optimization Atlanta",
+    "web developer Gwinnett County",
+    "website design Marietta",
+    "web development Alpharetta",
+    "web maintenance Sandy Springs",
+    "website optimization Decatur",
+    "wordpress maintenance Atlanta",
+    "SEO audit Roswell",
+    "web accessibility consultant near Atlanta",
+    "web developer 30004",
+    "web developer 30303",
+    "web developer 30308",
+    "web developer 30309",
+    "web developer 30318",
+    "web developer 30328",
+    "web developer 30060",
+    "web developer 30062",
+    "web developer 30075",
+    "web developer 30076",
+    "web developer 30097"
+  ],
+  "Commercial Service Intent": [
+    "web development services Atlanta",
+    "web development company Georgia",
+    "website development agency Atlanta",
+    "web development firm near Atlanta",
+    "custom web development Georgia",
+    "wordpress website speed optimization Atlanta",
+    "react web development Atlanta",
+    "ADA compliance web development Atlanta",
+    "website performance audit Georgia",
+    "digital marketing and optimization Atlanta"
+  ],
+  "Pain & Dissatisfaction": [
+    "web development agency not delivering results Atlanta",
+    "unhappy with web developer Atlanta",
+    "switch web development agency Atlanta",
+    "digital agency Atlanta not delivering",
+    "poor website maintenance service Georgia",
+    "need a new web developer Atlanta",
+    "seo retainer not worth it Atlanta",
+    "website developer not meeting expectations Atlanta",
+    "web maintenance contract issues Georgia",
+    "switch seo agency Atlanta"
+  ],
+  "Audit & Optimization": [
+    "website performance audit Atlanta",
+    "core web vitals audit Atlanta",
+    "technical seo audit Atlanta",
+    "mobile usability audit Georgia",
+    "conversion rate optimization audit Atlanta",
+    "ADA accessibility audit Atlanta",
+    "free website audit Atlanta",
+    "lighthouse performance score improvement Atlanta"
+  ],
+  "Accessibility & Compliance": [
+    "ADA website compliance Georgia",
+    "ADA compliance web design Atlanta",
+    "WCAG audit Georgia",
+    "web accessibility services Atlanta",
+    "ADA remediation Georgia",
+    "Section 508 compliance audit Atlanta",
+    "make my website ADA compliant Atlanta"
+  ],
+  "Retainer & Maintenance": [
+    "monthly website support Atlanta",
+    "web development retainer Georgia",
+    "website maintenance contract Atlanta",
+    "website maintenance packages Georgia",
+    "wordpress maintenance retainer Atlanta",
+    "ongoing website support Atlanta",
+    "seo retainer services Atlanta",
+    "website maintenance cost per month Atlanta"
+  ],
+  "Modern & Forward-Looking": [
+    "Jamstack development Atlanta",
+    "Next.js developer Atlanta",
+    "serverless web development Georgia",
+    "headless CMS development Atlanta",
+    "progressive web app developer Atlanta",
+    "core web vitals optimization Atlanta",
+    "edge rendering website Atlanta",
+    "modern web performance optimization Georgia"
+  ],
+  "Informational Top-Funnel": [
+    "web development Atlanta",
+    "website development Atlanta",
+    "web developer Atlanta",
+    "full stack web developer Atlanta",
+    "website development costs Atlanta",
+    "web development pricing Georgia",
+    "learn web development Atlanta"
+  ]
+}
