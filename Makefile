@@ -11,3 +11,13 @@ enrich:
 
 clean:
 	rm -rf outputs/enriched/enriched.csv
+
+.PHONY: enrich autodoc one_shot
+enrich:
+	@bash scripts/enrich.sh || true
+
+autodoc:
+	@bash scripts/update_helpers_and_docs.sh || true
+
+one_shot: enrich autodoc
+	@echo "[DONE] Enrichment + Autodoc complete"
