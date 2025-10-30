@@ -1,59 +1,36 @@
-# BADGR_BOT – R9 Enrichment Phase (Automated Report)
+# BADGR_BOT v9 — R9/R10 Enrichment + Autodoc (Beta)
 
-## Overview
-This build finalizes the R9 phase of BADGR_BOT, focusing on **lead enrichment** using the Upgini API and local automation helpers.
-All modules and dependencies were validated under **Python 3.12.3** inside a clean \`.venv\`.
+Automation for lead discovery → contacts CSV → enrichment (Upgini or fallback) → autodoc.
+Hardened for heredocs, Makefile TAB safety, and auto-venv activation.
 
-## Key Fixes & Milestones
-| Step | Description | Result |
-|------|-------------|--------|
-| 1 | Fixed missing \`pandas\` in isolated venv | Successful import |
-| 2 | Installed Cairo and build deps for Upgini's PDF chain | Upgini installed cleanly |
-| 3 | Corrected \`FeaturesEnricher\` call (expects dict of column→SearchKey) | No constructor errors |
-| 4 | Added non-constant synthetic target \`y\` (from email hash) | Passed Upgini validation |
-| 5 | Validated with 2 unique test emails | Enrichment executed |
-| 6 | Added helper scripts, Makefile, and auto-documentation | Automation in place |
+## Features
+- Lead capture via keyword configs in `configs/`
+- Enrichment with Upgini (skips provider if rows < 100 or no key)
+- Autodoc helper regenerates README and BUILD instructions
+- Scripts auto-activate `.venv` when present
+- Structured outputs under `outputs/`
 
-## Commands
+## Setup
+```bash
+cd ~/badgr_bot
+python3 -m venv .venv && . .venv/bin/activate && pip install --upgrade pip
+pip install -r requirements.txt
+pip install upgini pandas
+Keys
+bash
+Copy code
+export UPGINI_API_KEY="YOUR_KEY"
+# or persist:
+echo 'UPGINI_API_KEY=YOUR_KEY' >> .env
+Run
+bash
+Copy code
+make one_shot             # enrich + autodoc
+bash scripts/enrich.sh    # enrich only
+bash scripts/update_helpers_and_docs.sh  # autodoc only
+Notes
+Upgini requires ≥ 100 labeled rows after validation
 
-### Setup Environment
-\`\`\`bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install pandas upgini
-export UPGINI_API_KEY="your_key_here"
-\`\`\`
+Fallback preserves schema and passes postcheck
 
-### Run Enrichment
-\`\`\`bash
-make enrich
-\`\`\`
-
-### Validate
-\`\`\`bash
-./scripts/postcheck_enrichment.sh outputs/enriched/enriched.csv
-\`\`\`
-
-### Full Automation
-\`\`\`bash
-./scripts/update_helpers_and_docs.sh
-git add .
-git commit -m "auto: refresh helpers + docs"
-git push
-\`\`\`
-
-## Files Created
-| File | Purpose |
-|------|---------|
-| scripts/enrich.sh | CLI wrapper for enrichment |
-| .env.example | API key template |
-| Makefile | Simplified task runner |
-| README.md | Build log for GitHub |
-| BUILD_INSTRUCTIONS.txt | Local offline reference |
-
-## Validation Summary
-- Python 3.12.3 ✓
-- Upgini 1.2.x integrated ✓
-- CSV → Enriched CSV pipeline verified ✓
-- Robust fallback on missing/insufficient data ✓
-- Reproducible with one command (\`make enrich\`) ✓
+Do not commit .env or keys (see .gitignore)
