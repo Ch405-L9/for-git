@@ -14,10 +14,10 @@ clean:
 
 .PHONY: enrich autodoc one_shot
 enrich:
-	@bash scripts/enrich.sh || true
+	@bash scripts/enrich.sh
 
 autodoc:
-	@bash scripts/update_helpers_and_docs.sh || true
+	@bash scripts/update_helpers_and_docs.sh
 
 one_shot: enrich autodoc
 	@echo "[DONE] Enrichment + Autodoc complete"
