@@ -1,39 +1,6 @@
-# Python and Virtual Environments
-.venv/
-__pycache__/
-*.py[cod]
-*.pyo
-.env
-.env.*
-.pytest_cache/
-.mypy_cache/
-dist/
-build/
 
-# Node
-node_modules/
-.npm/
-.pnpm-store/
-.yarn/
-.next/
-coverage/
-*.log
-
-# Project Outputs
-badgr_bot/outputs/
+Outputs and caches
 outputs/
-
-# macOS files
-.DS_Store
-# Generated data/artifacts
-data/keywords_master_next.csv
-outputs/queries_next.csv
-outputs/cwv_summary.csv
-outputs/cwv_summary.md
-outputs/cwv_summary.html
-outputs/logs/*
-# Editor/backup
-scripts/run.sh~
-*.bak.*
-outputs/**
-!outputs/.gitkeep
+!.gitkeep
+pycache/
+*.pyc
