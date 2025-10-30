@@ -6,11 +6,11 @@ out="${2:-outputs/enriched/enriched.csv}"
 mkdir -p "$(dirname "$out")"
 tmp="$(mktemp)"
 
-# Pass-through with naive enrich columns when provider returns nothing
-# Adds: company_guess, title_guess using page <title> and meta description if available later.
+# Pass-through with placeholder columns when no provider data is available.
+# Adds: company_guess, title_guess (to be improved by later OSINT probes).
 awk 'BEGIN{FS=OFS=","}
 NR==1 { print $0,"company_guess","title_guess"; next }
 { print $0,"","" }' "$in" > "$tmp"
 
 mv "$tmp" "$out"
-echo "[OSINT-FALLBACK] Wrote $out"
+echo "[OSINT-FALLBACK] Wrote: $out"
