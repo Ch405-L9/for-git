@@ -1,0 +1,404 @@
+(.venv) t0n34781@BADGR-labz:~/badgr_bot$ pip install backoff extruct phonenumbers email-validator trafilatura
+Collecting backoff
+  Using cached backoff-2.2.1-py3-none-any.whl.metadata (14 kB)
+Collecting extruct
+  Downloading extruct-0.18.0-py2.py3-none-any.whl.metadata (36 kB)
+Collecting phonenumbers
+  Downloading phonenumbers-9.0.17-py2.py3-none-any.whl.metadata (11 kB)
+Collecting email-validator
+  Downloading email_validator-2.3.0-py3-none-any.whl.metadata (26 kB)
+Collecting trafilatura
+  Downloading trafilatura-2.0.0-py3-none-any.whl.metadata (12 kB)
+Requirement already satisfied: lxml in /home/t0n34781/for-git/badgr_bot/.venv/lib/python3.12/site-packages (from extruct) (6.0.2)
+Collecting lxml-html-clean (from extruct)
+  Downloading lxml_html_clean-0.4.3-py3-none-any.whl.metadata (2.3 kB)
+Collecting rdflib>=6.0.0 (from extruct)
+  Downloading rdflib-7.3.0-py3-none-any.whl.metadata (11 kB)
+Collecting pyrdfa3 (from extruct)
+  Downloading pyRdfa3-3.6.4-py3-none-any.whl.metadata (3.4 kB)
+Collecting mf2py (from extruct)
+  Downloading mf2py-2.0.1-py3-none-any.whl.metadata (5.4 kB)
+Collecting w3lib (from extruct)
+  Downloading w3lib-2.3.1-py3-none-any.whl.metadata (2.3 kB)
+Collecting html-text>=0.5.1 (from extruct)
+  Downloading html_text-0.7.1-py3-none-any.whl.metadata (5.6 kB)
+Collecting jstyleson (from extruct)
+  Downloading jstyleson-0.0.2.tar.gz (2.0 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting dnspython>=2.0.0 (from email-validator)
+  Downloading dnspython-2.8.0-py3-none-any.whl.metadata (5.7 kB)
+Requirement already satisfied: idna>=2.0.0 in /home/t0n34781/for-git/badgr_bot/.venv/lib/python3.12/site-packages (from email-validator) (3.11)
+Requirement already satisfied: certifi in /home/t0n34781/for-git/badgr_bot/.venv/lib/python3.12/site-packages (from trafilatura) (2025.10.5)
+Requirement already satisfied: charset_normalizer>=3.4.0 in /home/t0n34781/for-git/badgr_bot/.venv/lib/python3.12/site-packages (from trafilatura) (3.4.4)
+Collecting courlan>=1.3.2 (from trafilatura)
+  Downloading courlan-1.3.2-py3-none-any.whl.metadata (17 kB)
+Collecting htmldate>=1.9.2 (from trafilatura)
+  Downloading htmldate-1.9.3-py3-none-any.whl.metadata (10 kB)
+Collecting justext>=3.0.1 (from trafilatura)
+  Downloading justext-3.0.2-py2.py3-none-any.whl.metadata (7.3 kB)
+Requirement already satisfied: urllib3<3,>=1.26 in /home/t0n34781/for-git/badgr_bot/.venv/lib/python3.12/site-packages (from trafilatura) (2.5.0)
+Collecting babel>=2.16.0 (from courlan>=1.3.2->trafilatura)
+  Downloading babel-2.17.0-py3-none-any.whl.metadata (2.0 kB)
+Collecting tld>=0.13 (from courlan>=1.3.2->trafilatura)
+  Downloading tld-0.13.1-py2.py3-none-any.whl.metadata (10 kB)
+Collecting dateparser>=1.1.2 (from htmldate>=1.9.2->trafilatura)
+  Downloading dateparser-1.2.2-py3-none-any.whl.metadata (29 kB)
+Collecting lxml (from extruct)
+  Downloading lxml-5.4.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.5 kB)
+Requirement already satisfied: python-dateutil>=2.9.0.post0 in /home/t0n34781/for-git/badgr_bot/.venv/lib/python3.12/site-packages (from htmldate>=1.9.2->trafilatura) (2.9.0.post0)
+Collecting pyparsing<4,>=2.1.0 (from rdflib>=6.0.0->extruct)
+  Downloading pyparsing-3.2.5-py3-none-any.whl.metadata (5.0 kB)
+Requirement already satisfied: beautifulsoup4<5.0.0,>=4.11.1 in /home/t0n34781/for-git/badgr_bot/.venv/lib/python3.12/site-packages (from mf2py->extruct) (4.14.2)
+Collecting html5lib<2.0,>=1.1 (from mf2py->extruct)
+  Downloading html5lib-1.1-py2.py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: requests<3.0.0,>=2.28.2 in /home/t0n34781/for-git/badgr_bot/.venv/lib/python3.12/site-packages (from mf2py->extruct) (2.32.5)
+Requirement already satisfied: soupsieve>1.2 in /home/t0n34781/for-git/badgr_bot/.venv/lib/python3.12/site-packages (from beautifulsoup4<5.0.0,>=4.11.1->mf2py->extruct) (2.8)
+Requirement already satisfied: typing-extensions>=4.0.0 in /home/t0n34781/for-git/badgr_bot/.venv/lib/python3.12/site-packages (from beautifulsoup4<5.0.0,>=4.11.1->mf2py->extruct) (4.15.0)
+Requirement already satisfied: pytz>=2024.2 in /home/t0n34781/for-git/badgr_bot/.venv/lib/python3.12/site-packages (from dateparser>=1.1.2->htmldate>=1.9.2->trafilatura) (2025.2)
+Collecting regex>=2024.9.11 (from dateparser>=1.1.2->htmldate>=1.9.2->trafilatura)
+  Downloading regex-2025.10.23-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.5/40.5 kB 1.2 MB/s eta 0:00:00
+Collecting tzlocal>=0.2 (from dateparser>=1.1.2->htmldate>=1.9.2->trafilatura)
+  Downloading tzlocal-5.3.1-py3-none-any.whl.metadata (7.6 kB)
+Requirement already satisfied: six>=1.9 in /home/t0n34781/for-git/badgr_bot/.venv/lib/python3.12/site-packages (from html5lib<2.0,>=1.1->mf2py->extruct) (1.17.0)
+Collecting webencodings (from html5lib<2.0,>=1.1->mf2py->extruct)
+  Downloading webencodings-0.5.1-py2.py3-none-any.whl.metadata (2.1 kB)
+Using cached backoff-2.2.1-py3-none-any.whl (15 kB)
+Downloading extruct-0.18.0-py2.py3-none-any.whl (26 kB)
+Downloading phonenumbers-9.0.17-py2.py3-none-any.whl (2.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/2.6 MB 4.9 MB/s eta 0:00:00
+Downloading email_validator-2.3.0-py3-none-any.whl (35 kB)
+Downloading trafilatura-2.0.0-py3-none-any.whl (132 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.6/132.6 kB 4.7 MB/s eta 0:00:00
+Downloading courlan-1.3.2-py3-none-any.whl (33 kB)
+Downloading dnspython-2.8.0-py3-none-any.whl (331 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 331.1/331.1 kB 6.3 MB/s eta 0:00:00
+Downloading html_text-0.7.1-py3-none-any.whl (6.9 kB)
+Downloading htmldate-1.9.3-py3-none-any.whl (31 kB)
+Downloading justext-3.0.2-py2.py3-none-any.whl (837 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 837.9/837.9 kB 4.8 MB/s eta 0:00:00
+Downloading lxml-5.4.0-cp312-cp312-manylinux_2_28_x86_64.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 4.9 MB/s eta 0:00:00
+Downloading rdflib-7.3.0-py3-none-any.whl (566 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.9/566.9 kB 5.7 MB/s eta 0:00:00
+Downloading lxml_html_clean-0.4.3-py3-none-any.whl (14 kB)
+Downloading mf2py-2.0.1-py3-none-any.whl (25 kB)
+Downloading pyRdfa3-3.6.4-py3-none-any.whl (97 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.5/97.5 kB 5.6 MB/s eta 0:00:00
+Downloading w3lib-2.3.1-py3-none-any.whl (21 kB)
+Downloading babel-2.17.0-py3-none-any.whl (10.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 5.0 MB/s eta 0:00:00
+Downloading dateparser-1.2.2-py3-none-any.whl (315 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 315.5/315.5 kB 4.5 MB/s eta 0:00:00
+Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 112.2/112.2 kB 3.6 MB/s eta 0:00:00
+Downloading pyparsing-3.2.5-py3-none-any.whl (113 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 113.9/113.9 kB 4.0 MB/s eta 0:00:00
+Downloading tld-0.13.1-py2.py3-none-any.whl (274 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 274.7/274.7 kB 5.8 MB/s eta 0:00:00
+Downloading regex-2025.10.23-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (803 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 803.4/803.4 kB 3.9 MB/s eta 0:00:00
+Downloading tzlocal-5.3.1-py3-none-any.whl (18 kB)
+Downloading webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+Building wheels for collected packages: jstyleson
+  Building wheel for jstyleson (pyproject.toml) ... done
+  Created wheel for jstyleson: filename=jstyleson-0.0.2-py3-none-any.whl size=2421 sha256=7da4fbebc3b21c4f4d91a0c9aabc1fab401773dd2ed8ffc59caf74659c43f511
+  Stored in directory: /home/t0n34781/.cache/pip/wheels/13/7a/c7/3dd47109d94260d97a457d1ab4402f4b324af6f8e8b2aa7481
+Successfully built jstyleson
+Installing collected packages: webencodings, phonenumbers, jstyleson, w3lib, tzlocal, tld, regex, pyparsing, lxml, html5lib, dnspython, backoff, babel, rdflib, mf2py, lxml-html-clean, email-validator, dateparser, courlan, pyrdfa3, htmldate, html-text, justext, extruct, trafilatura
+  Attempting uninstall: lxml
+    Found existing installation: lxml 6.0.2
+    Uninstalling lxml-6.0.2:
+      Successfully uninstalled lxml-6.0.2
+Successfully installed babel-2.17.0 backoff-2.2.1 courlan-1.3.2 dateparser-1.2.2 dnspython-2.8.0 email-validator-2.3.0 extruct-0.18.0 html-text-0.7.1 html5lib-1.1 htmldate-1.9.3 jstyleson-0.0.2 justext-3.0.2 lxml-5.4.0 lxml-html-clean-0.4.3 mf2py-2.0.1 phonenumbers-9.0.17 pyparsing-3.2.5 pyrdfa3-3.6.4 rdflib-7.3.0 regex-2025.10.23 tld-0.13.1 trafilatura-2.0.0 tzlocal-5.3.1 w3lib-2.3.1 webencodings-0.5.1
+(.venv) t0n34781@BADGR-labz:~/badgr_bot$ python - <<'PY'
+import requests, bs4, lxml, tldextract, jsonschema
+print("✅ All core modules loaded OK")
+PY
+✅ All core modules loaded OK
+(.venv) t0n34781@BADGR-labz:~/badgr_bot$ # A. Node 20 LTS + clean install
+nvm install 20 --lts && nvm use 20
+node -v            # must show v20.x
+npm ci             # from repo root, uses package-lock if present
+
+# B. Chrome stable + Lighthouse
+command -v google-chrome-stable || command -v chromium || echo "FAIL: Chrome not found"
+npx lighthouse --version  # should be 12.x
+
+# C. Writable outputs + free space
+mkdir -p outputs/{lighthouse,logs,contacts}
+[ -w outputs/lighthouse ] && echo OK || echo FAIL
+df -h . | awk 'NR==2{print "Free:",$4}'  # ensure > 2G
+
+# D. Parallel cap & unique output paths (dry-run check)
+export CHROME_FLAGS="--headless=new --disable-dev-shm-usage"
+test -d outputs/lighthouse || mkdir -p outputs/lighthouse
+: > outputs/logs/audit-warnings.log
+Downloading and installing node v20.19.5...
+Downloading https://nodejs.org/dist/v20.19.5/node-v20.19.5-linux-x64.tar.xz...
+################################################################################### 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v20.19.5 (npm v11.6.2)
+Now using node v20.19.5 (npm v11.6.2)
+v22.17.0
+
+> badgr_bot@0.1.0 prepare
+> playwright install --with-deps || true
+
+BEWARE: your OS is not officially supported by Playwright; installing dependencies for ubuntu24.04-x64 as a fallback.
+Installing dependencies...
+Switching to root user to install dependencies...
+[sudo] password for t0n34781:
+Hit:1 https://dl.google.com/linux/chrome/deb stable InRelease
+Hit:2 http://security.ubuntu.com/ubuntu noble-security InRelease
+Ign:3 http://packages.linuxmint.com zara InRelease
+Hit:4 https://download.docker.com/linux/ubuntu noble InRelease
+Hit:5 https://packages.microsoft.com/repos/code stable InRelease
+Hit:6 http://packages.linuxmint.com zara Release
+Hit:7 https://repo.protonvpn.com/debian stable InRelease
+Hit:8 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:9 https://deb.nodesource.com/node_20.x nodistro InRelease
+Hit:11 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:12 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Hit:13 https://ppa.launchpadcontent.net/inkscape.dev/stable/ubuntu noble InRelease
+Hit:14 https://ppa.launchpadcontent.net/obsproject/obs-studio/ubuntu noble InRelease
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+libasound2t64 is already the newest version (1.2.11-1ubuntu0.1).
+libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+libcairo2 is already the newest version (1.18.0-3build1).
+libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.4).
+libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+libdrm2 is already the newest version (2.4.122-1~ubuntu0.24.04.1).
+libgbm1 is already the newest version (25.0.7-0ubuntu0.24.04.2).
+libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.4).
+libnspr4 is already the newest version (2:4.35-1.1build1).
+libnss3 is already the newest version (2:3.98-1build1).
+libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+libx11-6 is already the newest version (2:1.8.7-1build1).
+libxcb1 is already the newest version (1.15-1ubuntu2).
+libxcomposite1 is already the newest version (1:0.4.5-1build3).
+libxdamage1 is already the newest version (1:1.1.6-1build1).
+libxext6 is already the newest version (2:1.3.4-1build2).
+libxfixes3 is already the newest version (1:6.0.0-2build1).
+libxkbcommon0 is already the newest version (1.6.0-1build1).
+libxrandr2 is already the newest version (2:1.5.2-2build1).
+fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+fonts-unifont is already the newest version (1:15.1.01-1build1).
+libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+libfreetype6 is already the newest version (2.13.2+dfsg-1build3).
+xfonts-cyrillic is already the newest version (1:1.0.5+nmu1).
+xfonts-scalable is already the newest version (1:1.0.3-1.3).
+fonts-liberation is already the newest version (1:2.1.5-3).
+fonts-ipafont-gothic is already the newest version (00303-21ubuntu1).
+fonts-wqy-zenhei is already the newest version (0.9.45-8).
+fonts-tlwg-loma-otf is already the newest version (1:0.7.3-1).
+fonts-freefont-ttf is already the newest version (20211204+svn4273-2).
+libcairo-gobject2 is already the newest version (1.18.0-3build1).
+libgdk-pixbuf-2.0-0 is already the newest version (2.42.10+dfsg-3ubuntu3.2).
+libgtk-3-0t64 is already the newest version (3.24.41-4ubuntu1.3).
+libpangocairo-1.0-0 is already the newest version (1.52.1+ds-1build1).
+libx11-xcb1 is already the newest version (2:1.8.7-1build1).
+libxcb-shm0 is already the newest version (1.15-1ubuntu2).
+libxcursor1 is already the newest version (1:1.2.1-1build1).
+libxi6 is already the newest version (2:1.8.1-1build1).
+libxrender1 is already the newest version (1:0.9.10-1.1build1).
+gstreamer1.0-libav is already the newest version (1.24.1-1build1).
+gstreamer1.0-plugins-bad is already the newest version (1.24.2-1ubuntu4).
+gstreamer1.0-plugins-base is already the newest version (1.24.2-1ubuntu0.3).
+gstreamer1.0-plugins-good is already the newest version (1.24.2-1ubuntu1.2).
+libicu74 is already the newest version (74.2-1ubuntu3.1).
+libatomic1 is already the newest version (14.2.0-4ubuntu2~24.04).
+libenchant-2-2 is already the newest version (2.3.3-2build2).
+libepoxy0 is already the newest version (1.5.10-1build1).
+libevent-2.1-7t64 is already the newest version (2.1.12-stable-9ubuntu2).
+libflite1 is already the newest version (2.2-6build3).
+libgles2 is already the newest version (1.7.0-1build1).
+libgstreamer-gl1.0-0 is already the newest version (1.24.2-1ubuntu0.3).
+libgstreamer-plugins-bad1.0-0 is already the newest version (1.24.2-1ubuntu4).
+libgstreamer-plugins-base1.0-0 is already the newest version (1.24.2-1ubuntu0.3).
+libgstreamer1.0-0 is already the newest version (1.24.2-1ubuntu0.1).
+libharfbuzz-icu0 is already the newest version (8.3.0-2build2).
+libharfbuzz0b is already the newest version (8.3.0-2build2).
+libhyphen0 is already the newest version (2.8.8-7build3).
+libjpeg-turbo8 is already the newest version (2.1.5-2ubuntu2).
+liblcms2-2 is already the newest version (2.14-2build1).
+libmanette-0.2-0 is already the newest version (0.2.7-1build2).
+libopus0 is already the newest version (1.4-1build1).
+libpng16-16t64 is already the newest version (1.6.43-5build1).
+libsecret-1-0 is already the newest version (0.21.4-1build3).
+libvpx9 is already the newest version (1.14.0-1ubuntu2.2).
+libwayland-client0 is already the newest version (1.22.0-2.1build1).
+libwayland-egl1 is already the newest version (1.22.0-2.1build1).
+libwayland-server0 is already the newest version (1.22.0-2.1build1).
+libwebp7 is already the newest version (1.3.2-0.4build3).
+libwebpdemux2 is already the newest version (1.3.2-0.4build3).
+libwoff1 is already the newest version (1.0.2-2build1).
+libxml2 is already the newest version (2.9.14+dfsg-1.3ubuntu3.5).
+libxslt1.1 is already the newest version (1.1.39-0exp1ubuntu0.24.04.2).
+libx264-164 is already the newest version (2:0.164.3108+git31e19f9-1).
+The following packages were automatically installed and are no longer required:
+  linux-headers-6.8.0-84 linux-headers-6.8.0-84-generic linux-image-6.8.0-84-generic
+  linux-modules-6.8.0-84-generic linux-modules-extra-6.8.0-84-generic
+  linux-tools-6.8.0-84 linux-tools-6.8.0-84-generic python3-proton-vpn-lib
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  xserver-common xserver-xephyr xserver-xorg-core xserver-xorg-legacy
+Suggested packages:
+  xfonts-100dpi | xfonts-75dpi
+The following packages will be upgraded:
+  xserver-common xserver-xephyr xserver-xorg-core xserver-xorg-legacy xvfb
+5 upgraded, 0 newly installed, 0 to remove and 18 not upgraded.
+Need to get 3,448 kB of archives.
+After this operation, 5,120 B of additional disk space will be used.
+Get:1 http://security.ubuntu.com/ubuntu noble-security/main amd64 xserver-common all 2:21.1.12-1ubuntu1.5 [34.6 kB]
+Get:2 http://security.ubuntu.com/ubuntu noble-security/main amd64 xserver-xephyr amd64 2:21.1.12-1ubuntu1.5 [1,019 kB]
+Get:3 http://security.ubuntu.com/ubuntu noble-security/main amd64 xserver-xorg-legacy amd64 2:21.1.12-1ubuntu1.5 [41.6 kB]
+Get:4 http://security.ubuntu.com/ubuntu noble-security/main amd64 xserver-xorg-core amd64 2:21.1.12-1ubuntu1.5 [1,476 kB]
+Get:5 http://security.ubuntu.com/ubuntu noble-security/universe amd64 xvfb amd64 2:21.1.12-1ubuntu1.5 [877 kB]
+Fetched 3,448 kB in 2s (2,079 kB/s)
+Preconfiguring packages ...
+setting xserver-xorg-legacy/xwrapper/allowed_users from configuration file
+(Reading database ... 746534 files and directories currently installed.)
+Preparing to unpack .../xserver-common_2%3a21.1.12-1ubuntu1.5_all.deb ...
+Unpacking xserver-common (2:21.1.12-1ubuntu1.5) over (2:21.1.12-1ubuntu1.4) ...
+Preparing to unpack .../xserver-xephyr_2%3a21.1.12-1ubuntu1.5_amd64.deb ...
+Unpacking xserver-xephyr (2:21.1.12-1ubuntu1.5) over (2:21.1.12-1ubuntu1.4) ...
+Preparing to unpack .../xserver-xorg-legacy_2%3a21.1.12-1ubuntu1.5_amd64.deb ...
+Unpacking xserver-xorg-legacy (2:21.1.12-1ubuntu1.5) over (2:21.1.12-1ubuntu1.4) ...
+Preparing to unpack .../xserver-xorg-core_2%3a21.1.12-1ubuntu1.5_amd64.deb ...
+Unpacking xserver-xorg-core (2:21.1.12-1ubuntu1.5) over (2:21.1.12-1ubuntu1.4) ...
+Preparing to unpack .../xvfb_2%3a21.1.12-1ubuntu1.5_amd64.deb ...
+Unpacking xvfb (2:21.1.12-1ubuntu1.5) over (2:21.1.12-1ubuntu1.4) ...
+Setting up xserver-common (2:21.1.12-1ubuntu1.5) ...
+Setting up xserver-xorg-legacy (2:21.1.12-1ubuntu1.5) ...
+setting xserver-xorg-legacy/xwrapper/allowed_users from configuration file
+Setting up xvfb (2:21.1.12-1ubuntu1.5) ...
+Setting up xserver-xorg-core (2:21.1.12-1ubuntu1.5) ...
+Setting up xserver-xephyr (2:21.1.12-1ubuntu1.5) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu24.04-x64.
+BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu24.04-x64.
+BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu24.04-x64.
+BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu24.04-x64.
+
+added 199 packages in 26s
+/usr/bin/google-chrome-stable
+12.8.2
+OK
+Free: 389G
+(.venv) t0n34781@BADGR-labz:~/badgr_bot$ # scripts/run_loop.sh snippet (drop-in)
+retry_json() {                           # scripts/run_loop.sh snippet (drop-in)
+retry_json() {1"; shift
+  local URL="$1"; shift shift
+  local JSON_PATH="$1"; shift
+  local tries=3 delay=2es); do
+  for i in $(seq 1 $tries); do && [ -s "$JSON_PATH" ] && return 0
+    npx lighthouse "$URL" "$@" && [ -s "$JSON_PATH" ] && return 0s.log
+    echo "retry $i/$tries for $URL" >> outputs/logs/audit-warnings.log
+    sleep $delay; delay=$((delay*2))
+  done "FAIL: $URL after $tries attempts" >> outputs/logs/audit-warnings.log
+  echo "FAIL: $URL after $tries attempts" >> outputs/logs/audit-warnings.log
+  return 1
+}
+# inside your loop over $URL and $HOST
+# inside your loop over $URL and $HOST
+HOST="$(python - <<'PY' "$URL"rse; import sys
+from urllib.parse import urlparse; import sys:','_'); print(h)
+u=sys.argv[1]; h=urlparse(u).netloc.replace(':','_'); print(h)
+PY
+)"ON_PATH="outputs/lighthouse/${HOST}.report.json"
+JSON_PATH="outputs/lighthouse/${HOST}.report.json"
+retry_json "$URL" "$JSON_PATH" \JSON_PATH" \
+  --output=json --output-path="$JSON_PATH" \g-method=provided --form-factor=desktop
+  --chrome-flags="$CHROME_FLAGS" --throttling-method=provided --form-factor=desktop
+  LH:ChromeLauncher Waiting for browser. +0ms
+  LH:ChromeLauncher Waiting for browser... +1ms
+  LH:ChromeLauncher Waiting for browser..... +506ms
+  LH:ChromeLauncher Waiting for browser.....✓ +2ms
+  LH:ChromeLauncher Killing Chrome instance 2918759 +2ms
+Runtime error encountered: Screen emulation mobile setting (true) does not match formFactor setting (desktop). See https://github.com/GoogleChrome/lighthouse/blob/main/docs/emulation.md
+Error: Screen emulation mobile setting (true) does not match formFactor setting (desktop). See https://github.com/GoogleChrome/lighthouse/blob/main/docs/emulation.md
+    at Module.assertValidSettings (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/config/validation.js:181:13)
+    at resolveSettings (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/config/config-helpers.js:358:14)
+    at initializeConfig (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/config/config.js:232:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async navigationGather (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/gather/navigation-runner.js:264:28)
+    at async navigation (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/index.js:58:24)
+  LH:ChromeLauncher Waiting for browser. +0ms
+  LH:ChromeLauncher Waiting for browser... +0ms
+  LH:ChromeLauncher Waiting for browser..... +503ms
+  LH:ChromeLauncher Waiting for browser.....✓ +2ms
+  LH:ChromeLauncher Killing Chrome instance 2918924 +2ms
+Runtime error encountered: Screen emulation mobile setting (true) does not match formFactor setting (desktop). See https://github.com/GoogleChrome/lighthouse/blob/main/docs/emulation.md
+Error: Screen emulation mobile setting (true) does not match formFactor setting (desktop). See https://github.com/GoogleChrome/lighthouse/blob/main/docs/emulation.md
+    at Module.assertValidSettings (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/config/validation.js:181:13)
+    at resolveSettings (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/config/config-helpers.js:358:14)
+    at initializeConfig (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/config/config.js:232:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async navigationGather (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/gather/navigation-runner.js:264:28)
+    at async navigation (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/index.js:58:24)
+  LH:ChromeLauncher Waiting for browser. +0ms
+  LH:ChromeLauncher Waiting for browser... +1ms
+  LH:ChromeLauncher Waiting for browser..... +504ms
+  LH:ChromeLauncher Waiting for browser.....✓ +1ms
+  LH:ChromeLauncher Killing Chrome instance 2919078 +2ms
+Runtime error encountered: Screen emulation mobile setting (true) does not match formFactor setting (desktop). See https://github.com/GoogleChrome/lighthouse/blob/main/docs/emulation.md
+Error: Screen emulation mobile setting (true) does not match formFactor setting (desktop). See https://github.com/GoogleChrome/lighthouse/blob/main/docs/emulation.md
+    at Module.assertValidSettings (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/config/validation.js:181:13)
+    at resolveSettings (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/config/config-helpers.js:358:14)
+    at initializeConfig (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/config/config.js:232:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async navigationGather (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/gather/navigation-runner.js:264:28)
+    at async navigation (file:///home/t0n34781/badgr_bot/node_modules/lighthouse/core/index.js:58:24)
+(.venv) t0n34781@BADGR-labz:~/badgr_bot$ # 1) Preflight
+scripts/preflight_v2.sh
+
+# 2) Lighthouse batch (your run loop with retry_json now wired)
+scripts/run_loop.sh
+
+# 3) Analyze CWV into CSV/MD/HTML
+INCLUDE_GREENS=1 python scripts/analyze_cwv.py
+
+# 4) Run the SECOND SCRIPT (Intel Collector) on a tiny seed list first
+printf '%s\n' "https://example.com" | python tools/collect_contacts.py
+# verify outputs
+ls -1 outputs/contacts/contacts.{json,csv}
+OK: venv active (/home/t0n34781/for-git/badgr_bot/.venv)
+WARN: Python not in 3.10–3.12 (3.12.3)
+OK: Node v22.17.0
+OK: npm 11.6.2
+OK: Lighthouse 12.8.2
+OK: Chrome binary found (/usr/bin/google-chrome-stable)
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+ModuleNotFoundError: No module named 'beautifulsoup4'
+✅ Next-run keyword list written → data/keywords_master_next.csv (rows=448)
+✅ Queries written → outputs/queries_next.csv (rows=448)
+CWV summary written → outputs/cwv_summary.csv
+Markdown summary   → outputs/cwv_summary.md
+HTML summary       → outputs/cwv_summary.html
+queries_next ready: 449 rows
+master_next ready: 449 rows
+✅ Next-run keyword list written → data/keywords_master_next.csv (rows=448)
+✅ Queries written → outputs/queries_next.csv (rows=448)
+CWV summary written → outputs/cwv_summary.csv
+Markdown summary   → outputs/cwv_summary.md
+HTML summary       → outputs/cwv_summary.html
+[info] queries_next rows: 449
+[info] master_next rows: 449
+[info] cwv_summary rows: 48
+CWV summary written → outputs/cwv_summary.csv
+Markdown summary   → outputs/cwv_summary.md
+HTML summary       → outputs/cwv_summary.html
+python: can't open file '/home/t0n34781/badgr_bot/tools/collect_contacts.py': [Errno 2] No such file or directory
+ls: cannot access 'outputs/contacts/contacts.json': No such file or directory
+ls: cannot access 'outputs/contacts/contacts.csv': No such file or directory
+(.venv) t0n34781@BADGR-labz:~/badgr_bot$

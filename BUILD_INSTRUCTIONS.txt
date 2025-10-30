@@ -1,0 +1,21 @@
+BADGR_BOT – LOCAL BUILD INSTRUCTIONS
+Environment: Python 3.12.3 + .venv
+Provider: Upgini API
+
+Quick setup:
+  python3 -m venv .venv
+  source .venv/bin/activate
+  pip install pandas upgini
+  export UPGINI_API_KEY="your_key_here"
+
+Run enrichment:
+  make enrich
+
+Validate:
+  ./scripts/postcheck_enrichment.sh outputs/enriched/enriched.csv
+
+Commit results:
+  git switch -c r9-enrichment-final || git switch r9-enrichment-final
+  git add .
+  git commit -m "R9: enrichment final + helpers"
+  git push -u origin r9-enrichment-final
