@@ -1,0 +1,99 @@
+1. Default to mobile first
+
+Edit your run_loop.sh so the Lighthouse command always runs mobile by default:
+
+FORM_FACTOR=${FORM_FACTOR:-mobile}
+EMULATION_MOBILE=true
+[ "$FORM_FACTOR" = "desktop" ] && EMULATION_MOBILE=false
+
+retry_json "$URL" "$JSON_PATH" \
+  --output=json --output-path="$JSON_PATH" \
+  --chrome-flags="$CHROME_FLAGS" \
+  --form-factor="$FORM_FACTOR" --screenEmulation.mobile="$EMULATION_MOBILE"
+
+
+That means:
+
+By default → runs mobile
+
+If you export a variable (export FORM_FACTOR=desktop) → runs desktop instead.
+
+2. Add CLI aliases for later (future)
+
+In your shell rc file (~/.bashrc or ~/.zshrc):
+
+alias lh-mobile='export FORM_FACTOR=mobile && scripts/run_loop.sh'
+alias lh-desktop='export FORM_FACTOR=desktop && scripts/run_loop.sh'
+alias lh-both='export FORM_FACTOR=mobile && scripts/run_loop.sh && export FORM_FACTOR=desktop && scripts/run_loop.sh'
+
+
+Then later you can just type:
+
+lh-mobile    # mobile only
+lh-desktop   # desktop only
+lh-both      # runs mobile first, then desktop
+
+3. Risk & complexity
+
+Risk: Very low. Lighthouse natively supports switching modes.
+
+Complexity: Minimal; environment variable toggles are lightweight.
+
+Performance: Negligible difference; just doubles total run time when doing both.
+
+Recommended logic updates for your collector
+
+Below is a high‑level plan for improving the contact‑collector script. Each step corresponds to one or more research‑backed practices above.
+
+Parse structured data
+• Use extruct to extract JSON‑LD/microdata from each page. Search the extracted objects for any item with "@type": "Organization" (or subtypes like LocalBusiness). Pull fields such as name, email, telephone, address and contactPoint. Because many sites embed contact details in JSON‑LD
+developers.google.com
+, this yields high‑quality data.
+
+Fetch with fallback
+• First fetch pages with requests/BeautifulSoup (fast and cheap). If no contact info (emails, phone numbers, organisation name) is found, re‑fetch with a headless browser like Playwright to execute JavaScript. This reveals obfuscated emails and phone numbers as recommended
+scrapfly.io
+scrapfly.io
+.
+
+Improve email detection
+• Scan for <a href^="mailto:"> attributes and extract the address.
+• Use a comprehensive regex to capture both normal and obfuscated emails (e.g., matching [name] [at] [domain] [dot] com and encoded entities).
+• After extraction, validate using email-validator to ensure the domain is syntactically correct.
+
+Enhance phone detection
+• Use the universal regex pattern [+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\.\\0-9]*(?=[^0-9])
+scrapfly.io
+ to capture numbers across different formats. Also scan for <a href^="tel:">.
+• Parse and normalise each candidate using phonenumbers.parse(), then call phonenumbers.is_valid_number() to retain only legitimate phone numbers
+pypi.org
+.
+
+Extract names and organisations with NER
+• Once you have the plain text from a page (concatenate all visible text on contact/about pages), run spaCy’s NER model (en_core_web_sm). For each entity in doc.ents:
+
+If ent.label_ == "PERSON" → add to names list.
+
+If ent.label_ == "ORG" → add to org_name list.
+• This avoids mis‑classifying city names and ensures you capture real human names and corporate names
+medium.com
+geeksforgeeks.org
+.
+
+Meta and heading heuristics
+• If JSON‑LD and NER do not yield organisation names, fall back to:
+
+<meta property="og:site_name"> or <meta name="author">.
+
+<title> or <h1> tags on About/Contact pages.
+• These often contain company names or site owners.
+
+Filter duplicates and normalise
+• Deduplicate lists of emails, phone numbers and names. Normalise names to remove extra whitespace and capitalise correctly. Normalise phone numbers to E.164 format (via phonenumbers.format_number()).
+
+Rate limiting & politeness
+• Keep a delay (0.7–1 s) between requests, and respect robots.txt. For high‑volume scraping, rotate proxies and vary the User‑Agent.
+
+Outcome
+
+Applying the above improvements will allow your collector to discover hidden emails, valid phone numbers, organisation names and real person names more reliably. The key additions—structured data parsing, fallback headless rendering, NER for names, and phone number validation—are all grounded in current best practices and supported by the referenced sources.

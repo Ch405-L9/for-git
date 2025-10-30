@@ -1,0 +1,11 @@
+# --- build next-run query set ---
+. .venv/bin/activate 2>/dev/null || true
+python scripts/manage_keywords.py
+python scripts/build_queries.py
+
+# --- summarize CWV/LH (greens optional) ---
+INCLUDE_GREENS=${INCLUDE_GREENS:-0} python scripts/analyze_cwv.py || echo "[warn] analyze_cwv.py failed"
+
+# quick surface
+[ -f outputs/queries_next.csv ] && echo "queries_next ready: $(wc -l < outputs/queries_next.csv) rows"
+[ -f data/keywords_master_next.csv ] && echo "master_next ready: $(wc -l < data/keywords_master_next.csv) rows"

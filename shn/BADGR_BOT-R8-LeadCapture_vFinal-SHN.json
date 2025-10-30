@@ -1,0 +1,218 @@
+{
+  "shn_id": "BADGR_BOT-R8-LeadCapture_vFinal-2025-10-30T06:00:00Z",
+  "project": "BADGR_BOT (Phase R8→R9) — Lead Capture (Collector + Formatter + Postcheck)",
+  "author": "Ch405_L9",
+  "branch": "badgr-bot-r6-inp-fix",
+  "environment": {
+    "os": "Linux Mint/Ubuntu x86_64",
+    "python": "3.12.3 (venv active)",
+    "node": ">=20.x",
+    "lighthouse_cli": "12.x (installed)",
+    "chrome": "stable (on PATH)",
+    "repo_root": "/home/t0n34781/badgr_bot"
+  },
+  "state": "Operational and Stable",
+  "scope": {
+    "included": [
+      "HTTP-first contact collector (emails, phones, orgs, address, socials)",
+      "CSV formatter with single address block and comma-separated socials",
+      "Runner script wiring (collect → format)",
+      "Post-check verifier (existence, header, row-count, JSON structure)"
+    ],
+    "excluded_now": [
+      "Keyword engine",
+      "CWV/Lighthouse pipeline changes (kept separate)",
+      "Enrichment APIs (Apollo/Clearbit) — to be researched next"
+    ]
+  },
+  "artifacts": {
+    "inputs_expected": [
+      "urls.txt (one URL per line)"
+    ],
+    "intermediate": [
+      "outputs/contacts/contacts.json (raw structured results)"
+    ],
+    "outputs_final": [
+      "outputs/contacts/contacts.csv (tidy: address block + comma-separated socials)"
+    ],
+    "scripts": [
+      "scripts/preflight_contacts.sh",
+      "tools/collect_contacts.py (v1.6)",
+      "tools/format_contacts_csv.py",
+      "scripts/run_collect.sh",
+      "scripts/postcheck_contacts.sh"
+    ],
+    "config_flags": {
+      "CONTACT_DEFAULT_REGION": "US (override per env)",
+      "RENDER_JS": "0 by default; set 1 to enable Playwright fallback"
+    }
+  },
+  "timeline": [
+    {
+      "ts": "2025-10-29T05:45:00Z",
+      "event": "Collector foundation validated",
+      "notes": "Resolved tldextract API use; HTTP-first approach confirmed."
+    },
+    {
+      "ts": "2025-10-29T06:12:00Z",
+      "event": "Retry patterns documented (separate LH flow)",
+      "notes": "Kept out of collector; focus on contacts stability."
+    },
+    {
+      "ts": "2025-10-29T23:40:00Z",
+      "event": "Collector v1.3 landed",
+      "notes": "JSON-LD + mailto/tel + deobfuscation + phones + spaCy NER + socials(anchors)."
+    },
+    {
+      "ts": "2025-10-30T00:20:00Z",
+      "event": "Social discovery expanded",
+      "notes": "Plain-text matches + allow-list of social domains; still HTTP-first."
+    },
+    {
+      "ts": "2025-10-30T00:45:00Z",
+      "event": "Formatter added",
+      "notes": "CSV shape fixed: organization, address block, comma-separated socials."
+    },
+    {
+      "ts": "2025-10-30T01:10:00Z",
+      "event": "Runner wired",
+      "notes": "scripts/run_collect.sh executes collect then format."
+    },
+    {
+      "ts": "2025-10-30T01:30:00Z",
+      "event": "Post-check added",
+      "notes": "Validates JSON/CSV presence, header, row count, structure."
+    },
+    {
+      "ts": "2025-10-30T01:45:00Z",
+      "event": "Playwright fallback gated",
+      "notes": "RENDER_JS=1 optional — only for dynamic sites; keeps default fast."
+    },
+    {
+      "ts": "2025-10-30T05:55:00Z",
+      "event": "Final verification",
+      "notes": "badgrtech.com returns org, email, phone; socials captured on-page when available."
+    }
+    ,
+    {
+      "ts": "2025-10-30T06:00:00Z",
+      "event": "This SHN snapshot generated",
+      "notes": "Repository ready for push."
+    }
+  ],
+  "fail_points": [
+    {
+      "issue": "Heredoc misuse (EOF lines executed)",
+      "symptoms": "bash: EOF: command not found",
+      "fix": "Provide EOF-wrapped blocks with explicit copy markers; do not run literal EOF lines."
+    },
+    {
+      "issue": "Inline headings not commented in shell script",
+      "symptoms": "Syntax errors during script creation",
+      "fix": "Comment section headings with '#'; avoid raw text in shell."
+    },
+    {
+      "issue": "Initial tldextract usage",
+      "symptoms": "TypeError: ExtractResult not subscriptable",
+      "fix": "Use properties (domain/suffix) not slicing; normalize via join."
+    },
+    {
+      "issue": "CSV shape misaligned",
+      "symptoms": "Address JSON and socials object not spreadsheet-friendly",
+      "fix": "Formatter emits address single-line block and comma-separated socials."
+    },
+    {
+      "issue": "Social links empty in some cases",
+      "symptoms": "No socials despite site presence (icon-only or JS)",
+      "fix": "Add plain-text detection; gate JS-render fallback via Playwright."
+    }
+  ],
+  "pain_points": [
+    "Copy/paste friction and heredoc pitfalls in terminal.",
+    "Dynamic/social icons sometimes require JS rendering (slower, extra deps).",
+    "Keeping outputs spreadsheet-friendly without losing structure."
+  ],
+  "avoid_next_time": [
+    "Always use standardized EOF copy-box with start/stop markers.",
+    "Comment headings in scripts; never paste prose into shell.",
+    "Start with HTTP-first; enable JS render only per-target via flag."
+  ],
+  "success_points": [
+    "End-to-end lead capture now reliable: JSON + tidy CSV.",
+    "Address normalization and social aggregation are deterministic.",
+    "Post-check gate ensures integrity before downstream steps."
+  ],
+  "mitigations": [
+    "Optional Playwright fallback only when needed (RENDER_JS=1).",
+    "Strict column order and formatting for CSV exports.",
+    "Preflight groups to catch missing deps early without noise."
+  ],
+  "lessons_learned_prolog": [
+    "Standardize script drops with consistent heredoc wrappers to eliminate terminal errors.",
+    "Separate collection vs. formatting: keeps core logic clean and testable.",
+    "Prefer allow-listed domain matches for socials to reduce false positives."
+  ],
+  "performance_comm_efficiency": {
+    "performance": [
+      "Keep RENDER_JS=0 by default; enable only for domains that need it.",
+      "Backoff politeness delay at 0.4s strikes balance between speed and respect.",
+      "Batch inputs (urls.txt) and dedupe before collection."
+    ],
+    "communication": [
+      "Always deliver scripts as EOF-wrapped, paste-ready blocks.",
+      "Label commands, file paths, and expected outputs explicitly.",
+      "Confirm success criteria with a one-line check (head/tail prints)."
+    ],
+    "efficiency": [
+      "Single runner `scripts/run_collect.sh` for day-to-day use.",
+      "Post-check as a gate before commits or ingestion into CRM.",
+      "Optional `.gitignore` for outputs with `.gitkeep` to keep tree clean."
+    ]
+  },
+  "universal_project_template_suggestions": {
+    "files": [
+      "scripts/preflight_*.sh",
+      "scripts/run_*.sh",
+      "scripts/postcheck_*.sh",
+      "tools/*_format_*.py",
+      "shn/<PROJECT>-<PHASE>-<STAMP>-SHN.json"
+    ],
+    "checklists": [
+      "Preflight: deps, paths, env vars, writable outputs",
+      "Run: idempotent, dedupe inputs, per-step logging",
+      "Postcheck: file presence, schema sanity, row counts",
+      "Commit: minimal diff, artifacts ignored, README updated"
+    ],
+    "conventions": {
+      "copy_box": "EOF + Start/Stop markers, no literal EOF execution",
+      "flags": "Keep risky/slow features behind explicit env flags",
+      "csv_shape": "Human-friendly columns by default; raw JSON retained"
+    }
+  },
+  "next_actions": [
+    "Keep this SHN JSON as session baseline for the new conversation.",
+    "Prepare README and notes update for GitHub push (after this SHN).",
+    "Begin enrichment research (open-source Apollo/Clearbit alternatives) using the captured CSV/JSON."
+  ],
+  "readme_push_notes_stub": {
+    "summary": "Lead capture pipeline (collector → formatter → postcheck) operational.",
+    "usage": [
+      "echo 'https://example.com' > urls.txt",
+      "./scripts/run_collect.sh urls.txt",
+      "./scripts/postcheck_contacts.sh"
+    ],
+    "flags": [
+      "CONTACT_DEFAULT_REGION=US (default), override per run",
+      "RENDER_JS=1 to enable Playwright for dynamic sites"
+    ],
+    "outputs": [
+      "outputs/contacts/contacts.json (structured)",
+      "outputs/contacts/contacts.csv (spreadsheet-ready)"
+    ]
+  },
+  "integrity": {
+    "generated_at_utc": "2025-10-30T06:00:00Z",
+    "generated_by": "Overwatch (GPT-5, cutoff 2024-06, local tools only)",
+    "hash_note": "Consider hashing outputs/contacts/* for traceability in CI."
+  }
+}
