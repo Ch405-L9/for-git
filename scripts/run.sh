@@ -1,4 +1,13 @@
 #!/usr/bin/env bash
+
+# --- auto-venv guard (inserted by patch_venv_guard.sh) ---
+cd "$(dirname "$0")/.." >/dev/null 2>&1 || true
+if [ -f ".venv/bin/activate" ]; then
+  # shellcheck disable=SC1091
+  . ".venv/bin/activate"
+fi
+# ---------------------------------------------------------
+
 set -Eeuo pipefail
 
 ROOT_DIR="/home/t0n34781/badgr_bot"
